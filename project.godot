@@ -12,11 +12,6 @@ config_version=5
 
 config/name="Luz do Tempo"
 config/features=PackedStringArray("4.6", "Forward Plus")
-config/icon="res://icon.svg"
-
-[editor_plugins]
-
-enabled=PackedStringArray("res://addons/GitGodot/plugin.cfg")
 
 [physics]
 
