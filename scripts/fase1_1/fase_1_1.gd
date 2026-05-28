@@ -21,8 +21,8 @@ var perdeu_trofeu_erros: bool = false
 
 # --- CONFIGURAÇÃO DA ESTANTE ---
 # Altere estes valores para definir onde a "linha 1, coluna 1" de cada lado vai começar na sua tela
-var inicio_antigo: Vector2 = Vector2(27, 124)  
-var inicio_novo: Vector2 = Vector2(670, 125)   
+var inicio_antigo: Vector2 = Vector2(120, 230)  
+var inicio_novo: Vector2 = Vector2(1200, 230)   
 
 var espacamento_x: float = 150.0
 var espacamento_y: float = 150.0
@@ -162,7 +162,7 @@ func sortear_novo_objeto() -> void:
 	add_child(novo_objeto)
 	
 	# Posição onde o objeto aparece inicialmente
-	novo_objeto.global_position = Vector2(510, 250) 
+	novo_objeto.global_position = Vector2(885, 465) 
 	
 	novo_objeto.configurar_objeto(
 		objeto_sorteado["nome"], 
@@ -187,8 +187,8 @@ func _on_objeto_acertou(objeto_instanciado: Node2D) -> void:
 	
 	# Lógica Matemática para montar a estante de 3 colunas
 	if objeto_instanciado.grupo_correto == "antigo":
-		coluna = total_antigo % 3
-		linha = int(total_antigo / 3)
+		coluna = total_antigo % 4
+		linha = int(total_antigo / 4)
 		
 		posicao_final.x = inicio_antigo.x + (coluna * espacamento_x)
 		posicao_final.y = inicio_antigo.y + (linha * espacamento_y)
@@ -196,8 +196,8 @@ func _on_objeto_acertou(objeto_instanciado: Node2D) -> void:
 		total_antigo += 1 
 		
 	else:
-		coluna = total_novo % 3
-		linha = int(total_novo / 3)
+		coluna = total_novo % 4
+		linha = int(total_novo / 4)
 		
 		posicao_final.x = inicio_novo.x + (coluna * espacamento_x)
 		posicao_final.y = inicio_novo.y + (linha * espacamento_y)

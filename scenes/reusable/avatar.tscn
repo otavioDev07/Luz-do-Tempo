@@ -12,15 +12,15 @@ bg_color = Color(0.6, 0.6, 0.6, 0.7019608)
 [node name="Avatar" type="Control" unique_id=67743134]
 layout_mode = 3
 anchors_preset = 0
-offset_right = 976.0
-offset_bottom = 101.0
+offset_right = 1306.0
+offset_bottom = 188.0
 script = ExtResource("1_2r6bg")
 
 [node name="TextureButton" type="TextureButton" parent="." unique_id=571625421]
 texture_repeat = 1
 layout_mode = 0
-offset_right = 81.0
-offset_bottom = 98.0
+offset_right = 140.0
+offset_bottom = 126.0
 texture_normal = ExtResource("2_25io2")
 ignore_texture_size = true
 stretch_mode = 5
@@ -28,9 +28,9 @@ stretch_mode = 5
 [node name="Label" type="Label" parent="." unique_id=1025946773]
 z_index = 2
 layout_mode = 0
-offset_left = 85.0
-offset_right = 973.0
-offset_bottom = 98.0
+offset_left = 141.0
+offset_right = 1152.0
+offset_bottom = 126.0
 theme = SubResource("Theme_o2m63")
 theme_override_font_sizes/font_size = 24
 theme_override_styles/normal = SubResource("StyleBoxFlat_n3ngc")

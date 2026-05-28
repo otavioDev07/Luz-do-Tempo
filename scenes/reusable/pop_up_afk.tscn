@@ -68,18 +68,18 @@ script = ExtResource("1_wvri6")
 
 [node name="Panel" type="Panel" parent="." unique_id=37337230]
 custom_minimum_size = Vector2(500, 250)
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 721.0
+offset_bottom = 417.0
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_styles/panel = SubResource("StyleBoxFlat_wvri6")
 
 [node name="ButtonSim" type="Button" parent="Panel" unique_id=2068130818]
 layout_mode = 0
-offset_left = 35.0
-offset_top = 144.0
-offset_right = 160.0
-offset_bottom = 212.0
+offset_left = 126.0
+offset_top = 269.0
+offset_right = 282.0
+offset_bottom = 360.0
 theme_override_font_sizes/font_size = 32
 theme_override_styles/normal = SubResource("StyleBoxFlat_gn1ba")
 theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_21riu")
@@ -94,10 +94,10 @@ text = "Sim"
 
 [node name="ButtonNao" type="Button" parent="Panel" unique_id=2104218170]
 layout_mode = 0
-offset_left = 345.0
-offset_top = 145.0
-offset_right = 470.0
-offset_bottom = 213.0
+offset_left = 447.0
+offset_top = 268.0
+offset_right = 603.0
+offset_bottom = 361.0
 theme_override_font_sizes/font_size = 32
 theme_override_styles/normal = SubResource("StyleBoxFlat_7okpq")
 theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_mjvwm")
@@ -111,10 +111,10 @@ text = "Não"
 
 [node name="Label" type="Label" parent="Panel" unique_id=225599695]
 layout_mode = 0
-offset_left = 75.0
-offset_top = 20.0
-offset_right = 457.0
-offset_bottom = 76.0
+offset_left = 183.0
+offset_top = 108.0
+offset_right = 565.0
+offset_bottom = 164.0
 theme_override_colors/font_color = Color(0.012617188, 0.012617188, 0.012617188, 1)
 theme_override_font_sizes/font_size = 32
 text = "Tem alguem jogando?"
