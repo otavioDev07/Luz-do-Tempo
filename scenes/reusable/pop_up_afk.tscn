@@ -1,0 +1,137 @@
+[gd_scene format=3 uid="uid://d0tmuuxhi50sq"]
+
+[ext_resource type="Script" uid="uid://bhw5ucr8gbdgr" path="res://scripts/reusable/pop_up_afk.gd" id="1_wvri6"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wvri6"]
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gn1ba"]
+bg_color = Color(0.42629176, 0.7202103, 0.42629176, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_21riu"]
+bg_color = Color(0.42745098, 0.72156864, 0.42745098, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5mnff"]
+bg_color = Color(0.42745098, 0.72156864, 0.42745098, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jq4dq"]
+bg_color = Color(0.42745098, 0.72156864, 0.42745098, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6wy5g"]
+bg_color = Color(0.42745098, 0.72156864, 0.42745098, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i5d24"]
+bg_color = Color(0.42745098, 0.72156864, 0.42745098, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cv4o5"]
+bg_color = Color(0.42745098, 0.72156864, 0.42745098, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8rkqi"]
+bg_color = Color(0.42745098, 0.72156864, 0.42745098, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2cv5t"]
+bg_color = Color(0.42745098, 0.72156864, 0.42745098, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7okpq"]
+bg_color = Color(0.7202103, 0.23322755, 0.16695176, 0.83137256)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mjvwm"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cer02"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dke8g"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2xixw"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nlb28"]
+bg_color = Color(0.72156864, 0.23137255, 0.16862746, 0.83137256)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oh0ho"]
+bg_color = Color(0.72156864, 0.23137255, 0.16862746, 0.83137256)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6nk1r"]
+bg_color = Color(0.72156864, 0.23137255, 0.16862746, 0.83137256)
+
+[node name="Pop-upAFK" type="CanvasLayer" unique_id=2120797033]
+script = ExtResource("1_wvri6")
+
+[node name="Panel" type="Panel" parent="." unique_id=37337230]
+custom_minimum_size = Vector2(500, 250)
+offset_right = 40.0
+offset_bottom = 40.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_wvri6")
+
+[node name="ButtonSim" type="Button" parent="Panel" unique_id=2068130818]
+layout_mode = 0
+offset_left = 35.0
+offset_top = 144.0
+offset_right = 160.0
+offset_bottom = 212.0
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_gn1ba")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_21riu")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_5mnff")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxFlat_jq4dq")
+theme_override_styles/hover = SubResource("StyleBoxFlat_6wy5g")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxFlat_i5d24")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_cv4o5")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxFlat_8rkqi")
+theme_override_styles/focus = SubResource("StyleBoxFlat_2cv5t")
+text = "Sim"
+
+[node name="ButtonNao" type="Button" parent="Panel" unique_id=2104218170]
+layout_mode = 0
+offset_left = 345.0
+offset_top = 145.0
+offset_right = 470.0
+offset_bottom = 213.0
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_7okpq")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_mjvwm")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_cer02")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxFlat_dke8g")
+theme_override_styles/hover = SubResource("StyleBoxFlat_2xixw")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxFlat_nlb28")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_oh0ho")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxFlat_6nk1r")
+text = "Não"
+
+[node name="Label" type="Label" parent="Panel" unique_id=225599695]
+layout_mode = 0
+offset_left = 75.0
+offset_top = 20.0
+offset_right = 457.0
+offset_bottom = 76.0
+theme_override_colors/font_color = Color(0.012617188, 0.012617188, 0.012617188, 1)
+theme_override_font_sizes/font_size = 32
+text = "Tem alguem jogando?"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="Timer5min" type="Timer" parent="." unique_id=193668821]
+wait_time = 300.0
+autostart = true
+
+[node name="Timer2min" type="Timer" parent="." unique_id=747686185]
+wait_time = 120.0
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1982883712]
+
+[connection signal="pressed" from="Panel/ButtonSim" to="." method="_on_button_sim_pressed"]
+[connection signal="pressed" from="Panel/ButtonNao" to="." method="_on_button_nao_pressed"]
+[connection signal="timeout" from="Timer5min" to="." method="_on_timer_5_min_timeout"]
+[connection signal="timeout" from="Timer2min" to="." method="_on_timer_2_min_timeout"]

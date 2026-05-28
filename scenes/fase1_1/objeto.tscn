@@ -9,9 +9,9 @@ size = Vector2(100.25, 100)
 script = ExtResource("1_g445o")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1644491579]
-position = Vector2(-1.1444092e-05, -1.1444092e-05)
+position = Vector2(50, 50)
 scale = Vector2(0.20131844, 0.1675084)
-centered = false
+offset = Vector2(50, 50)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=255585988]
 position = Vector2(49.875, 50)
