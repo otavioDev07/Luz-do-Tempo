@@ -1,0 +1,46 @@
+[gd_scene format=3 uid="uid://cj4x1ts75y4p3"]
+
+[ext_resource type="Script" uid="uid://dgetkcxqja2es" path="res://scripts/fase1_1/avatar.gd" id="1_i5chq"]
+[ext_resource type="Texture2D" uid="uid://b5x0mebo735k0" path="res://sprites/avatares/adrian.png" id="2_exgf0"]
+[ext_resource type="AudioStream" uid="uid://l8gq85tudbdn" path="res://sprites/audios/fase1_1/kamhunt-acoustic-guitar-loop-f-91bpm-132687.mp3" id="3_exgf0"]
+
+[sub_resource type="Theme" id="Theme_o2m63"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n3ngc"]
+content_margin_left = 15.0
+
+[node name="Avatar" type="Control" unique_id=67743134]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 976.0
+offset_bottom = 101.0
+script = ExtResource("1_i5chq")
+
+[node name="TextureButton" type="TextureButton" parent="." unique_id=571625421]
+texture_repeat = 1
+layout_mode = 0
+offset_right = 81.0
+offset_bottom = 98.0
+texture_normal = ExtResource("2_exgf0")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="." unique_id=1025946773]
+z_index = 2
+layout_mode = 0
+offset_left = 85.0
+offset_right = 973.0
+offset_bottom = 98.0
+theme = SubResource("Theme_o2m63")
+theme_override_styles/normal = SubResource("StyleBoxFlat_n3ngc")
+text = "Separe entre antigo e novo"
+vertical_alignment = 1
+autowrap_mode = 2
+uppercase = true
+visible_characters = 0
+visible_ratio = 0.0
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1474379164]
+stream = ExtResource("3_exgf0")
+
+[connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]

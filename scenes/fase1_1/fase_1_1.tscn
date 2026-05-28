@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://c5a8lwdog18pg"]
+
+[ext_resource type="Texture2D" uid="uid://pe5olgughfyy" path="res://sprites/telas/fase1.1.png" id="1_8uqkd"]
+[ext_resource type="PackedScene" uid="uid://cj4x1ts75y4p3" path="res://scenes/reusable/avatar.tscn" id="2_12vh4"]
+
+[node name="fase1_1" type="Node2D" unique_id=621124407]
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1933537374]
+offset_right = 1152.0
+offset_bottom = 647.0
+texture = ExtResource("1_8uqkd")
+expand_mode = 1
+
+[node name="Avatar" parent="." unique_id=67743134 instance=ExtResource("2_12vh4")]
+offset_left = 100.0
+offset_top = 2.0
+offset_right = 1076.0
+offset_bottom = 103.0
