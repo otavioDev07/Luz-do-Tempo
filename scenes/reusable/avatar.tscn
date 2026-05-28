@@ -32,6 +32,7 @@ offset_left = 85.0
 offset_right = 973.0
 offset_bottom = 98.0
 theme = SubResource("Theme_o2m63")
+theme_override_font_sizes/font_size = 24
 theme_override_styles/normal = SubResource("StyleBoxFlat_n3ngc")
 text = "Separe entre antigo e novo"
 vertical_alignment = 1

@@ -3,15 +3,17 @@
 [ext_resource type="Texture2D" uid="uid://pe5olgughfyy" path="res://sprites/telas/fase1.1.png" id="1_8uqkd"]
 [ext_resource type="Script" uid="uid://cp7v50xq3ue84" path="res://scripts/fase1_1/fase_1_1.gd" id="1_a0pa6"]
 [ext_resource type="PackedScene" uid="uid://cj4x1ts75y4p3" path="res://scenes/reusable/avatar.tscn" id="2_12vh4"]
+[ext_resource type="PackedScene" uid="uid://7xw4be8r1mi8" path="res://scenes/fase1_1/objeto.tscn" id="3_hnqy5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a0pa6"]
-size = Vector2(469, 440)
+size = Vector2(449, 440)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hnqy5"]
-size = Vector2(477, 440)
+size = Vector2(457, 440)
 
 [node name="fase1_1" type="Node2D" unique_id=621124407]
 script = ExtResource("1_a0pa6")
+cena_objeto_base = ExtResource("3_hnqy5")
 
 [node name="background" type="TextureRect" parent="." unique_id=1933537374]
 offset_right = 1152.0
@@ -27,26 +29,26 @@ offset_right = 1077.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Antigo" unique_id=1468517770]
 z_index = 2
-position = Vector2(261.5, 344)
+position = Vector2(251.5, 344)
 shape = SubResource("RectangleShape2D_a0pa6")
 
 [node name="novo" type="Area2D" parent="." unique_id=662449288 groups=["novo"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="novo" unique_id=2039840601]
 z_index = 2
-position = Vector2(884.5, 344)
+position = Vector2(894.5, 344)
 shape = SubResource("RectangleShape2D_hnqy5")
 
 [node name="caixaAntigo" type="ColorRect" parent="." unique_id=1768050086]
 offset_left = 27.0
 offset_top = 124.0
-offset_right = 496.0
+offset_right = 476.0
 offset_bottom = 564.0
 color = Color(1, 1, 1, 0.6039216)
 
 [node name="Label" type="Label" parent="caixaAntigo" unique_id=454449366]
 layout_mode = 0
-offset_right = 468.0
+offset_right = 453.0
 offset_bottom = 439.0
 theme_override_colors/font_color = Color(0.012617188, 0.012617188, 0.012617188, 0.44313726)
 theme_override_font_sizes/font_size = 32
@@ -56,7 +58,7 @@ vertical_alignment = 1
 uppercase = true
 
 [node name="caixaNovo" type="ColorRect" parent="." unique_id=191423426]
-offset_left = 646.0
+offset_left = 666.0
 offset_top = 124.0
 offset_right = 1123.0
 offset_bottom = 564.0
@@ -64,6 +66,7 @@ color = Color(1, 1, 1, 0.6039216)
 
 [node name="Label" type="Label" parent="caixaNovo" unique_id=859783347]
 layout_mode = 0
+offset_left = 3.0
 offset_right = 477.0
 offset_bottom = 440.0
 theme_override_colors/font_color = Color(0.011764706, 0.011764706, 0.011764706, 0.44313726)

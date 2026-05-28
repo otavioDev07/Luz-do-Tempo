@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://7xw4be8r1mi8"]
+
+[ext_resource type="Script" uid="uid://c1ubw5lx68suh" path="res://scripts/fase1_1/objeto.gd" id="1_g445o"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mie66"]
+size = Vector2(100.25, 100)
+
+[node name="objeto" type="Area2D" unique_id=1023884965]
+script = ExtResource("1_g445o")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1644491579]
+position = Vector2(-1.1444092e-05, -1.1444092e-05)
+scale = Vector2(0.20131844, 0.1675084)
+centered = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=255585988]
+position = Vector2(49.875, 50)
+shape = SubResource("RectangleShape2D_mie66")
