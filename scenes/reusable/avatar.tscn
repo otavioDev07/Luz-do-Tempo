@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" uid="uid://dgetkcxqja2es" path="res://scripts/reusable/avatar.gd" id="1_2r6bg"]
 [ext_resource type="Texture2D" uid="uid://b5x0mebo735k0" path="res://sprites/avatares/adrian.png" id="2_25io2"]
-[ext_resource type="AudioStream" uid="uid://l8gq85tudbdn" path="res://sprites/audios/fase1_1/kamhunt-acoustic-guitar-loop-f-91bpm-132687.mp3" id="3_u5wdl"]
 
 [sub_resource type="Theme" id="Theme_o2m63"]
 
@@ -42,6 +41,5 @@ visible_characters = 0
 visible_ratio = 0.0
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1474379164]
-stream = ExtResource("3_u5wdl")
 
 [connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]

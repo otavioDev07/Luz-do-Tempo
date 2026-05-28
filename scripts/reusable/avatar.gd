@@ -17,7 +17,7 @@ func _ready() -> void:
 func mudar_fala(novo_texto: String, novo_audio: AudioStream, esperar_2s: bool = false) -> void:
 	# Salva os dados atuais
 	texto_atual = novo_texto
-	label.text = novo_text
+	label.text = novo_texto
 	audio_player.stream = novo_audio
 	
 	# Zera o texto para a animação
