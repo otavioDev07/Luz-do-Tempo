@@ -1,0 +1,11 @@
+[gd_resource type="LabelSettings" format=3 uid="uid://bxmhrgvaypjkg"]
+
+[ext_resource type="FontFile" uid="uid://cyqlcfh8ho82y" path="res://fonts/PressStart2P-Regular.ttf" id="1_m1mkn"]
+
+[resource]
+font = ExtResource("1_m1mkn")
+font_size = 50
+outline_size = 20
+outline_color = Color(0.11764706, 0.20392157, 0.27058825, 1)
+shadow_color = Color(0.11764706, 0.20392157, 0.27058825, 1)
+shadow_offset = Vector2(4, 4)

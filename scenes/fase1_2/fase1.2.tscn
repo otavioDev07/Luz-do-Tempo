@@ -3,26 +3,8 @@
 [ext_resource type="Texture2D" uid="uid://swxh7cer754c" path="res://sprites/telas/fase1.2.png" id="1_ck6of"]
 [ext_resource type="Texture2D" uid="uid://cgchttmm5lhq7" path="res://sprites/objetos/carro.png" id="2_44dto"]
 [ext_resource type="Texture2D" uid="uid://cuemrc3olc6g4" path="res://sprites/objetos/fogao.png" id="3_08bxd"]
-[ext_resource type="FontFile" uid="uid://cyqlcfh8ho82y" path="res://fonts/PressStart2P-Regular.ttf" id="3_44dto"]
+[ext_resource type="LabelSettings" uid="uid://bxmhrgvaypjkg" path="res://fonts/fontefase1.2.tres" id="3_ot04g"]
 [ext_resource type="Texture2D" uid="uid://cy4gbsfjeo03n" path="res://sprites/objetos/mapa.png" id="4_ot04g"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_08bxd"]
-font = ExtResource("3_44dto")
-
-[sub_resource type="LabelSettings" id="LabelSettings_ot04g"]
-font = ExtResource("3_44dto")
-
-[sub_resource type="LabelSettings" id="LabelSettings_ay7lb"]
-font = ExtResource("3_44dto")
-
-[sub_resource type="LabelSettings" id="LabelSettings_k087y"]
-font = ExtResource("3_44dto")
-
-[sub_resource type="LabelSettings" id="LabelSettings_ijf30"]
-font = ExtResource("3_44dto")
-
-[sub_resource type="LabelSettings" id="LabelSettings_342k4"]
-font = ExtResource("3_44dto")
 
 [node name="Fase1_2" type="Node2D" unique_id=493472733]
 
@@ -35,26 +17,28 @@ texture = ExtResource("1_ck6of")
 [node name="paginaEsquerda" type="Control" parent="." unique_id=1200898438]
 layout_mode = 3
 anchors_preset = 0
-offset_left = 453.0
-offset_top = 207.0
-offset_right = 911.0
-offset_bottom = 778.0
+offset_left = 450.0
+offset_top = 225.0
+offset_right = 908.0
+offset_bottom = 750.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="paginaEsquerda" unique_id=784847117]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.013
 anchor_right = 0.013
-offset_left = -4.992
+offset_left = 4.0459943
 offset_top = 9.0
 offset_right = 373.008
 offset_bottom = 487.0
+theme_override_constants/separation = 50
 
 [node name="linhaObjeto1" type="HBoxContainer" parent="paginaEsquerda/VBoxContainer" unique_id=745453198]
 layout_mode = 2
+theme_override_constants/separation = 15
 
 [node name="Obj1" type="TextureRect" parent="paginaEsquerda/VBoxContainer/linhaObjeto1" unique_id=1923395329]
-custom_minimum_size = Vector2(100, 100)
+custom_minimum_size = Vector2(150, 150)
 layout_mode = 2
 size_flags_stretch_ratio = 23.15
 texture = ExtResource("2_44dto")
@@ -64,18 +48,19 @@ stretch_mode = 5
 [node name="Lacuna" type="Label" parent="paginaEsquerda/VBoxContainer/linhaObjeto1" unique_id=327107309]
 layout_mode = 2
 text = "_"
-label_settings = SubResource("LabelSettings_08bxd")
+label_settings = ExtResource("3_ot04g")
 
 [node name="restoNome" type="Label" parent="paginaEsquerda/VBoxContainer/linhaObjeto1" unique_id=653247377]
 layout_mode = 2
 text = "ARRO"
-label_settings = SubResource("LabelSettings_ot04g")
+label_settings = ExtResource("3_ot04g")
 
 [node name="linhaObjeto2" type="HBoxContainer" parent="paginaEsquerda/VBoxContainer" unique_id=1611139559]
 layout_mode = 2
+theme_override_constants/separation = 15
 
 [node name="Obj2" type="TextureRect" parent="paginaEsquerda/VBoxContainer/linhaObjeto2" unique_id=1585795243]
-custom_minimum_size = Vector2(100, 100)
+custom_minimum_size = Vector2(150, 150)
 layout_mode = 2
 texture = ExtResource("3_08bxd")
 expand_mode = 1
@@ -84,18 +69,19 @@ stretch_mode = 5
 [node name="Lacuna" type="Label" parent="paginaEsquerda/VBoxContainer/linhaObjeto2" unique_id=1771531972]
 layout_mode = 2
 text = "_"
-label_settings = SubResource("LabelSettings_ay7lb")
+label_settings = ExtResource("3_ot04g")
 
 [node name="restoNome" type="Label" parent="paginaEsquerda/VBoxContainer/linhaObjeto2" unique_id=344453966]
 layout_mode = 2
 text = "OGÃO"
-label_settings = SubResource("LabelSettings_k087y")
+label_settings = ExtResource("3_ot04g")
 
 [node name="linhaObjeto3" type="HBoxContainer" parent="paginaEsquerda/VBoxContainer" unique_id=168700311]
 layout_mode = 2
+theme_override_constants/separation = 15
 
 [node name="Obj3" type="TextureRect" parent="paginaEsquerda/VBoxContainer/linhaObjeto3" unique_id=1876869425]
-custom_minimum_size = Vector2(100, 100)
+custom_minimum_size = Vector2(150, 150)
 layout_mode = 2
 texture = ExtResource("4_ot04g")
 expand_mode = 1
@@ -104,12 +90,12 @@ stretch_mode = 5
 [node name="Lacuna" type="Label" parent="paginaEsquerda/VBoxContainer/linhaObjeto3" unique_id=146892041]
 layout_mode = 2
 text = "_"
-label_settings = SubResource("LabelSettings_ijf30")
+label_settings = ExtResource("3_ot04g")
 
 [node name="restoNome" type="Label" parent="paginaEsquerda/VBoxContainer/linhaObjeto3" unique_id=1824503853]
 layout_mode = 2
 text = "APA"
-label_settings = SubResource("LabelSettings_342k4")
+label_settings = ExtResource("3_ot04g")
 
 [node name="paginaDireita" type="Control" parent="." unique_id=491093026]
 layout_mode = 3
