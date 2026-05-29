@@ -6,7 +6,7 @@ extends Node2D
 @onready var trofeu_1 = $InterfaceTrofeus/HBoxContainer/Trofeu1 
 @onready var trofeu_2 = $InterfaceTrofeus/HBoxContainer/Trofeu2 
 @onready var trofeu_3 = $InterfaceTrofeus/HBoxContainer/Trofeu3 
-@onready var feedback_joia = $FeedbackJoia # <-- Referência do Joia adicionada aqui
+@onready var feedback_joia = $FeedbackJoia 
 
 # --- VARIÁVEL DE TRAVA GLOBAL ---
 var pode_interagir: bool = false # Controla se o jogador pode mexer no jogo
@@ -152,9 +152,10 @@ func _ready() -> void:
 
 
 func _process(delta: float) -> void:
-	if pode_interagir:
-		dados_jogador["tempo_decorrido"] += delta
+	# O tempo soma continuamente, mesmo se o avatar estiver falando
+	dados_jogador["tempo_decorrido"] += delta
 	
+	# Se passar de 5 minutos (300 segundos), perde o troféu de tempo
 	if dados_jogador["tempo_decorrido"] >= 300.0 and not perdeu_trofeu_tempo:
 		perdeu_trofeu_tempo = true
 		if trofeu_2 != null:
