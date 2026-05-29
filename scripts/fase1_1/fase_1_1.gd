@@ -18,7 +18,7 @@ var dados_jogador = {
 	"erros_cometidos": 0
 }
 
-var imagem_trofeu_vazio = preload("res://sprites/objetos/trofeu_vazio.png")
+var imagem_trofeu_vazio = preload("res://sprites/avatares/trofeu_vazio.png")
 
 var perdeu_trofeu_tempo: bool = false
 var perdeu_trofeu_erros: bool = false
