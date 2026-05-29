@@ -16,3 +16,5 @@ offset = Vector2(50, 50)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=255585988]
 position = Vector2(49.875, 50)
 shape = SubResource("RectangleShape2D_mie66")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1704962774]

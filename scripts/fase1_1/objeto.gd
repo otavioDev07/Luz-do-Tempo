@@ -10,17 +10,26 @@ var grupo_correto: String = ""
 # Variável nova: Impede que o jogador arraste de novo depois que acertar
 var fixado: bool = false 
 
-func _ready() -> void:
-	pass
-	
+# --- REFERÊNCIA DO ÁUDIO ---
+@onready var tocador_de_audio = $AudioStreamPlayer2D
 
-func configurar_objeto(nome: String, tipo_grupo: String, textura: Texture2D) -> void:
+func _ready() -> void:
+	# Conecta o sinal de passar o mouse automaticamente via código!
+	mouse_entered.connect(_on_mouse_entered)
+
+
+# --- ATUALIZADO: Agora recebe o 4º parâmetro (audio_obj) ---
+func configurar_objeto(nome: String, tipo_grupo: String, textura: Texture2D, audio_obj: AudioStream) -> void:
 	nome_do_objeto = nome
 	grupo_correto = tipo_grupo
 	posicao_inicial = global_position
 	$Sprite2D.texture = textura
 	
-	# Ajusta o tamanho da imagem para um máximo de 150 pixels na tela
+	# Coloca o áudio recebido da Fase 1.1 dentro do tocador do objeto
+	if tocador_de_audio != null:
+		tocador_de_audio.stream = audio_obj
+	
+	# Ajusta o tamanho da imagem para um máximo de 250 pixels na tela
 	if textura != null:
 		var tamanho_original = textura.get_size()
 		var tamanho_maximo = 250.0 
@@ -36,7 +45,9 @@ func _process(_delta: float) -> void:
 
 # Essa função só funciona quando o mouse está EM CIMA do objeto
 func _input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
-	if fixado: 
+	# --- TRAVA DE INTERAÇÃO ---
+	# Se o objeto estiver fixado OU a Fase disser que NÃO PODE interagir, ignora o clique!
+	if fixado or not get_parent().pode_interagir: 
 		return 
 		
 	# Detecta APENAS quando o jogador APERTA o botão esquerdo
@@ -79,3 +90,13 @@ func verificar_soltura() -> void:
 	
 	if not acertou and areas_tocadas.size() == 0:
 		global_position = posicao_inicial
+
+
+# --- NOVA FUNÇÃO: Toca o áudio ---
+func _on_mouse_entered() -> void:
+	# --- TRAVA DE ÁUDIO ---
+	# Adicionamos "get_parent().pode_interagir" para ele ficar mudo enquanto o Avatar fala
+	if not fixado and get_parent().pode_interagir and tocador_de_audio != null and tocador_de_audio.stream != null:
+		# Verifica se não está tocando no momento, para não encavalar o áudio
+		if not tocador_de_audio.playing:
+			tocador_de_audio.play()
