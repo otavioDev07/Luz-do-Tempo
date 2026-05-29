@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://cj4x1ts75y4p3" path="res://scenes/reusable/avatar.tscn" id="2_12vh4"]
 [ext_resource type="PackedScene" uid="uid://7xw4be8r1mi8" path="res://scenes/fase1_1/objeto.tscn" id="3_hnqy5"]
 [ext_resource type="Texture2D" uid="uid://pe5olgughfyy" path="res://sprites/telas/fase1.1.png" id="3_v7i3i"]
+[ext_resource type="FontFile" uid="uid://cyqlcfh8ho82y" path="res://fonts/PressStart2P-Regular.ttf" id="5_0wf6d"]
 [ext_resource type="PackedScene" uid="uid://d0tmuuxhi50sq" path="res://scenes/reusable/pop_up_afk.tscn" id="5_6prgk"]
 [ext_resource type="Texture2D" uid="uid://c46itx7ctltcf" path="res://sprites/avatares/trofeu_completo.png" id="6_srdww"]
 [ext_resource type="Texture2D" uid="uid://bbd47qm732nb7" path="res://sprites/telas/correto.png" id="7_srdww"]
@@ -56,8 +57,12 @@ color = Color(1, 1, 1, 0.6039216)
 layout_mode = 0
 offset_right = 785.0
 offset_bottom = 730.0
-theme_override_colors/font_color = Color(0.012617188, 0.012617188, 0.012617188, 0.44313726)
-theme_override_font_sizes/font_size = 32
+theme_override_colors/font_color = Color(1, 0.92156863, 0.07450981, 1)
+theme_override_colors/font_shadow_color = Color(0.11764706, 0.20392157, 0.27058825, 1)
+theme_override_colors/font_outline_color = Color(0.11764706, 0.20392157, 0.27058825, 1)
+theme_override_constants/shadow_offset_x = 7
+theme_override_fonts/font = ExtResource("5_0wf6d")
+theme_override_font_sizes/font_size = 60
 text = "Antigo"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -75,14 +80,19 @@ layout_mode = 0
 offset_left = 1.0
 offset_right = 786.0
 offset_bottom = 730.0
-theme_override_colors/font_color = Color(0.011764706, 0.011764706, 0.011764706, 0.44313726)
-theme_override_font_sizes/font_size = 32
+theme_override_colors/font_color = Color(1, 0.92156863, 0.07450981, 1)
+theme_override_colors/font_shadow_color = Color(0.11764706, 0.20392157, 0.27058825, 1)
+theme_override_colors/font_outline_color = Color(0.11764706, 0.20392157, 0.27058825, 1)
+theme_override_constants/shadow_offset_x = 7
+theme_override_fonts/font = ExtResource("5_0wf6d")
+theme_override_font_sizes/font_size = 60
 text = "Novo"
 horizontal_alignment = 1
 vertical_alignment = 1
 uppercase = true
 
 [node name="Pop-upAFK" parent="." unique_id=2120797033 instance=ExtResource("5_6prgk")]
+visible = false
 offset = Vector2(600, 400)
 transform = Transform2D(1, 0, 0, 1, 600, 400)
 

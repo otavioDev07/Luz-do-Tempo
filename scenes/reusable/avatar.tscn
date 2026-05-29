@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dgetkcxqja2es" path="res://scripts/reusable/avatar.gd" id="1_2r6bg"]
 [ext_resource type="Texture2D" uid="uid://b5x0mebo735k0" path="res://sprites/avatares/adrian.png" id="2_25io2"]
+[ext_resource type="FontFile" uid="uid://cyqlcfh8ho82y" path="res://fonts/PressStart2P-Regular.ttf" id="3_2r6bg"]
 
 [sub_resource type="Theme" id="Theme_o2m63"]
 
@@ -32,6 +33,7 @@ offset_left = 141.0
 offset_right = 1152.0
 offset_bottom = 126.0
 theme = SubResource("Theme_o2m63")
+theme_override_fonts/font = ExtResource("3_2r6bg")
 theme_override_font_sizes/font_size = 24
 theme_override_styles/normal = SubResource("StyleBoxFlat_n3ngc")
 text = "Separe entre antigo e novo"
