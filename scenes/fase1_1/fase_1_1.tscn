@@ -8,10 +8,10 @@
 [ext_resource type="Texture2D" uid="uid://bshf2g2av0pmt" path="res://sprites/objetos/trofeu.png" id="6_v7i3i"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a0pa6"]
-size = Vector2(710, 731)
+size = Vector2(785, 731)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hnqy5"]
-size = Vector2(709, 730)
+size = Vector2(786, 730)
 
 [node name="fase1_1" type="Node2D" unique_id=621124407]
 script = ExtResource("1_a0pa6")
@@ -33,18 +33,18 @@ offset_bottom = 135.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Antigo" unique_id=1468517770]
 z_index = 2
-position = Vector2(473, 583.5)
+position = Vector2(435.5, 583.5)
 shape = SubResource("RectangleShape2D_a0pa6")
 
 [node name="novo" type="Area2D" parent="." unique_id=662449288 groups=["novo"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="novo" unique_id=2039840601]
 z_index = 2
-position = Vector2(1503.5, 583)
+position = Vector2(1465, 583)
 shape = SubResource("RectangleShape2D_hnqy5")
 
 [node name="caixaAntigo" type="ColorRect" parent="." unique_id=1768050086]
-offset_left = 118.0
+offset_left = 43.0
 offset_top = 218.0
 offset_right = 828.0
 offset_bottom = 948.0
@@ -52,7 +52,7 @@ color = Color(1, 1, 1, 0.6039216)
 
 [node name="Label" type="Label" parent="caixaAntigo" unique_id=454449366]
 layout_mode = 0
-offset_right = 710.0
+offset_right = 785.0
 offset_bottom = 730.0
 theme_override_colors/font_color = Color(0.012617188, 0.012617188, 0.012617188, 0.44313726)
 theme_override_font_sizes/font_size = 32
@@ -62,7 +62,7 @@ vertical_alignment = 1
 uppercase = true
 
 [node name="caixaNovo" type="ColorRect" parent="." unique_id=191423426]
-offset_left = 1149.0
+offset_left = 1072.0
 offset_top = 218.0
 offset_right = 1859.0
 offset_bottom = 948.0
@@ -70,8 +70,8 @@ color = Color(1, 1, 1, 0.6039216)
 
 [node name="Label" type="Label" parent="caixaNovo" unique_id=859783347]
 layout_mode = 0
-offset_left = 3.0
-offset_right = 713.0
+offset_left = 1.0
+offset_right = 786.0
 offset_bottom = 730.0
 theme_override_colors/font_color = Color(0.011764706, 0.011764706, 0.011764706, 0.44313726)
 theme_override_font_sizes/font_size = 32

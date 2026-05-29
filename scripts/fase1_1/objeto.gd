@@ -23,7 +23,7 @@ func configurar_objeto(nome: String, tipo_grupo: String, textura: Texture2D) -> 
 	# Ajusta o tamanho da imagem para um máximo de 150 pixels na tela
 	if textura != null:
 		var tamanho_original = textura.get_size()
-		var tamanho_maximo = 150.0 
+		var tamanho_maximo = 250.0 
 		var maior_lado = max(tamanho_original.x, tamanho_original.y)
 		var fator_escala = tamanho_maximo / maior_lado
 		

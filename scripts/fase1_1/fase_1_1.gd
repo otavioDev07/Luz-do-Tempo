@@ -21,11 +21,11 @@ var perdeu_trofeu_erros: bool = false
 
 # --- CONFIGURAÇÃO DA ESTANTE ---
 # Altere estes valores para definir onde a "linha 1, coluna 1" de cada lado vai começar na sua tela
-var inicio_antigo: Vector2 = Vector2(120, 230)  
-var inicio_novo: Vector2 = Vector2(1200, 230)   
+var inicio_antigo: Vector2 = Vector2(120, 280)  
+var inicio_novo: Vector2 = Vector2(1150, 280)   
 
-var espacamento_x: float = 150.0
-var espacamento_y: float = 150.0
+var espacamento_x: float = 250.0
+var espacamento_y: float = 250.0
 
 var total_antigo: int = 0
 var total_novo: int = 0
@@ -187,8 +187,8 @@ func _on_objeto_acertou(objeto_instanciado: Node2D) -> void:
 	
 	# Lógica Matemática para montar a estante de 3 colunas
 	if objeto_instanciado.grupo_correto == "antigo":
-		coluna = total_antigo % 4
-		linha = int(total_antigo / 4)
+		coluna = total_antigo % 3
+		linha = int(total_antigo / 3)
 		
 		posicao_final.x = inicio_antigo.x + (coluna * espacamento_x)
 		posicao_final.y = inicio_antigo.y + (linha * espacamento_y)
@@ -196,8 +196,8 @@ func _on_objeto_acertou(objeto_instanciado: Node2D) -> void:
 		total_antigo += 1 
 		
 	else:
-		coluna = total_novo % 4
-		linha = int(total_novo / 4)
+		coluna = total_novo % 3
+		linha = int(total_novo / 3)
 		
 		posicao_final.x = inicio_novo.x + (coluna * espacamento_x)
 		posicao_final.y = inicio_novo.y + (linha * espacamento_y)
