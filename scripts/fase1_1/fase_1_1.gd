@@ -268,3 +268,8 @@ func _on_objeto_errou() -> void:
 		
 	await get_tree().create_timer(tempo_espera).timeout
 	pode_interagir = true # Libera o jogo de volta para o jogador tentar
+
+
+func _on_texture_button_pressed() -> void:
+	# Esse comando troca a tela atual pela tela do tutorial
+	get_tree().change_scene_to_file("res://scenes/fase1_1/fase_1_1.tscn")

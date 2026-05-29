@@ -51,7 +51,7 @@ func executar_saida() -> void:
 	# O código verifica: "O programador já colocou a cena do menu no Inspector?"
 	if cena_do_menu != null:
 		# Se SIM, ele vai para o menu!
-		get_tree().change_scene_to_packed(cena_do_menu)
+		get_tree().change_scene_to_file("res://scenes/fase1_1/fase_1_1.tscn")
 	else:
 		# Se NÃO (enquanto estás a testar agora), ele apenas reinicia a fase atual
-		get_tree().reload_current_scene()
+		get_tree().change_scene_to_file("res://scenes/fase1_1/fase_1_1.tscn")
