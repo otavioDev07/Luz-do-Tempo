@@ -120,7 +120,6 @@ texture = ExtResource("6_v7i3i")
 expand_mode = 1
 
 [node name="FeedbackJoia" type="TextureRect" parent="." unique_id=444304926]
-visible = false
 z_index = 5
 offset_left = 680.0
 offset_top = 280.0

@@ -2,13 +2,14 @@ extends Node2D
 
 @export var cena_objeto_base: PackedScene 
 
-# --- REFERÊNCIAS DOS TROFÉUS ---
+# --- REFERÊNCIAS DOS TROFÉUS E FEEDBACK ---
 @onready var trofeu_1 = $InterfaceTrofeus/HBoxContainer/Trofeu1 
 @onready var trofeu_2 = $InterfaceTrofeus/HBoxContainer/Trofeu2 
 @onready var trofeu_3 = $InterfaceTrofeus/HBoxContainer/Trofeu3 
+@onready var feedback_joia = $FeedbackJoia # <-- Referência do Joia adicionada aqui
 
 # --- VARIÁVEL DE TRAVA GLOBAL ---
-var pode_interagir: bool = false # <-- NOVO: Controla se o jogador pode mexer no jogo
+var pode_interagir: bool = false # Controla se o jogador pode mexer no jogo
 
 # --- DADOS DO JOGADOR ---
 var dados_jogador = {
@@ -126,6 +127,7 @@ var lista_de_objetos = [
 var imgavatar = preload("res://sprites/avatares/adrian.png")
 var audio_instrucao = preload("res://sprites/audios/fase1_1/instrucao.mp3")
 
+# Depois, se for adicionar áudio aqui, não esqueça de colocar preload()
 var audio_acerto: AudioStream 
 var audio_erro: AudioStream 
 
@@ -144,13 +146,12 @@ func _ready() -> void:
 	if audio_instrucao != null:
 		await get_tree().create_timer(audio_instrucao.get_length()).timeout
 	else:
-		await get_tree().create_timer(3.0).timeout # Fallback de 3 segundos se não houver áudio
+		await get_tree().create_timer(3.0).timeout 
 		
 	sortear_novo_objeto()
 
 
 func _process(delta: float) -> void:
-	# O relógio só corre se o jogador puder interagir (opcional, mude se quiser que conte o tempo da fala também)
 	if pode_interagir:
 		dados_jogador["tempo_decorrido"] += delta
 	
@@ -167,7 +168,7 @@ func sortear_novo_objeto() -> void:
 			objetos_disponiveis.append(objeto)
 			
 	if objetos_disponiveis.size() == 0:
-		pode_interagir = false # Fim de jogo, bloqueia tudo
+		pode_interagir = false 
 		$Avatar.mudar_fala(
 			"Parabéns! Você organizou todos os objetos muito bem!", 
 			audio_acerto, 
@@ -192,11 +193,15 @@ func sortear_novo_objeto() -> void:
 		objeto_sorteado["audio_nome"] 
 	)
 	
-	pode_interagir = true # <-- LIBERA O JOGO AQUI (O objeto surgiu e a fala inicial acabou)
+	pode_interagir = true # Libera o jogo!
 
 
 func _on_objeto_acertou(objeto_instanciado: Node2D) -> void:
-	pode_interagir = false # Trava o jogo enquanto comemora o acerto
+	pode_interagir = false # Trava o jogo enquanto comemora
+	
+	# --- MOSTRA A IMAGEM DO JOIA ---
+	if feedback_joia != null:
+		feedback_joia.show()
 	
 	$Avatar.mudar_fala(
 		"Muito bem! Você acertou!", 
@@ -224,17 +229,23 @@ func _on_objeto_acertou(objeto_instanciado: Node2D) -> void:
 		
 	objeto_instanciado.global_position = posicao_final
 	
-	# --- ESPERA O ÁUDIO DE ACERTO TERMINAR ---
-	var tempo_espera = 1.0
+	# --- ESPERA 1 SEGUNDO E ESCONDE O JOIA ---
+	await get_tree().create_timer(1.0).timeout
+	if feedback_joia != null:
+		feedback_joia.hide()
+	
+	# --- ESPERA O RESTO DO ÁUDIO ANTES DE CHAMAR O PRÓXIMO ---
+	var tempo_restante = 0.1
 	if audio_acerto != null:
-		tempo_espera = max(1.0, audio_acerto.get_length())
+		# Pega a duração total do áudio e subtrai o 1 segundo que o joia já esperou
+		tempo_restante = max(0.1, audio_acerto.get_length() - 1.0)
 		
-	await get_tree().create_timer(tempo_espera).timeout
+	await get_tree().create_timer(tempo_restante).timeout
 	sortear_novo_objeto()
 
 
 func _on_objeto_errou() -> void:
-	pode_interagir = false # Trava o jogo durante a bronca do erro
+	pode_interagir = false # Trava o jogo durante a bronca
 	dados_jogador["erros_cometidos"] += 1
 	
 	if dados_jogador["erros_cometidos"] >= 5 and not perdeu_trofeu_erros:
@@ -249,10 +260,10 @@ func _on_objeto_errou() -> void:
 		false
 	)
 	
-	# --- ESPERA O ÁUDIO DE ERRO TERMINAR ANTES DE LIBERAR ---
+	# --- ESPERA O ÁUDIO DE ERRO TERMINAR ---
 	var tempo_espera = 2.0
 	if audio_erro != null:
 		tempo_espera = audio_erro.get_length()
 		
 	await get_tree().create_timer(tempo_espera).timeout
-	pode_interagir = true # <-- LIBERA O JOGO DE VOLTA PARA O JOGADOR TENTAR DE NOVO
+	pode_interagir = true # Libera o jogo de volta para o jogador tentar
