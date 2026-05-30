@@ -231,7 +231,7 @@ func _on_objeto_acertou(objeto_instanciado: Node2D) -> void:
 	objeto_instanciado.global_position = posicao_final
 	
 	# --- ESPERA 1 SEGUNDO E ESCONDE O JOIA ---
-	await get_tree().create_timer(1.0).timeout
+	await get_tree().create_timer(2.0).timeout
 	if feedback_joia != null:
 		feedback_joia.hide()
 	
