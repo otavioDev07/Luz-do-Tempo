@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://boqtng8bfpucm"]
+
+[ext_resource type="Script" uid="uid://6yq853y44xk6" path="res://scripts/reusable/interface_trofeus.gd" id="1_ad0w1"]
+[ext_resource type="Texture2D" uid="uid://c46itx7ctltcf" path="res://sprites/avatares/trofeu_completo.png" id="1_xvkld"]
+
+[node name="InterfaceTrofeus" type="CanvasLayer" unique_id=1219300477]
+script = ExtResource("1_ad0w1")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=958008552]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -136.5
+offset_top = -60.0
+offset_right = 130.5
+offset_bottom = -7.0
+grow_horizontal = 2
+grow_vertical = 0
+alignment = 1
+
+[node name="Trofeu1" type="TextureRect" parent="HBoxContainer" unique_id=792923074]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+texture = ExtResource("1_xvkld")
+expand_mode = 1
+
+[node name="Trofeu2" type="TextureRect" parent="HBoxContainer" unique_id=1129115228]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+texture = ExtResource("1_xvkld")
+expand_mode = 1
+
+[node name="Trofeu3" type="TextureRect" parent="HBoxContainer" unique_id=1510906686]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+texture = ExtResource("1_xvkld")
+expand_mode = 1
