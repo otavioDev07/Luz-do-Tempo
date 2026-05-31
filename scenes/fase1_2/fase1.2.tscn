@@ -3,19 +3,28 @@
 [ext_resource type="Texture2D" uid="uid://swxh7cer754c" path="res://sprites/telas/fase1.2.png" id="1_ck6of"]
 [ext_resource type="Script" uid="uid://ca3nc0ljkdfk" path="res://scripts/fase1.2/fase_1.2.gd" id="1_ot04g"]
 [ext_resource type="Texture2D" uid="uid://cgchttmm5lhq7" path="res://sprites/objetos/carro.png" id="2_44dto"]
+[ext_resource type="AudioStream" uid="uid://c86brwpdhf2un" path="res://sprites/audios/fase1_2/acerto.mp3" id="2_bjd3i"]
 [ext_resource type="Texture2D" uid="uid://cuemrc3olc6g4" path="res://sprites/objetos/fogao.png" id="3_08bxd"]
 [ext_resource type="LabelSettings" uid="uid://bxmhrgvaypjkg" path="res://fonts/fontefase1.2.tres" id="3_ot04g"]
+[ext_resource type="AudioStream" uid="uid://dj5sgogl737at" path="res://sprites/audios/fase1_2/erro.mp3" id="3_vnrbr"]
 [ext_resource type="Texture2D" uid="uid://cy4gbsfjeo03n" path="res://sprites/objetos/mapa.png" id="4_ot04g"]
+[ext_resource type="AudioStream" uid="uid://dn05m4bltiqvg" path="res://sprites/audios/fase1_2/proximo.mp3" id="4_vnrbr"]
 [ext_resource type="Script" uid="uid://cbd4cqlifqqjy" path="res://scripts/fase1.2/lacuna_drop.gd" id="5_chiyb"]
+[ext_resource type="AudioStream" uid="uid://cuthyujj3qyjn" path="res://sprites/audios/fase1_2/fim_fase1.2.mp3" id="5_sstni"]
 [ext_resource type="Script" uid="uid://mldl0i7n0jue" path="res://scripts/fase1.2/letra_arrastável.gd" id="7_ene0w"]
 [ext_resource type="PackedScene" uid="uid://cj4x1ts75y4p3" path="res://scenes/reusable/avatar.tscn" id="8_ay7lb"]
 [ext_resource type="Texture2D" uid="uid://cbovv0gy02j74" path="res://sprites/avatares/otavio.png" id="9_ijf30"]
 [ext_resource type="PackedScene" uid="uid://d0tmuuxhi50sq" path="res://scenes/reusable/pop_up_afk.tscn" id="9_k087y"]
 [ext_resource type="PackedScene" uid="uid://boqtng8bfpucm" path="res://scenes/reusable/interface_trofeus.tscn" id="10_ijf30"]
-[ext_resource type="PackedScene" uid="uid://bbxnh2tedp6eo" path="res://scenes/reusable/voltar.tscn" id="11_342k4"]
+[ext_resource type="PackedScene" path="res://scenes/reusable/voltar.tscn" id="11_342k4"]
+[ext_resource type="Texture2D" uid="uid://bbd47qm732nb7" path="res://sprites/telas/correto.png" id="14_4wu1t"]
 
 [node name="Fase1_2" type="Node2D" unique_id=493472733]
 script = ExtResource("1_ot04g")
+audio_acerto = ExtResource("2_bjd3i")
+audio_erro = ExtResource("3_vnrbr")
+audio_proximo = ExtResource("4_vnrbr")
+audio_fimFase = ExtResource("5_sstni")
 
 [node name="background" type="TextureRect" parent="." unique_id=1439729696]
 offset_left = 1.0
@@ -129,9 +138,11 @@ script = ExtResource("7_ene0w")
 
 [node name="letra_F" type="Label" parent="paginaDireita" unique_id=331791434]
 layout_mode = 0
-offset_top = 1.0
-offset_right = 40.0
-offset_bottom = 24.0
+offset_left = 152.0
+offset_top = 354.0
+offset_right = 202.0
+offset_bottom = 404.0
+text = "F"
 label_settings = ExtResource("3_ot04g")
 script = ExtResource("7_ene0w")
 
@@ -147,10 +158,10 @@ script = ExtResource("7_ene0w")
 
 [node name="letra_L" type="Label" parent="paginaDireita" unique_id=963907767]
 layout_mode = 0
-offset_left = 67.0
-offset_top = 58.0
-offset_right = 117.0
-offset_bottom = 108.0
+offset_left = 24.0
+offset_top = 88.0
+offset_right = 74.0
+offset_bottom = 138.0
 text = "L"
 label_settings = ExtResource("3_ot04g")
 script = ExtResource("7_ene0w")
@@ -220,3 +231,13 @@ transform = Transform2D(1, 0, 0, 1, 600, 300)
 [node name="InterfaceTrofeus" parent="." unique_id=1219300477 instance=ExtResource("10_ijf30")]
 
 [node name="Voltar" parent="." unique_id=1951791252 instance=ExtResource("11_342k4")]
+cena_destino = "uid://c5a8lwdog18pg"
+
+[node name="FeedbackJoia" type="TextureRect" parent="." unique_id=1265445744]
+visible = false
+offset_left = 627.0
+offset_top = 191.0
+offset_right = 1330.0
+offset_bottom = 896.0
+texture = ExtResource("14_4wu1t")
+expand_mode = 1
