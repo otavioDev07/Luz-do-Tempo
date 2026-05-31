@@ -1,8 +1,8 @@
-[gd_scene format=3 uid="uid://bbxnh2tedp6eo"]
+[gd_scene format=3 uid="uid://c3pg8dfvgnhoo"]
 
 [ext_resource type="Texture2D" uid="uid://pchewpvbysy" path="res://sprites/avatares/voltar.png" id="1_ec6bg"]
-[ext_resource type="Script" uid="uid://c4i8k6cgs4xa8" path="res://scripts/reusable/voltar.gd" id="2_uadsl"]
-[ext_resource type="AudioStream" uid="uid://4qeqowvt5pig" path="res://sprites/audios/fase1_1/teste.mp3" id="3_y72gf"]
+[ext_resource type="Script" path="res://scripts/reusable/voltar.gd" id="2_uadsl"]
+[ext_resource type="AudioStream" uid="uid://rvvn222npbye" path="res://sprites/audios/reusable/voltar.mp3" id="3_y72gf"]
 
 [node name="Voltar" type="TextureButton" unique_id=1951791252]
 offset_left = 45.0

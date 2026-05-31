@@ -5,7 +5,8 @@ extends Node2D
 @onready var feedback_joia = $FeedbackJoia 
 @onready var interface_trofeus = $InterfaceTrofeus
 @onready var avatar = $Avatar
-#--------------------------------------------------------------------------------
+@onready var audio_objeto = $AudioObjeto 
+
 @onready var foto_1 = $paginaEsquerda/VBoxContainer/linhaObjeto1/Obj1
 @onready var lacuna_1 = $paginaEsquerda/VBoxContainer/linhaObjeto1/Lacuna
 @onready var sufixo_1 = $paginaEsquerda/VBoxContainer/linhaObjeto1/restoNome
@@ -32,18 +33,21 @@ var dados_jogador = {
 	"erros_cometidos": 0
 }
 
+var audio_atual_1: AudioStream = null
+var audio_atual_2: AudioStream = null
+var audio_atual_3: AudioStream = null
+
 var banco_desafios = [
-	# --- RODADA 1 (Índices 0, 1, 2) ---
-	{"imagem": preload("res://sprites/objetos/carro.png"), "sufixo": "ARRO", "resposta": "C"},
-	{"imagem": preload("res://sprites/objetos/fogao.png"), "sufixo": "OGÃO", "resposta": "F"},
-	{"imagem": preload("res://sprites/objetos/mapa.png"), "sufixo": "APA", "resposta": "M"},
-	# --- RODADA 2 (Índices 3, 4, 5) ---
-	{"imagem": preload("res://sprites/objetos/vela.png"), "sufixo": "ELA", "resposta": "V"},
-	{"imagem": preload("res://sprites/objetos/lampada.png"), "sufixo": "AMPADA", "resposta": "L"},
-	{"imagem": preload("res://sprites/objetos/telefone_fixo.png"), "sufixo": "ELEFONE", "resposta": "T"}
+	# --- RODADA 1 ---
+	{"imagem": preload("res://sprites/objetos/carro.png"), "sufixo": "ARRO", "resposta": "C", "audio": preload("res://sprites/audios/objetos/carro.mp3")},
+	{"imagem": preload("res://sprites/objetos/fogao.png"), "sufixo": "OGÃO", "resposta": "F", "audio": preload("res://sprites/audios/objetos/fogao.mp3")},
+	{"imagem": preload("res://sprites/objetos/mapa.png"), "sufixo": "APA", "resposta": "M", "audio": preload("res://sprites/audios/objetos/mapa.mp3")},
+	# --- RODADA 2 ---
+	{"imagem": preload("res://sprites/objetos/vela.png"), "sufixo": "ELA", "resposta": "V", "audio": preload("res://sprites/audios/objetos/vela.mp3")},
+	{"imagem": preload("res://sprites/objetos/poste.png"), "sufixo": "OSTE", "resposta": "P", "audio": preload("res://sprites/audios/objetos/posteSolar.mp3")},
+	{"imagem": preload("res://sprites/objetos/gps.png"), "sufixo": "PS", "resposta": "G", "audio": preload("res://sprites/audios/objetos/gps.mp3")}
 ]
 
-# Guardar as posições originais das letras da direita para resetar depois
 var posicoes_originais_letras: Dictionary = {}
 
 @export var audio_acerto: AudioStream 
@@ -58,11 +62,20 @@ func _ready() -> void:
 	if feedback_joia != null:
 		feedback_joia.hide()
 		
-	# Salva a posição inicial de cada letra da página direita para poder resetar
+	# BLINDAGEM: Garante que as fotos detectem o mouse para o som rodar
+	foto_1.mouse_filter = Control.MOUSE_FILTER_STOP
+	foto_2.mouse_filter = Control.MOUSE_FILTER_STOP
+	foto_3.mouse_filter = Control.MOUSE_FILTER_STOP
+		
+	foto_1.mouse_entered.connect(_on_obj1_mouse_entered)
+	foto_2.mouse_entered.connect(_on_obj2_mouse_entered)
+	foto_3.mouse_entered.connect(_on_obj3_mouse_entered)
+		
 	for letra_node in pagina_direita.get_children():
 		posicoes_originais_letras[letra_node.name] = letra_node.global_position
 		
 	avatar.mudar_fala("Agora vamos completar palavras. Escolha a letra inicial correta para completar a palavra. Boa sorte!", audio_instrucao, null, true)
+	
 	if audio_instrucao != null:
 		await get_tree().create_timer(audio_instrucao.get_length()).timeout
 	else:
@@ -84,18 +97,21 @@ func carregar_rodada(numero_rodada : int) -> void:
 	foto_1.texture = d1["imagem"]
 	sufixo_1.text = d1["sufixo"]
 	lacuna_1.configurar_lacuna(d1["resposta"])
+	audio_atual_1 = d1["audio"]
 	
 	# linha 2
 	var d2 = banco_desafios[indice_inicio + 1]
 	foto_2.texture = d2["imagem"]
 	sufixo_2.text = d2["sufixo"]
 	lacuna_2.configurar_lacuna(d2["resposta"])
+	audio_atual_2 = d2["audio"]
 	
 	# linha 3
 	var d3 = banco_desafios[indice_inicio + 2]
 	foto_3.texture = d3["imagem"]
 	sufixo_3.text = d3["sufixo"]
 	lacuna_3.configurar_lacuna(d3["resposta"])
+	audio_atual_3 = d3["audio"]
 	
 	resetar_posicao_letras()
 	pode_interagir = true
@@ -106,13 +122,31 @@ func resetar_posicao_letras() -> void:
 			letra_node.global_position = posicoes_originais_letras[letra_node.name]
 			letra_node.show()
 
+# --- HOVER DOS OBJETOS ---
+func _on_obj1_mouse_entered() -> void:
+	if pode_interagir and audio_atual_1 != null and not lacuna_1.preenchida:
+		_tocar_som_objeto(audio_atual_1)
+
+func _on_obj2_mouse_entered() -> void:
+	if pode_interagir and audio_atual_2 != null and not lacuna_2.preenchida:
+		_tocar_som_objeto(audio_atual_2)
+
+func _on_obj3_mouse_entered() -> void:
+	if pode_interagir and audio_atual_3 != null and not lacuna_3.preenchida:
+		_tocar_som_objeto(audio_atual_3)
+
+func _tocar_som_objeto(som: AudioStream) -> void:
+	if audio_objeto != null and not audio_objeto.playing:
+		audio_objeto.stream = som
+		audio_objeto.play()
+
 # --- VALIDAR DRAG AND DROP ---
 func validar_resposta(letra_arrastada: String, lacuna_node: Label) -> void:
 	if not pode_interagir or lacuna_node.preenchida:
 		return
 	
 	if letra_arrastada == lacuna_node.letra_correta:
-		# --- CASO: ACERTO ---
+		# --- CASO ACERTO ---
 		pode_interagir = false
 		lacuna_node.text = letra_arrastada
 		lacuna_node.preenchida = true
@@ -123,13 +157,12 @@ func validar_resposta(letra_arrastada: String, lacuna_node: Label) -> void:
 			feedback_joia.show()
 		
 		avatar.mudar_fala("Parabéns! Você acertou a letra. A palavra está correta!", audio_acerto, null, false)
-		await get_tree().create_timer(2.0).timeout
+		await get_tree().create_timer(5.0).timeout
 		if feedback_joia != null:
 			feedback_joia.hide()
 			
 		pode_interagir = true
 		
-		# Verifica se a rodada/fase acabou
 		if acertos_na_rodada == 3:
 			pode_interagir = false
 			if total_acertos_fase == 6:
@@ -139,11 +172,10 @@ func validar_resposta(letra_arrastada: String, lacuna_node: Label) -> void:
 				await get_tree().create_timer(2.0).timeout
 				carregar_rodada(2)
 	else:
-		# --- CASO: ERRO (CORRIGIDO: Agora alinhado corretamente com o if de cima) ---
+		# --- CASO ERRO ---
 		pode_interagir = false
 		dados_jogador["erros_cometidos"] += 1
 		
-		# Chegou em 5 erros, tira troféu
 		if dados_jogador["erros_cometidos"] >= 5 and not ja_avisou_erros:
 			ja_avisou_erros = true
 			if interface_trofeus != null and interface_trofeus.has_method("perder_trofeu_erros"):
@@ -158,7 +190,7 @@ func concluir_fase() -> void:
 	avatar.mudar_fala("Parabéns! Você completou o livro!", audio_fimFase, null, false)
 	if interface_trofeus != null and interface_trofeus.has_method("ganhar_fase"):
 		interface_trofeus.ganhar_fase()
-	await get_tree().create_timer(3.0).timeout
+	await get_tree().create_timer(4.0).timeout
 	
 	if proxima_fase != null:
 		get_tree().change_scene_to_packed(proxima_fase)

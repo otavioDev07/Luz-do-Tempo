@@ -2,15 +2,16 @@
 
 [ext_resource type="Texture2D" uid="uid://swxh7cer754c" path="res://sprites/telas/fase1.2.png" id="1_ck6of"]
 [ext_resource type="Script" uid="uid://ca3nc0ljkdfk" path="res://scripts/fase1.2/fase_1.2.gd" id="1_ot04g"]
+[ext_resource type="PackedScene" uid="uid://c5a8lwdog18pg" path="res://scenes/fase1_1/fase_1_1.tscn" id="2_0pr7b"]
 [ext_resource type="Texture2D" uid="uid://cgchttmm5lhq7" path="res://sprites/objetos/carro.png" id="2_44dto"]
-[ext_resource type="AudioStream" uid="uid://c86brwpdhf2un" path="res://sprites/audios/fase1_2/acerto.mp3" id="2_bjd3i"]
+[ext_resource type="AudioStream" uid="uid://c86brwpdhf2un" path="res://sprites/audios/fase1_2/acerto.mp3" id="3_2ilnc"]
 [ext_resource type="Texture2D" uid="uid://cuemrc3olc6g4" path="res://sprites/objetos/fogao.png" id="3_08bxd"]
 [ext_resource type="LabelSettings" uid="uid://bxmhrgvaypjkg" path="res://fonts/fontefase1.2.tres" id="3_ot04g"]
-[ext_resource type="AudioStream" uid="uid://dj5sgogl737at" path="res://sprites/audios/fase1_2/erro.mp3" id="3_vnrbr"]
+[ext_resource type="AudioStream" uid="uid://dj5sgogl737at" path="res://sprites/audios/fase1_2/erro.mp3" id="4_ltk26"]
 [ext_resource type="Texture2D" uid="uid://cy4gbsfjeo03n" path="res://sprites/objetos/mapa.png" id="4_ot04g"]
-[ext_resource type="AudioStream" uid="uid://dn05m4bltiqvg" path="res://sprites/audios/fase1_2/proximo.mp3" id="4_vnrbr"]
+[ext_resource type="AudioStream" uid="uid://dn05m4bltiqvg" path="res://sprites/audios/fase1_2/proximo.mp3" id="5_b6v81"]
 [ext_resource type="Script" uid="uid://cbd4cqlifqqjy" path="res://scripts/fase1.2/lacuna_drop.gd" id="5_chiyb"]
-[ext_resource type="AudioStream" uid="uid://cuthyujj3qyjn" path="res://sprites/audios/fase1_2/fim_fase1.2.mp3" id="5_sstni"]
+[ext_resource type="AudioStream" uid="uid://cuthyujj3qyjn" path="res://sprites/audios/fase1_2/fim_fase1.2.mp3" id="6_tmldt"]
 [ext_resource type="Script" uid="uid://mldl0i7n0jue" path="res://scripts/fase1.2/letra_arrastável.gd" id="7_ene0w"]
 [ext_resource type="PackedScene" uid="uid://cj4x1ts75y4p3" path="res://scenes/reusable/avatar.tscn" id="8_ay7lb"]
 [ext_resource type="Texture2D" uid="uid://cbovv0gy02j74" path="res://sprites/avatares/otavio.png" id="9_ijf30"]
@@ -21,10 +22,11 @@
 
 [node name="Fase1_2" type="Node2D" unique_id=493472733]
 script = ExtResource("1_ot04g")
-audio_acerto = ExtResource("2_bjd3i")
-audio_erro = ExtResource("3_vnrbr")
-audio_proximo = ExtResource("4_vnrbr")
-audio_fimFase = ExtResource("5_sstni")
+proxima_fase = ExtResource("2_0pr7b")
+audio_acerto = ExtResource("3_2ilnc")
+audio_erro = ExtResource("4_ltk26")
+audio_proximo = ExtResource("5_b6v81")
+audio_fimFase = ExtResource("6_tmldt")
 
 [node name="background" type="TextureRect" parent="." unique_id=1439729696]
 offset_left = 1.0
@@ -64,9 +66,12 @@ expand_mode = 1
 stretch_mode = 5
 
 [node name="Lacuna" type="Label" parent="paginaEsquerda/VBoxContainer/linhaObjeto1" unique_id=327107309]
+custom_minimum_size = Vector2(60, 100)
 layout_mode = 2
 text = "_"
 label_settings = ExtResource("3_ot04g")
+horizontal_alignment = 1
+vertical_alignment = 1
 script = ExtResource("5_chiyb")
 
 [node name="restoNome" type="Label" parent="paginaEsquerda/VBoxContainer/linhaObjeto1" unique_id=653247377]
@@ -86,9 +91,12 @@ expand_mode = 1
 stretch_mode = 5
 
 [node name="Lacuna" type="Label" parent="paginaEsquerda/VBoxContainer/linhaObjeto2" unique_id=1771531972]
+custom_minimum_size = Vector2(60, 100)
 layout_mode = 2
 text = "_"
 label_settings = ExtResource("3_ot04g")
+horizontal_alignment = 1
+vertical_alignment = 1
 script = ExtResource("5_chiyb")
 
 [node name="restoNome" type="Label" parent="paginaEsquerda/VBoxContainer/linhaObjeto2" unique_id=344453966]
@@ -108,9 +116,12 @@ expand_mode = 1
 stretch_mode = 5
 
 [node name="Lacuna" type="Label" parent="paginaEsquerda/VBoxContainer/linhaObjeto3" unique_id=146892041]
+custom_minimum_size = Vector2(60, 100)
 layout_mode = 2
 text = "_"
 label_settings = ExtResource("3_ot04g")
+horizontal_alignment = 1
+vertical_alignment = 1
 script = ExtResource("5_chiyb")
 
 [node name="restoNome" type="Label" parent="paginaEsquerda/VBoxContainer/linhaObjeto3" unique_id=1824503853]
@@ -206,13 +217,13 @@ text = "A"
 label_settings = ExtResource("3_ot04g")
 script = ExtResource("7_ene0w")
 
-[node name="letra_D" type="Label" parent="paginaDireita" unique_id=394272813]
+[node name="letra_G" type="Label" parent="paginaDireita" unique_id=394272813]
 layout_mode = 0
 offset_left = 360.0
 offset_top = 180.0
 offset_right = 410.0
 offset_bottom = 230.0
-text = "D"
+text = "G"
 label_settings = ExtResource("3_ot04g")
 script = ExtResource("7_ene0w")
 
@@ -241,3 +252,5 @@ offset_right = 1330.0
 offset_bottom = 896.0
 texture = ExtResource("14_4wu1t")
 expand_mode = 1
+
+[node name="AudioObjeto" type="AudioStreamPlayer" parent="." unique_id=1813052838]
