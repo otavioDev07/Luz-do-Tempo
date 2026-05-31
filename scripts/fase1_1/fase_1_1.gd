@@ -146,12 +146,6 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	dados_jogador["tempo_decorrido"] += delta
-	
-	# Se passar de 5 minutos, avisa a cena de troféus UMA VEZ
-	if dados_jogador["tempo_decorrido"] >= 300.0 and not ja_avisou_tempo:
-		ja_avisou_tempo = true
-		interface_trofeus.perder_trofeu_tempo()
-
 
 func sortear_novo_objeto() -> void:
 	var objetos_disponiveis = []
