@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://bbxnh2tedp6eo"]
+
+[ext_resource type="Texture2D" uid="uid://pchewpvbysy" path="res://sprites/avatares/voltar.png" id="1_ec6bg"]
+[ext_resource type="Script" uid="uid://c4i8k6cgs4xa8" path="res://scripts/reusable/voltar.gd" id="2_uadsl"]
+[ext_resource type="AudioStream" uid="uid://4qeqowvt5pig" path="res://sprites/audios/fase1_1/teste.mp3" id="3_y72gf"]
+
+[node name="Voltar" type="TextureButton" unique_id=1951791252]
+offset_left = 45.0
+offset_top = 981.0
+offset_right = 429.0
+offset_bottom = 1063.0
+texture_normal = ExtResource("1_ec6bg")
+script = ExtResource("2_uadsl")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=373038393]
+stream = ExtResource("3_y72gf")
