@@ -17,7 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://cbovv0gy02j74" path="res://sprites/avatares/otavio.png" id="9_ijf30"]
 [ext_resource type="PackedScene" uid="uid://d0tmuuxhi50sq" path="res://scenes/reusable/pop_up_afk.tscn" id="9_k087y"]
 [ext_resource type="PackedScene" uid="uid://boqtng8bfpucm" path="res://scenes/reusable/interface_trofeus.tscn" id="10_ijf30"]
-[ext_resource type="PackedScene" path="res://scenes/reusable/voltar.tscn" id="11_342k4"]
+[ext_resource type="PackedScene" uid="uid://c3pg8dfvgnhoo" path="res://scenes/reusable/voltar.tscn" id="11_342k4"]
 [ext_resource type="Texture2D" uid="uid://bbd47qm732nb7" path="res://sprites/telas/correto.png" id="14_4wu1t"]
 
 [node name="Fase1_2" type="Node2D" unique_id=493472733]
