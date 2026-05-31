@@ -156,8 +156,8 @@ func validar_resposta(letra_arrastada: String, lacuna_node: Label) -> void:
 		if feedback_joia != null:
 			feedback_joia.show()
 		
-		avatar.mudar_fala("Parabéns! Você acertou a letra. A palavra está correta!", audio_acerto, null, false)
-		await get_tree().create_timer(5.0).timeout
+		avatar.mudar_fala("Você acertou a letra!", audio_acerto, null, false)
+		await get_tree().create_timer(2.0).timeout
 		if feedback_joia != null:
 			feedback_joia.hide()
 			
@@ -181,7 +181,7 @@ func validar_resposta(letra_arrastada: String, lacuna_node: Label) -> void:
 			if interface_trofeus != null and interface_trofeus.has_method("perder_trofeu_erros"):
 				interface_trofeus.perder_trofeu_erros()
 				
-		avatar.mudar_fala("Essa não é a letra certa. Observe a palavra e tente novamente.", audio_erro, null, false)
+		avatar.mudar_fala("Essa não é a letra certa. Observe o objeto e tente novamente.", audio_erro, null, false)
 		await get_tree().create_timer(2.0).timeout
 		pode_interagir = true
 			
