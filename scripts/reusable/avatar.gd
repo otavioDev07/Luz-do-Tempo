@@ -1,5 +1,6 @@
 extends Control
 
+@export var avatar_inicial: Texture2D
 @onready var label = $Label
 @onready var audio_player = $AudioStreamPlayer
 @onready var botao_avatar = $TextureButton # Certifique-se que o nome aqui é igual ao da sua árvore

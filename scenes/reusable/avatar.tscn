@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://cj4x1ts75y4p3"]
 
 [ext_resource type="Script" uid="uid://dgetkcxqja2es" path="res://scripts/reusable/avatar.gd" id="1_2r6bg"]
-[ext_resource type="Texture2D" uid="uid://b5x0mebo735k0" path="res://sprites/avatares/adrian.png" id="2_25io2"]
 [ext_resource type="FontFile" uid="uid://cyqlcfh8ho82y" path="res://fonts/PressStart2P-Regular.ttf" id="3_2r6bg"]
 
 [sub_resource type="Theme" id="Theme_o2m63"]
@@ -22,7 +21,6 @@ texture_repeat = 1
 layout_mode = 0
 offset_right = 140.0
 offset_bottom = 126.0
-texture_normal = ExtResource("2_25io2")
 ignore_texture_size = true
 stretch_mode = 5
 
