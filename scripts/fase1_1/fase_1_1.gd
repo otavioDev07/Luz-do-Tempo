@@ -2,14 +2,14 @@ extends Node2D
 
 @export var cena_objeto_base: PackedScene 
 
-# --- REFERÊNCIAS DOS TROFÉUS E FEEDBACK ---
-@onready var trofeu_1 = $InterfaceTrofeus/HBoxContainer/Trofeu1 
-@onready var trofeu_2 = $InterfaceTrofeus/HBoxContainer/Trofeu2 
-@onready var trofeu_3 = $InterfaceTrofeus/HBoxContainer/Trofeu3 
+# --- REFERÊNCIAS ---
 @onready var feedback_joia = $FeedbackJoia 
+@onready var interface_trofeus = $InterfaceTrofeus # <-- Chama a cena inteira dos troféus!
 
-# --- VARIÁVEL DE TRAVA GLOBAL ---
-var pode_interagir: bool = false # Controla se o jogador pode mexer no jogo
+# --- VARIÁVEL DE TRAVA GLOBAL E CONTROLE DE AVISOS ---
+var pode_interagir: bool = false 
+var ja_avisou_tempo: bool = false # Evita chamar a interface repetidas vezes
+var ja_avisou_erros: bool = false # Evita chamar a interface repetidas vezes
 
 # --- DADOS DO JOGADOR ---
 var dados_jogador = {
@@ -17,11 +17,6 @@ var dados_jogador = {
 	"tempo_decorrido": 0.0,
 	"erros_cometidos": 0
 }
-
-var imagem_trofeu_vazio = preload("res://sprites/avatares/trofeu_vazio.png")
-
-var perdeu_trofeu_tempo: bool = false
-var perdeu_trofeu_erros: bool = false
 
 # --- CONFIGURAÇÃO DA ESTANTE ---
 var inicio_antigo: Vector2 = Vector2(120, 280)  
@@ -32,7 +27,6 @@ var espacamento_y: float = 250.0
 
 var total_antigo: int = 0
 var total_novo: int = 0
-
 
 # --- BANCO DE DADOS DE OBJETOS ---
 var lista_de_objetos = [
@@ -122,7 +116,6 @@ var lista_de_objetos = [
 	}
 ]
 
-
 # --- VARIÁVEIS DO AVATAR ---
 var imgavatar = preload("res://sprites/avatares/adrian.png")
 var audio_instrucao = preload("res://sprites/audios/fase1_1/instrucao.mp3")
@@ -152,14 +145,12 @@ func _ready() -> void:
 
 
 func _process(delta: float) -> void:
-	# O tempo soma continuamente, mesmo se o avatar estiver falando
 	dados_jogador["tempo_decorrido"] += delta
 	
-	# Se passar de 5 minutos (300 segundos), perde o troféu de tempo
-	if dados_jogador["tempo_decorrido"] >= 300.0 and not perdeu_trofeu_tempo:
-		perdeu_trofeu_tempo = true
-		if trofeu_2 != null:
-			trofeu_2.texture = imagem_trofeu_vazio
+	# Se passar de 5 minutos, avisa a cena de troféus UMA VEZ
+	if dados_jogador["tempo_decorrido"] >= 300.0 and not ja_avisou_tempo:
+		ja_avisou_tempo = true
+		interface_trofeus.perder_trofeu_tempo()
 
 
 func sortear_novo_objeto() -> void:
@@ -230,15 +221,13 @@ func _on_objeto_acertou(objeto_instanciado: Node2D) -> void:
 		
 	objeto_instanciado.global_position = posicao_final
 	
-	# --- ESPERA 1 SEGUNDO E ESCONDE O JOIA ---
+	# --- ESPERA E ESCONDE O JOIA ---
 	await get_tree().create_timer(2.0).timeout
 	if feedback_joia != null:
 		feedback_joia.hide()
 	
-	# --- ESPERA O RESTO DO ÁUDIO ANTES DE CHAMAR O PRÓXIMO ---
 	var tempo_restante = 0.1
 	if audio_acerto != null:
-		# Pega a duração total do áudio e subtrai o 1 segundo que o joia já esperou
 		tempo_restante = max(0.1, audio_acerto.get_length() - 1.0)
 		
 	await get_tree().create_timer(tempo_restante).timeout
@@ -249,10 +238,10 @@ func _on_objeto_errou() -> void:
 	pode_interagir = false # Trava o jogo durante a bronca
 	dados_jogador["erros_cometidos"] += 1
 	
-	if dados_jogador["erros_cometidos"] >= 5 and not perdeu_trofeu_erros:
-		perdeu_trofeu_erros = true
-		if trofeu_3 != null:
-			trofeu_3.texture = imagem_trofeu_vazio
+	# Se chegar em 5 erros, avisa a cena de troféus UMA VEZ
+	if dados_jogador["erros_cometidos"] >= 5 and not ja_avisou_erros:
+		ja_avisou_erros = true
+		interface_trofeus.perder_trofeu_erros()
 			
 	$Avatar.mudar_fala(
 		"Tente novamente! Esse objeto pertence à outra caixa.", 
@@ -267,9 +256,8 @@ func _on_objeto_errou() -> void:
 		tempo_espera = audio_erro.get_length()
 		
 	await get_tree().create_timer(tempo_espera).timeout
-	pode_interagir = true # Libera o jogo de volta para o jogador tentar
+	pode_interagir = true # Libera o jogo
 
 
 func _on_texture_button_pressed() -> void:
-	# Esse comando troca a tela atual pela tela do tutorial
 	get_tree().change_scene_to_file("res://scenes/fase1_1/fase_1_1.tscn")
