@@ -118,7 +118,7 @@ var lista_de_objetos = [
 
 # --- VARIÁVEIS DO AVATAR ---
 var imgavatar = preload("res://sprites/avatares/adrian.png")
-var audio_instrucao = preload("res://sprites/audios/fase1_1/instrucao.mp3")
+var audio_instrucao: AudioStream # = preload("res://sprites/audios/fase1_1/instrucao.mp3")
 
 # Depois, se for adicionar áudio aqui, não esqueça de colocar preload()
 var audio_acerto: AudioStream 
