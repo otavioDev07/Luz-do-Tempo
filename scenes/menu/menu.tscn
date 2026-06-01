@@ -1,0 +1,85 @@
+[gd_scene format=3 uid="uid://c3py0848c8gyt"]
+
+[ext_resource type="Script" uid="uid://cvhk7uy4ol5rd" path="res://scripts/menu/menu.gd" id="1_v5e1w"]
+[ext_resource type="Texture2D" uid="uid://5tpsmtkdfxdn" path="res://sprites/telas/menu.png" id="2_nffhl"]
+[ext_resource type="Texture2D" uid="uid://u08ko676imd1" path="res://sprites/avatares/Titulo_Menu.png" id="3_dnmm8"]
+[ext_resource type="Texture2D" uid="uid://b88o71lbp07mn" path="res://sprites/avatares/jogar.png" id="4_nqj45"]
+[ext_resource type="Texture2D" uid="uid://bkhv75a03wpxf" path="res://sprites/avatares/sobre (1).png" id="5_t022d"]
+[ext_resource type="Texture2D" uid="uid://tstuon5lwa5g" path="res://sprites/avatares/relatorio (1).png" id="6_vd2iv"]
+[ext_resource type="Texture2D" uid="uid://br3d7d3fgj3k1" path="res://sprites/avatares/sair.png" id="7_sum3h"]
+[ext_resource type="AudioStream" uid="uid://b78knkqulcr4p" path="res://sprites/audios/reusable/botao.mp3" id="8_dsxoc"]
+
+[node name="Menu" type="Control" unique_id=1656722886]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_v5e1w")
+
+[node name="background" type="TextureRect" parent="." unique_id=1911529655]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("2_nffhl")
+
+[node name="Titulo" type="TextureRect" parent="." unique_id=1804388246]
+layout_mode = 0
+offset_left = 408.0
+offset_top = -42.0
+offset_right = 1517.0
+offset_bottom = 462.0
+texture = ExtResource("3_dnmm8")
+
+[node name="botao_jogar" type="TextureButton" parent="." unique_id=1894308404]
+layout_mode = 0
+offset_left = 724.0
+offset_top = 457.0
+offset_right = 1335.0
+offset_bottom = 573.0
+pivot_offset = Vector2(305.5, 58)
+texture_normal = ExtResource("4_nqj45")
+
+[node name="botao_sobre" type="TextureButton" parent="." unique_id=94517275]
+layout_mode = 0
+offset_left = 728.0
+offset_top = 719.0
+offset_right = 1339.0
+offset_bottom = 835.0
+pivot_offset = Vector2(305.5, 58)
+texture_normal = ExtResource("5_t022d")
+
+[node name="botao_relatorio" type="TextureButton" parent="." unique_id=860703962]
+layout_mode = 0
+offset_left = 725.0
+offset_top = 586.0
+offset_right = 1283.0
+offset_bottom = 702.0
+pivot_offset = Vector2(305.5, 58)
+texture_normal = ExtResource("6_vd2iv")
+
+[node name="botao_sair" type="TextureButton" parent="." unique_id=1922352132]
+layout_mode = 0
+offset_left = 28.0
+offset_top = 959.0
+offset_right = 586.0
+offset_bottom = 1060.0
+texture_normal = ExtResource("7_sum3h")
+
+[node name="botao" type="AudioStreamPlayer" parent="." unique_id=1380174551]
+stream = ExtResource("8_dsxoc")
+volume_db = -10.0
+
+[connection signal="mouse_entered" from="botao_jogar" to="." method="_on_botao_jogar_mouse_entered"]
+[connection signal="mouse_exited" from="botao_jogar" to="." method="_on_botao_jogar_mouse_exited"]
+[connection signal="pressed" from="botao_jogar" to="." method="_on_botao_jogar_pressed"]
+[connection signal="mouse_entered" from="botao_sobre" to="." method="_on_botao_sobre_mouse_entered"]
+[connection signal="mouse_exited" from="botao_sobre" to="." method="_on_botao_sobre_mouse_exited"]
+[connection signal="pressed" from="botao_sobre" to="." method="_on_botao_sobre_pressed"]
+[connection signal="mouse_entered" from="botao_relatorio" to="." method="_on_botao_relatorio_mouse_entered"]
+[connection signal="mouse_exited" from="botao_relatorio" to="." method="_on_botao_relatorio_mouse_exited"]
+[connection signal="pressed" from="botao_relatorio" to="." method="_on_botao_relatorio_pressed"]
+[connection signal="mouse_entered" from="botao_sair" to="." method="_on_botao_sair_mouse_entered"]
+[connection signal="mouse_exited" from="botao_sair" to="." method="_on_botao_sair_mouse_exited"]
+[connection signal="pressed" from="botao_sair" to="." method="_on_botao_sair_pressed"]
