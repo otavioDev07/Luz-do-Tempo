@@ -93,10 +93,11 @@ func verificar_soltura() -> void:
 
 
 # --- NOVA FUNÇÃO: Toca o áudio ---
+# --- NOVA FUNÇÃO: Toca o áudio ---
 func _on_mouse_entered() -> void:
 	# --- TRAVA DE ÁUDIO ---
-	# Adicionamos "get_parent().pode_interagir" para ele ficar mudo enquanto o Avatar fala
-	if not fixado and get_parent().pode_interagir and tocador_de_audio != null and tocador_de_audio.stream != null:
+	# Adicionamos "not arrastando" para o som não repetir enquanto o jogador move o objeto
+	if not fixado and not arrastando and get_parent().pode_interagir and tocador_de_audio != null and tocador_de_audio.stream != null:
 		# Verifica se não está tocando no momento, para não encavalar o áudio
 		if not tocador_de_audio.playing:
 			tocador_de_audio.play()
