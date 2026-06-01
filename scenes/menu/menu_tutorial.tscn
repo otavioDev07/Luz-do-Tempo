@@ -1,0 +1,66 @@
+[gd_scene format=3 uid="uid://cay3odetun4g"]
+
+[ext_resource type="Texture2D" uid="uid://cpl3yqpo1bv3y" path="res://sprites/telas/nome.png" id="1_bsmrv"]
+[ext_resource type="Script" uid="uid://dbmr0kctms0kg" path="res://scenes/menu/menu_tutorial.gd" id="1_slmxu"]
+[ext_resource type="Texture2D" uid="uid://pchewpvbysy" path="res://sprites/avatares/voltar.png" id="2_0de3i"]
+[ext_resource type="Texture2D" uid="uid://cd5buxuaycpr8" path="res://sprites/avatares/Placeholder.png" id="3_v7wfq"]
+[ext_resource type="Texture2D" uid="uid://bbc4s5r1gqq3o" path="res://sprites/avatares/Continuar.png" id="4_25o0g"]
+[ext_resource type="AudioStream" uid="uid://rvvn222npbye" path="res://sprites/audios/reusable/voltar.mp3" id="6_mug4p"]
+[ext_resource type="AudioStream" uid="uid://bumr6cm0l5bge" path="res://sprites/audios/reusable/woosh.mp3" id="7_wvrxr"]
+[ext_resource type="AudioStream" uid="uid://b78knkqulcr4p" path="res://sprites/audios/reusable/botao.mp3" id="8_j0csh"]
+
+[node name="menu_tutorial" type="Control" unique_id=75578268]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_slmxu")
+
+[node name="background" type="TextureRect" parent="." unique_id=1212577567]
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+texture = ExtResource("1_bsmrv")
+
+[node name="botao_voltar" type="TextureButton" parent="." unique_id=1634314053]
+layout_mode = 0
+offset_left = 32.0
+offset_top = 971.0
+offset_right = 413.0
+offset_bottom = 1043.0
+texture_normal = ExtResource("2_0de3i")
+
+[node name="placeholder" type="TextureRect" parent="." unique_id=614709231]
+layout_mode = 0
+offset_left = 522.0
+offset_top = 158.0
+offset_right = 1459.0
+offset_bottom = 813.0
+texture = ExtResource("3_v7wfq")
+
+[node name="botao_continuar" type="TextureButton" parent="." unique_id=452355304]
+layout_mode = 0
+offset_left = 664.0
+offset_top = 805.0
+offset_right = 1282.0
+offset_bottom = 950.0
+pivot_offset = Vector2(309, 72.5)
+texture_normal = ExtResource("4_25o0g")
+
+[node name="voltar" type="AudioStreamPlayer" parent="." unique_id=266206003]
+stream = ExtResource("6_mug4p")
+
+[node name="woosh" type="AudioStreamPlayer" parent="." unique_id=970539499]
+stream = ExtResource("7_wvrxr")
+volume_db = -20.0
+
+[node name="botao" type="AudioStreamPlayer" parent="." unique_id=2143964225]
+stream = ExtResource("8_j0csh")
+
+[connection signal="mouse_entered" from="botao_voltar" to="." method="_on_botao_voltar_mouse_entered"]
+[connection signal="pressed" from="botao_voltar" to="." method="_on_botao_voltar_pressed"]
+[connection signal="mouse_entered" from="botao_continuar" to="." method="_on_botao_continuar_mouse_entered"]
+[connection signal="mouse_exited" from="botao_continuar" to="." method="_on_botao_continuar_mouse_exited"]
+[connection signal="pressed" from="botao_continuar" to="." method="_on_botao_continuar_pressed"]

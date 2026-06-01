@@ -1,0 +1,126 @@
+[gd_scene format=3 uid="uid://cud5p31vx48al"]
+
+[ext_resource type="Script" uid="uid://b16wvcmhpixsx" path="res://scripts/menu/menu_sobre.gd" id="1_mt7pv"]
+[ext_resource type="Texture2D" uid="uid://c13f3803p3l1m" path="res://sprites/telas/sobre.png" id="2_miv1q"]
+[ext_resource type="Texture2D" uid="uid://pchewpvbysy" path="res://sprites/avatares/voltar.png" id="3_hi6x2"]
+[ext_resource type="AudioStream" uid="uid://rvvn222npbye" path="res://sprites/audios/reusable/voltar.mp3" id="4_1x5oa"]
+[ext_resource type="AudioStream" uid="uid://bumr6cm0l5bge" path="res://sprites/audios/reusable/woosh.mp3" id="5_bpo37"]
+[ext_resource type="Texture2D" uid="uid://crdkbioqtqm7f" path="res://sprites/avatares/fundo_nome.png" id="6_yo7g5"]
+[ext_resource type="Texture2D" uid="uid://dimti6oygjtnv" path="res://sprites/avatares/nome_otavio.png" id="7_y7heo"]
+[ext_resource type="Texture2D" uid="uid://dcyk1mb8bunmi" path="res://sprites/avatares/nome_pedro.png" id="8_4ud3a"]
+[ext_resource type="Texture2D" uid="uid://bolnk4ytbmoe" path="res://sprites/avatares/nome_brenno.png" id="9_h6nov"]
+[ext_resource type="Texture2D" uid="uid://ddkfcf1lruric" path="res://sprites/avatares/nome_adrian.png" id="10_fi8pf"]
+[ext_resource type="Texture2D" uid="uid://clljn3tnh3s4p" path="res://sprites/avatares/nome_vinicius.png" id="11_m3vq5"]
+
+[node name="menu_sobre" type="Control" unique_id=1581901081]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_mt7pv")
+
+[node name="background" type="TextureRect" parent="." unique_id=2015050438]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("2_miv1q")
+
+[node name="botao_voltar" type="TextureButton" parent="." unique_id=1651646188]
+layout_mode = 0
+offset_left = 21.0
+offset_top = 990.0
+offset_right = 402.0
+offset_bottom = 1062.0
+texture_normal = ExtResource("3_hi6x2")
+
+[node name="voltar" type="AudioStreamPlayer" parent="." unique_id=1541844587]
+stream = ExtResource("4_1x5oa")
+
+[node name="woosh" type="AudioStreamPlayer" parent="." unique_id=1337574182]
+stream = ExtResource("5_bpo37")
+volume_db = -20.0
+
+[node name="fundo_nome" type="TextureRect" parent="." unique_id=1779835588]
+layout_mode = 0
+offset_left = 219.0
+offset_top = 200.0
+offset_right = 380.0
+offset_bottom = 240.0
+texture = ExtResource("6_yo7g5")
+
+[node name="fundo_nome2" type="TextureRect" parent="." unique_id=1503685883]
+layout_mode = 0
+offset_left = 385.0
+offset_top = 147.0
+offset_right = 546.0
+offset_bottom = 187.0
+texture = ExtResource("6_yo7g5")
+
+[node name="fundo_nome3" type="TextureRect" parent="." unique_id=2072043558]
+layout_mode = 0
+offset_left = 1181.0
+offset_top = 217.0
+offset_right = 1342.0
+offset_bottom = 257.0
+texture = ExtResource("6_yo7g5")
+
+[node name="fundo_nome4" type="TextureRect" parent="." unique_id=514547763]
+layout_mode = 0
+offset_left = 1367.0
+offset_top = 217.0
+offset_right = 1528.0
+offset_bottom = 257.0
+texture = ExtResource("6_yo7g5")
+
+[node name="fundo_nome5" type="TextureRect" parent="." unique_id=873578501]
+layout_mode = 0
+offset_left = 1550.0
+offset_top = 247.0
+offset_right = 1711.0
+offset_bottom = 287.0
+texture = ExtResource("6_yo7g5")
+
+[node name="otavio" type="TextureRect" parent="." unique_id=1970196991]
+layout_mode = 0
+offset_left = 404.0
+offset_top = 147.0
+offset_right = 526.0
+offset_bottom = 187.0
+texture = ExtResource("7_y7heo")
+
+[node name="pedro" type="TextureRect" parent="." unique_id=1373459616]
+layout_mode = 0
+offset_left = 248.0
+offset_top = 200.0
+offset_right = 351.0
+offset_bottom = 240.0
+texture = ExtResource("8_4ud3a")
+
+[node name="brenno" type="TextureRect" parent="." unique_id=341828777]
+layout_mode = 0
+offset_left = 1389.0
+offset_top = 217.0
+offset_right = 1511.0
+offset_bottom = 257.0
+texture = ExtResource("9_h6nov")
+
+[node name="adrian" type="TextureRect" parent="." unique_id=749801247]
+layout_mode = 0
+offset_left = 1200.0
+offset_top = 218.0
+offset_right = 1322.0
+offset_bottom = 258.0
+texture = ExtResource("10_fi8pf")
+
+[node name="vinicius" type="TextureRect" parent="." unique_id=189053861]
+layout_mode = 0
+offset_left = 1550.0
+offset_top = 247.0
+offset_right = 1711.0
+offset_bottom = 287.0
+texture = ExtResource("11_m3vq5")
+
+[connection signal="mouse_entered" from="botao_voltar" to="." method="_on_botao_voltar_mouse_entered"]
+[connection signal="pressed" from="botao_voltar" to="." method="_on_botao_voltar_pressed"]
