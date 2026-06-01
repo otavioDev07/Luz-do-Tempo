@@ -131,6 +131,8 @@ wait_time = 120.0
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1982883712]
 
+[node name="AudioVoz" type="AudioStreamPlayer" parent="." unique_id=1878538548]
+
 [connection signal="pressed" from="Panel/ButtonSim" to="." method="_on_button_sim_pressed"]
 [connection signal="pressed" from="Panel/ButtonNao" to="." method="_on_button_nao_pressed"]
 [connection signal="timeout" from="Timer5min" to="." method="_on_timer_5_min_timeout"]

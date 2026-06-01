@@ -36,3 +36,18 @@ func perder_trofeu_erros() -> void:
 # Função para a fase chamar quando o jogador ganhar, para o tempo não continuar rodando à toa
 func parar_timer() -> void:
 	timer_rodando = false
+	
+func ganhar_fase() -> void:
+	timer_rodando = false # Para o tempo na hora!
+	
+	print("--- FIM DA FASE: Contabilizando Troféus ---")
+	print("Fase Concluída com Sucesso! Troféu 1 (Vitória) GARANTIDO.")
+	
+	# Aqui você faz uma checagem rápida para ver o que sobrou
+	if not perdeu_tempo:
+		print("🏆 Jogador levou o Troféu 2 (Tempo)!")
+	if not perdeu_erros:
+		print("🏆 Jogador levou o Troféu 3 (Sem Erros)!")
+		
+	# Se no futuro você quiser fazer os troféus brilharem ou piscarem na vitória,
+	# o código de animação vai entrar bem aqui dentro!

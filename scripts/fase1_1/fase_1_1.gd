@@ -34,84 +34,84 @@ var lista_de_objetos = [
 		"nome": "Vela",
 		"tipo": "antigo",
 		"imagem": preload("res://sprites/objetos/vela.png"),
-		"audio_nome": preload("res://sprites/audios/objetos/teste.mp3"),
+		"audio_nome": preload("res://sprites/audios/objetos/vela.mp3"),
 		"usado": false
 	},
 	{
 		"nome": "Carroça",
 		"tipo": "antigo",
 		"imagem": preload("res://sprites/objetos/carroca.png"),
-		"audio_nome": preload("res://sprites/audios/objetos/teste.mp3"),
+		"audio_nome": preload("res://sprites/audios/objetos/carroca.mp3"),
 		"usado": false
 	},
 	{
 		"nome": "Fogão",
 		"tipo": "antigo",
 		"imagem": preload("res://sprites/objetos/fogao.png"),
-		"audio_nome": preload("res://sprites/audios/objetos/teste.mp3"),
+		"audio_nome": preload("res://sprites/audios/objetos/fogao.mp3"),
 		"usado": false
 	},
 	{
 		"nome": "Lampião",
 		"tipo": "antigo",
 		"imagem": preload("res://sprites/objetos/lampiao.png"),
-		"audio_nome": preload("res://sprites/audios/objetos/teste.mp3"),
+		"audio_nome": preload("res://sprites/audios/objetos/lampiao.mp3"),
 		"usado": false
 	},
 	{
 		"nome": "Mapa",
 		"tipo": "antigo",
 		"imagem": preload("res://sprites/objetos/mapa.png"),
-		"audio_nome": preload("res://sprites/audios/objetos/teste.mp3"),
+		"audio_nome": preload("res://sprites/audios/objetos/mapa.mp3"),
 		"usado": false
 	},
 	{
 		"nome": "Telefone Fixo",
 		"tipo": "antigo",
 		"imagem": preload("res://sprites/objetos/telefone_fixo.png"),
-		"audio_nome": preload("res://sprites/audios/objetos/teste.mp3"),
+		"audio_nome": preload("res://sprites/audios/objetos/telefone.mp3"),
 		"usado": false
 	},
 	{
 		"nome": "Microondas",
 		"tipo": "novo",
 		"imagem": preload("res://sprites/objetos/microondas.png"),
-		"audio_nome": preload("res://sprites/audios/objetos/teste.mp3"),
+		"audio_nome": preload("res://sprites/audios/objetos/microondas.mp3"),
 		"usado": false
 	},
 	{
 		"nome": "Poste",
 		"tipo": "novo",
 		"imagem": preload("res://sprites/objetos/poste.png"),
-		"audio_nome": preload("res://sprites/audios/objetos/teste.mp3"),
+		"audio_nome": preload("res://sprites/audios/objetos/posteSolar.mp3"),
 		"usado": false
 	},
 	{
 		"nome": "Lâmpada",
 		"tipo": "novo",
 		"imagem": preload("res://sprites/objetos/lampada.png"),
-		"audio_nome": preload("res://sprites/audios/objetos/teste.mp3"),
+		"audio_nome": preload("res://sprites/audios/objetos/lampada.mp3"),
 		"usado": false
 	},
 	{
 		"nome": "GPS",
 		"tipo": "novo",
 		"imagem": preload("res://sprites/objetos/gps.png"),
-		"audio_nome": preload("res://sprites/audios/objetos/teste.mp3"),
+		"audio_nome": preload("res://sprites/audios/objetos/gps.mp3"),
 		"usado": false
 	},
 	{
 		"nome": "Carro",
 		"tipo": "novo",
 		"imagem": preload("res://sprites/objetos/carro.png"),
-		"audio_nome": preload("res://sprites/audios/objetos/teste.mp3"),
+		"audio_nome": preload("res://sprites/audios/objetos/carro.mp3"),
 		"usado": false
 	},
 	{
-		"nome": "Tablet",
+		"nome": "Celular",
 		"tipo": "novo",
 		"imagem": preload("res://sprites/objetos/celular.png"),
-		"audio_nome": preload("res://sprites/audios/objetos/teste.mp3"),
+		"audio_nome": preload("res://sprites/audios/objetos/celular.mp3"),
 		"usado": false
 	}
 ]
