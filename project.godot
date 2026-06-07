@@ -11,8 +11,12 @@ config_version=5
 [application]
 
 config/name="Luz do Tempo"
-run/main_scene="uid://c5a8lwdog18pg"
+run/main_scene="uid://c3py0848c8gyt"
 config/features=PackedStringArray("4.6", "Forward Plus")
+
+[autoload]
+
+MusicManager="*uid://dug6pwtjllrum"
 
 [display]
 

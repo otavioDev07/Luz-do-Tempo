@@ -126,6 +126,7 @@ var audio_erro: AudioStream
 
 
 func _ready() -> void:
+	MusicManager.tocar_jogo()
 	pode_interagir = false # Trava o jogo no início
 	
 	$Avatar.mudar_fala(

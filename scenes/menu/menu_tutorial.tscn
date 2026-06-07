@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cay3odetun4g"]
 
 [ext_resource type="Texture2D" uid="uid://cpl3yqpo1bv3y" path="res://sprites/telas/nome.png" id="1_bsmrv"]
-[ext_resource type="Script" uid="uid://dbmr0kctms0kg" path="res://scenes/menu/menu_tutorial.gd" id="1_slmxu"]
+[ext_resource type="Script" uid="uid://dbmr0kctms0kg" path="res://scripts/menu/menu_tutorial.gd" id="1_slmxu"]
 [ext_resource type="Texture2D" uid="uid://pchewpvbysy" path="res://sprites/avatares/voltar.png" id="2_0de3i"]
 [ext_resource type="Texture2D" uid="uid://cd5buxuaycpr8" path="res://sprites/avatares/Placeholder.png" id="3_v7wfq"]
 [ext_resource type="Texture2D" uid="uid://bbc4s5r1gqq3o" path="res://sprites/avatares/Continuar.png" id="4_25o0g"]
