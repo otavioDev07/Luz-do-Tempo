@@ -1,0 +1,109 @@
+[gd_scene format=3 uid="uid://hnlw35k8o8co"]
+
+[ext_resource type="Script" uid="uid://d21rttcmbcrlw" path="res://scenes/fase2/fase_2_1.gd" id="1_8gmy7"]
+[ext_resource type="Texture2D" uid="uid://iirpajjo5h7o" path="res://sprites/telas/garagem.png" id="4_apmc5"]
+[ext_resource type="Texture2D" uid="uid://cgchttmm5lhq7" path="res://sprites/objetos/carro.png" id="5_k6b5r"]
+[ext_resource type="Texture2D" uid="uid://2pc80miou8si" path="res://sprites/objetos/carroca.png" id="6_oi58x"]
+[ext_resource type="Texture2D" uid="uid://p4qxbt7oa53g" path="res://sprites/avatares/vinicius.png" id="7_gu0lq"]
+[ext_resource type="Texture2D" uid="uid://crdkbioqtqm7f" path="res://sprites/avatares/fundo_nome.png" id="8_u4nw3"]
+[ext_resource type="Texture2D" uid="uid://c46itx7ctltcf" path="res://sprites/avatares/trofeu_completo.png" id="9_sbgg6"]
+
+[node name="Fase2_1" type="Node2D" unique_id=1588668891]
+script = ExtResource("1_8gmy7")
+
+[node name="Fundo" type="Sprite2D" parent="." unique_id=677180755]
+texture = ExtResource("4_apmc5")
+centered = false
+
+[node name="BotaoCarroca" type="TextureButton" parent="." unique_id=413832817]
+offset_left = 978.0
+offset_top = 545.0
+offset_right = 1645.0
+offset_bottom = 961.0
+texture_normal = ExtResource("6_oi58x")
+
+[node name="BotaoCarro" type="TextureButton" parent="." unique_id=1200037661]
+offset_left = 310.0
+offset_top = 638.0
+offset_right = 887.0
+offset_bottom = 972.0
+texture_normal = ExtResource("5_k6b5r")
+
+[node name="AvatarVinicius" type="Sprite2D" parent="." unique_id=495021633]
+position = Vector2(367, 113)
+scale = Vector2(0.36410257, 0.2576687)
+texture = ExtResource("7_gu0lq")
+
+[node name="CaixaDeTexto" type="TextureRect" parent="." unique_id=858437126]
+offset_left = 505.0
+offset_top = 49.0
+offset_right = 1724.0
+offset_bottom = 195.0
+texture = ExtResource("8_u4nw3")
+
+[node name="Mensagem" type="Label" parent="CaixaDeTexto" unique_id=1794669703]
+layout_mode = 0
+offset_right = 1220.0
+offset_bottom = 145.0
+theme_override_font_sizes/font_size = 45
+text = "Qual a melhor opção para se locomover hoje?"
+
+[node name="MensagemDeErro" type="Label" parent="CaixaDeTexto" unique_id=1500944080]
+layout_mode = 0
+offset_right = 1220.0
+offset_bottom = 145.0
+theme_override_font_sizes/font_size = 45
+text = "Ops! Vamos tentar novamente."
+
+[node name="MensagemDeAcerto" type="Label" parent="CaixaDeTexto" unique_id=1066839576]
+layout_mode = 0
+offset_right = 1217.0
+offset_bottom = 147.0
+theme_override_font_sizes/font_size = 45
+text = "Muito bem! Você acertou."
+
+[node name="BarraDeTrofeus" type="HBoxContainer" parent="." unique_id=357960042]
+offset_left = 730.0
+offset_top = 905.0
+offset_right = 1248.0
+offset_bottom = 1065.0
+
+[node name="Trofeu1" type="TextureRect" parent="BarraDeTrofeus" unique_id=1048088195]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+texture = ExtResource("9_sbgg6")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Trofeu2" type="TextureRect" parent="BarraDeTrofeus" unique_id=1635568226]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+texture = ExtResource("9_sbgg6")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Trofeu3" type="TextureRect" parent="BarraDeTrofeus" unique_id=1255678136]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+texture = ExtResource("9_sbgg6")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Carro" type="TextureRect" parent="." unique_id=989684170]
+visible = false
+offset_left = 679.0
+offset_top = 318.0
+offset_right = 1256.0
+offset_bottom = 627.0
+texture = ExtResource("5_k6b5r")
+
+[node name="Carroca" type="TextureRect" parent="." unique_id=1311657764]
+visible = false
+offset_left = 593.0
+offset_top = 232.0
+offset_right = 1260.0
+offset_bottom = 648.0
+texture = ExtResource("6_oi58x")
+
+[connection signal="pressed" from="BotaoCarroca" to="." method="_on_botao_carroca_pressed"]
+[connection signal="pressed" from="BotaoCarro" to="." method="_on_botao_carro_pressed"]
