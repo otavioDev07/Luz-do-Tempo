@@ -12,6 +12,7 @@ func _process(delta: float) -> void:
 
 
 func _on_botao_continuar_pressed() -> void:
+	PlayerName.player_name = $caixa_de_texto/imput_nome.text
 	get_tree().change_scene_to_file("res://scenes/menu/menu_tutorial.tscn")
 
 
