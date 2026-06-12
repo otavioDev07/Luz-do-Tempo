@@ -1,0 +1,56 @@
+[gd_scene format=3 uid="uid://c5mln57ay2spi"]
+
+[ext_resource type="PackedScene" uid="uid://b8n217kw3qm5u" path="res://scenes/fase2/fase2_2.tscn" id="1_fejid"]
+[ext_resource type="Script" uid="uid://ceiwcb1mrjk7o" path="res://scenes/fase2/fase_2_3.gd" id="2_rsn7t"]
+[ext_resource type="Texture2D" uid="uid://bvrf13ug6rv2c" path="res://sprites/telas/cozinha.png" id="3_km3io"]
+[ext_resource type="Texture2D" uid="uid://bspqy8n3evbt6" path="res://sprites/objetos/microondas.png" id="4_6oa7a"]
+[ext_resource type="Texture2D" uid="uid://cuemrc3olc6g4" path="res://sprites/objetos/fogao.png" id="5_kb6cj"]
+[ext_resource type="AudioStream" uid="uid://cyjgnulf1gsrx" path="res://sprites/audios/objetos/microondas.mp3" id="5_km3io"]
+[ext_resource type="AudioStream" uid="uid://cy8bchjrgi3at" path="res://sprites/audios/objetos/fogao.mp3" id="7_6oa7a"]
+
+[node name="Fase2_2" unique_id=1588668891 instance=ExtResource("1_fejid")]
+script = ExtResource("2_rsn7t")
+proxima_cena_caminho = ""
+
+[node name="Fundo" parent="." index="0" unique_id=677180755]
+texture = ExtResource("3_km3io")
+
+[node name="BotaoCelular" parent="." index="1" unique_id=413832817]
+offset_left = 252.0
+offset_top = 522.0
+offset_right = 787.0
+offset_bottom = 1022.0
+texture_normal = ExtResource("4_6oa7a")
+
+[node name="AudioCelular" parent="BotaoCelular" index="0" unique_id=1031306479]
+stream = ExtResource("5_km3io")
+
+[node name="BotaoTelefone" parent="." index="2" unique_id=1200037661]
+offset_left = 1127.0
+offset_top = 306.0
+offset_right = 1701.0
+offset_bottom = 920.0
+texture_normal = ExtResource("5_kb6cj")
+
+[node name="AudioTelefone" parent="BotaoTelefone" index="0" unique_id=1758951080]
+stream = ExtResource("7_6oa7a")
+
+[node name="Avatar" parent="." index="5" unique_id=67743134]
+offset_right = 1531.0
+
+[node name="Mensagem" parent="Avatar" index="3" unique_id=1794669703]
+offset_left = 140.0
+offset_right = 1168.0
+theme_override_font_sizes/font_size = 44
+text = "Qual a melhor opção para esquentar a comida?"
+
+[node name="MensagemDeErro" parent="Avatar" index="4" unique_id=1500944080]
+offset_right = 832.0
+offset_bottom = 165.0
+
+[node name="MensagemDeAcerto" parent="Avatar" index="5" unique_id=1066839576]
+offset_right = 710.0
+offset_bottom = 178.0
+
+[node name="MusicaFundo" parent="." index="8" unique_id=1404385584]
+volume_db = -30.0
