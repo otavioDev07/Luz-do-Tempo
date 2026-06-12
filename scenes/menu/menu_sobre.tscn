@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://bolnk4ytbmoe" path="res://sprites/avatares/nome_brenno.png" id="9_h6nov"]
 [ext_resource type="Texture2D" uid="uid://ddkfcf1lruric" path="res://sprites/avatares/nome_adrian.png" id="10_fi8pf"]
 [ext_resource type="Texture2D" uid="uid://clljn3tnh3s4p" path="res://sprites/avatares/nome_vinicius.png" id="11_m3vq5"]
+[ext_resource type="Texture2D" uid="uid://b0ghcgx1lvb12" path="res://sprites/avatares/PG_RGB_72dpi_transparente.png" id="12_y7heo"]
 
 [node name="menu_sobre" type="Control" unique_id=1581901081]
 layout_mode = 3
@@ -121,6 +122,28 @@ offset_top = 247.0
 offset_right = 1711.0
 offset_bottom = 287.0
 texture = ExtResource("11_m3vq5")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=503880707]
+layout_mode = 0
+offset_left = 599.0
+offset_top = 255.0
+offset_right = 1162.0
+offset_bottom = 628.0
+text = "Este jogo foi desenvolvido por alunos do curso de Bacharelado em Ciência da Computação da UTFPR – Campus Ponta Grossa, por meio do projeto de extensão em parceria com a ASSART.
+
+O projeto tem como objetivo contribuir para o letramento digital e promover a inclusão por meio de atividades educativas e interativas. O jogo foi criado para auxiliar no aprendizado de conceitos relacionados à evolução dos objetos ao longo do tempo e à importância da sustentabilidade no dia a dia.
+
+Os jogadores são convidados a conhecer como diferentes objetos se transformaram ao longo da história e a refletir sobre práticas sustentáveis que contribuem para uma cidade sustentavel.
+"
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=591124273]
+layout_mode = 0
+offset_left = 517.0
+offset_top = 31.0
+offset_right = 1359.0
+offset_bottom = 620.0
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("12_y7heo")
 
 [connection signal="mouse_entered" from="botao_voltar" to="." method="_on_botao_voltar_mouse_entered"]
 [connection signal="pressed" from="botao_voltar" to="." method="_on_botao_voltar_pressed"]

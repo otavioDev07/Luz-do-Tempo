@@ -27,9 +27,11 @@ stream = ExtResource("1_xuxva")
 
 [node name="tadaa" type="AudioStreamPlayer" parent="." unique_id=1720730238]
 stream = ExtResource("2_hf7vj")
+volume_db = -10.0
 
 [node name="celebration" type="AudioStreamPlayer" parent="." unique_id=1716783242]
 stream = ExtResource("3_75thx")
+volume_db = -10.0
 
 [node name="botao_continuar" type="TextureButton" parent="." unique_id=2109063378]
 layout_mode = 0
