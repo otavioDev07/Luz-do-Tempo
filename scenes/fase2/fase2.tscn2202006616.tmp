@@ -1,0 +1,79 @@
+[gd_scene format=3 uid="uid://dn5ja6twpq1o0"]
+
+[ext_resource type="Script" uid="uid://d4lewbt68htvn" path="res://scenes/fase2/fase_2.gd" id="1_hq3un"]
+[ext_resource type="Texture2D" uid="uid://c1yriivh7g71v" path="res://sprites/telas/quarto_lampada.png" id="2_6hk8e"]
+[ext_resource type="Texture2D" uid="uid://cn6bb5ssfn1i1" path="res://sprites/telas/quarto.png" id="2_of271"]
+[ext_resource type="Texture2D" uid="uid://dmn3jgcac5jh4" path="res://sprites/objetos/lampada.png" id="3_7cvnh"]
+[ext_resource type="Texture2D" uid="uid://bqu48fm4jfeau" path="res://sprites/telas/quarto_velas.png" id="3_wx3it"]
+[ext_resource type="Texture2D" uid="uid://d8rkoriq4q4k" path="res://sprites/objetos/vela.png" id="4_tno5y"]
+[ext_resource type="Texture2D" uid="uid://jxkcxqbk68un" path="res://sprites/avatares/brenno.png" id="5_8knlw"]
+[ext_resource type="PackedScene" uid="uid://c3pg8dfvgnhoo" path="res://scenes/reusable/voltar.tscn" id="9_3ah0w"]
+[ext_resource type="PackedScene" uid="uid://d0tmuuxhi50sq" path="res://scenes/reusable/pop_up_afk.tscn" id="10_wqcns"]
+[ext_resource type="PackedScene" uid="uid://boqtng8bfpucm" path="res://scenes/reusable/interface_trofeus.tscn" id="11_3ah0w"]
+[ext_resource type="PackedScene" uid="uid://cj4x1ts75y4p3" path="res://scenes/reusable/avatar.tscn" id="11_unyh8"]
+
+[node name="Fase2" type="Node2D" unique_id=1588668891]
+script = ExtResource("1_hq3un")
+imagem_lampada = ExtResource("2_6hk8e")
+imagem_vela = ExtResource("3_wx3it")
+
+[node name="Fundo" type="Sprite2D" parent="." unique_id=677180755]
+texture = ExtResource("2_of271")
+centered = false
+
+[node name="BotaoLampada" type="TextureButton" parent="." unique_id=1200037661]
+offset_left = 316.0
+offset_top = 460.0
+offset_right = 816.0
+offset_bottom = 1008.0
+texture_normal = ExtResource("3_7cvnh")
+
+[node name="BotaoVela" type="TextureButton" parent="." unique_id=413832817]
+offset_left = 1126.0
+offset_top = 454.0
+offset_right = 1619.0
+offset_bottom = 1048.0
+texture_normal = ExtResource("4_tno5y")
+
+[node name="AvatarBrenno" type="Sprite2D" parent="." unique_id=495021633]
+position = Vector2(367, 113)
+scale = Vector2(0.36410257, 0.2576687)
+texture = ExtResource("5_8knlw")
+
+[node name="Voltar" parent="." unique_id=1951791252 instance=ExtResource("9_3ah0w")]
+
+[node name="Pop-upAFK" parent="." unique_id=2120797033 instance=ExtResource("10_wqcns")]
+
+[node name="Avatar" parent="." unique_id=67743134 instance=ExtResource("11_unyh8")]
+
+[node name="MensagemDeAcerto" type="Label" parent="Avatar" unique_id=1066839576]
+layout_mode = 0
+offset_left = 505.0
+offset_top = 49.0
+offset_right = 1722.0
+offset_bottom = 196.0
+theme_override_font_sizes/font_size = 45
+text = "Muito bem! Você acertou."
+
+[node name="MensagemDeErro" type="Label" parent="Avatar" unique_id=1500944080]
+layout_mode = 0
+offset_left = 505.0
+offset_top = 49.0
+offset_right = 1725.0
+offset_bottom = 194.0
+theme_override_font_sizes/font_size = 45
+text = "Ops! Vamos tentar novamente."
+
+[node name="Mensagem" type="Label" parent="Avatar" unique_id=1794669703]
+layout_mode = 0
+offset_left = 505.0
+offset_top = 49.0
+offset_right = 1725.0
+offset_bottom = 194.0
+theme_override_font_sizes/font_size = 45
+text = "Qual a melhor opção para deixar o quarto mais claro?"
+
+[node name="InterfaceTrofeus" parent="." unique_id=1219300477 instance=ExtResource("11_3ah0w")]
+
+[connection signal="pressed" from="BotaoLampada" to="." method="_on_botao_lampada_pressed"]
+[connection signal="pressed" from="BotaoVela" to="." method="_on_botao_vela_pressed"]
