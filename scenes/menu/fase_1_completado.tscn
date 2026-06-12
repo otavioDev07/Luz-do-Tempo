@@ -1,0 +1,54 @@
+[gd_scene format=3 uid="uid://dp5u3od1rlbvd"]
+
+[ext_resource type="Script" uid="uid://d4bstewwqt08p" path="res://scripts/menu/fase_1_completado.gd" id="1_by6s7"]
+[ext_resource type="Texture2D" uid="uid://ed7u3lfsa7h0" path="res://sprites/telas/save1.png" id="2_oejhl"]
+[ext_resource type="Texture2D" uid="uid://bbc4s5r1gqq3o" path="res://sprites/avatares/Continuar.png" id="3_77y4c"]
+[ext_resource type="AudioStream" uid="uid://bj8atbaix1wov" path="res://sprites/audios/reusable/tadaaa.mp3" id="3_e8qwf"]
+[ext_resource type="Texture2D" uid="uid://k7fy1j10hosb" path="res://sprites/avatares/Placeholder2.png" id="4_e8qwf"]
+[ext_resource type="AudioStream" uid="uid://di7jlwrcuut6v" path="res://sprites/audios/reusable/celebration.ogg" id="6_geco4"]
+[ext_resource type="AudioStream" uid="uid://b78knkqulcr4p" path="res://sprites/audios/reusable/botao.mp3" id="7_e8qwf"]
+
+[node name="fase1Completado" type="Control" unique_id=280833552]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_by6s7")
+
+[node name="background" type="TextureRect" parent="." unique_id=48981657]
+layout_mode = 0
+offset_right = 1917.0
+offset_bottom = 1084.0
+texture = ExtResource("2_oejhl")
+
+[node name="tadaa" type="AudioStreamPlayer" parent="." unique_id=279849859]
+stream = ExtResource("3_e8qwf")
+
+[node name="placeholder" type="TextureRect" parent="." unique_id=571906341]
+layout_mode = 0
+offset_left = 558.0
+offset_top = 347.0
+offset_right = 1353.0
+offset_bottom = 901.0
+texture = ExtResource("4_e8qwf")
+
+[node name="botao_continuar" type="TextureButton" parent="." unique_id=1249748953]
+layout_mode = 0
+offset_left = 617.0
+offset_top = 901.0
+offset_right = 1235.0
+offset_bottom = 1046.0
+pivot_offset = Vector2(309, 72.5)
+texture_normal = ExtResource("3_77y4c")
+
+[node name="celebration" type="AudioStreamPlayer" parent="." unique_id=479317856]
+stream = ExtResource("6_geco4")
+
+[node name="botao" type="AudioStreamPlayer" parent="." unique_id=998800868]
+stream = ExtResource("7_e8qwf")
+
+[connection signal="mouse_entered" from="botao_continuar" to="." method="_on_botao_continuar_mouse_entered"]
+[connection signal="mouse_exited" from="botao_continuar" to="." method="_on_botao_continuar_mouse_exited"]
+[connection signal="pressed" from="botao_continuar" to="." method="_on_botao_continuar_pressed"]

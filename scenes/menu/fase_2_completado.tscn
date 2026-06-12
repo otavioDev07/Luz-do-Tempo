@@ -1,0 +1,47 @@
+[gd_scene format=3 uid="uid://davpkp24p5wph"]
+
+[ext_resource type="Script" uid="uid://bewfrqgepr2xj" path="res://scripts/menu/fase_2_completado.gd" id="1_csv7h"]
+[ext_resource type="Texture2D" uid="uid://bn71x3yp3s42j" path="res://sprites/telas/telafinal.png" id="1_hf7vj"]
+[ext_resource type="AudioStream" uid="uid://b78knkqulcr4p" path="res://sprites/audios/reusable/botao.mp3" id="1_xuxva"]
+[ext_resource type="AudioStream" uid="uid://bj8atbaix1wov" path="res://sprites/audios/reusable/tadaaa.mp3" id="2_hf7vj"]
+[ext_resource type="AudioStream" uid="uid://di7jlwrcuut6v" path="res://sprites/audios/reusable/celebration.ogg" id="3_75thx"]
+[ext_resource type="Texture2D" uid="uid://bbc4s5r1gqq3o" path="res://sprites/avatares/Continuar.png" id="5_75thx"]
+
+[node name="fase_2_completado" type="Control" unique_id=312531438]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_csv7h")
+
+[node name="background" type="TextureRect" parent="." unique_id=1919779501]
+layout_mode = 0
+offset_right = 1931.0
+offset_bottom = 1078.0
+texture = ExtResource("1_hf7vj")
+
+[node name="botao" type="AudioStreamPlayer" parent="." unique_id=1895436341]
+stream = ExtResource("1_xuxva")
+
+[node name="tadaa" type="AudioStreamPlayer" parent="." unique_id=1720730238]
+stream = ExtResource("2_hf7vj")
+volume_db = -10.0
+
+[node name="celebration" type="AudioStreamPlayer" parent="." unique_id=1716783242]
+stream = ExtResource("3_75thx")
+volume_db = -10.0
+
+[node name="botao_continuar" type="TextureButton" parent="." unique_id=2109063378]
+layout_mode = 0
+offset_left = 654.0
+offset_top = 926.0
+offset_right = 1272.0
+offset_bottom = 1071.0
+pivot_offset = Vector2(309, 72.5)
+texture_normal = ExtResource("5_75thx")
+
+[connection signal="mouse_entered" from="botao_continuar" to="." method="_on_botao_continuar_mouse_entered"]
+[connection signal="mouse_exited" from="botao_continuar" to="." method="_on_botao_continuar_mouse_exited"]
+[connection signal="pressed" from="botao_continuar" to="." method="_on_botao_continuar_pressed"]

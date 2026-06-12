@@ -126,6 +126,7 @@ var audio_erro: AudioStream
 
 
 func _ready() -> void:
+	MusicManager.tocar_jogo()
 	pode_interagir = false # Trava o jogo no início
 	
 	$Avatar.mudar_fala(
@@ -154,6 +155,9 @@ func sortear_novo_objeto() -> void:
 			objetos_disponiveis.append(objeto)
 			
 	if objetos_disponiveis.size() == 0:
+		
+		#get_tree().change_scene_to_file(cena_destino)
+		
 		pode_interagir = false 
 		$Avatar.mudar_fala(
 			"Parabéns! Você organizou todos os objetos muito bem!", 

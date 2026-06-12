@@ -1,0 +1,113 @@
+[gd_scene format=3 uid="uid://hnlw35k8o8co"]
+
+[ext_resource type="Script" uid="uid://d21rttcmbcrlw" path="res://scenes/fase2/fase_2_1.gd" id="1_8gmy7"]
+[ext_resource type="Texture2D" uid="uid://iirpajjo5h7o" path="res://sprites/telas/garagem.png" id="4_apmc5"]
+[ext_resource type="AudioStream" uid="uid://cvkpu5ax88o47" path="res://sprites/audios/objetos/carroca.mp3" id="4_oi58x"]
+[ext_resource type="Texture2D" uid="uid://cgchttmm5lhq7" path="res://sprites/objetos/carro.png" id="5_k6b5r"]
+[ext_resource type="PackedScene" uid="uid://boqtng8bfpucm" path="res://scenes/reusable/interface_trofeus.tscn" id="6_g8si6"]
+[ext_resource type="AudioStream" uid="uid://bubxfen6skgrj" path="res://sprites/audios/objetos/carro.mp3" id="6_gu0lq"]
+[ext_resource type="Texture2D" uid="uid://2pc80miou8si" path="res://sprites/objetos/carroca.png" id="6_oi58x"]
+[ext_resource type="PackedScene" uid="uid://c3pg8dfvgnhoo" path="res://scenes/reusable/voltar.tscn" id="7_apmc5"]
+[ext_resource type="Texture2D" uid="uid://p4qxbt7oa53g" path="res://sprites/avatares/vinicius.png" id="7_gu0lq"]
+[ext_resource type="PackedScene" uid="uid://cj4x1ts75y4p3" path="res://scenes/reusable/avatar.tscn" id="8_k6b5r"]
+[ext_resource type="PackedScene" uid="uid://d0tmuuxhi50sq" path="res://scenes/reusable/pop_up_afk.tscn" id="9_apmc5"]
+[ext_resource type="AudioStream" uid="uid://b6muv08t385fj" path="res://sprites/audios/reusable/musica_jogo.mp3" id="12_gu0lq"]
+
+[node name="Fase2_1" type="Node2D" unique_id=1588668891]
+script = ExtResource("1_8gmy7")
+
+[node name="Fundo" type="Sprite2D" parent="." unique_id=677180755]
+texture = ExtResource("4_apmc5")
+centered = false
+
+[node name="BotaoCarroca" type="TextureButton" parent="." unique_id=413832817]
+offset_left = 978.0
+offset_top = 545.0
+offset_right = 1645.0
+offset_bottom = 961.0
+texture_normal = ExtResource("6_oi58x")
+
+[node name="AudioCarroca" type="AudioStreamPlayer2D" parent="BotaoCarroca" unique_id=1381193320]
+stream = ExtResource("4_oi58x")
+
+[node name="BotaoCarro" type="TextureButton" parent="." unique_id=1200037661]
+offset_left = 310.0
+offset_top = 638.0
+offset_right = 887.0
+offset_bottom = 972.0
+texture_normal = ExtResource("5_k6b5r")
+
+[node name="AudioCarro" type="AudioStreamPlayer2D" parent="BotaoCarro" unique_id=1904416593]
+stream = ExtResource("6_gu0lq")
+
+[node name="AvatarVinicius" type="Sprite2D" parent="." unique_id=495021633]
+position = Vector2(395, 60)
+scale = Vector2(0.13183592, 0.10396796)
+texture = ExtResource("7_gu0lq")
+
+[node name="Carro" type="TextureRect" parent="." unique_id=989684170]
+visible = false
+offset_left = 679.0
+offset_top = 318.0
+offset_right = 1256.0
+offset_bottom = 627.0
+texture = ExtResource("5_k6b5r")
+
+[node name="Carroca" type="TextureRect" parent="." unique_id=1311657764]
+visible = false
+offset_left = 593.0
+offset_top = 232.0
+offset_right = 1260.0
+offset_bottom = 648.0
+texture = ExtResource("6_oi58x")
+
+[node name="InterfaceTrofeus" parent="." unique_id=1219300477 instance=ExtResource("6_g8si6")]
+
+[node name="Voltar" parent="." unique_id=1951791252 instance=ExtResource("7_apmc5")]
+
+[node name="Avatar" parent="." unique_id=67743134 instance=ExtResource("8_k6b5r")]
+offset_left = 354.0
+offset_top = -3.0
+offset_right = 1911.0
+offset_bottom = 289.0
+
+[node name="Mensagem" type="Label" parent="Avatar" unique_id=1794669703]
+layout_mode = 0
+offset_left = 144.0
+offset_top = 6.0
+offset_right = 1364.0
+offset_bottom = 151.0
+theme_override_font_sizes/font_size = 45
+text = "Qual a melhor opção para se locomover hoje?"
+
+[node name="MensagemDeErro" type="Label" parent="Avatar" unique_id=1500944080]
+layout_mode = 0
+offset_left = 150.0
+offset_top = 12.0
+offset_right = 1370.0
+offset_bottom = 157.0
+theme_override_font_sizes/font_size = 45
+text = "Ops! Vamos tentar novamente."
+
+[node name="MensagemDeAcerto" type="Label" parent="Avatar" unique_id=1066839576]
+layout_mode = 0
+offset_left = 144.0
+offset_top = 12.0
+offset_right = 1361.0
+offset_bottom = 159.0
+theme_override_font_sizes/font_size = 45
+text = "Muito bem! Você acertou."
+
+[node name="Pop-upAFK" parent="." unique_id=2120797033 instance=ExtResource("9_apmc5")]
+offset = Vector2(600, 400)
+transform = Transform2D(1, 0, 0, 1, 600, 400)
+
+[node name="MusicaFundo" type="AudioStreamPlayer" parent="." unique_id=788790146]
+stream = ExtResource("12_gu0lq")
+volume_db = -30.0
+autoplay = true
+
+[connection signal="mouse_entered" from="BotaoCarroca" to="." method="_on_botao_carroca_mouse_entered"]
+[connection signal="pressed" from="BotaoCarroca" to="." method="_on_botao_carroca_pressed"]
+[connection signal="mouse_entered" from="BotaoCarro" to="." method="_on_botao_carro_mouse_entered"]
+[connection signal="pressed" from="BotaoCarro" to="." method="_on_botao_carro_pressed"]
