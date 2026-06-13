@@ -1,0 +1,131 @@
+[gd_scene format=3 uid="uid://y3f2g6bljo4n"]
+
+[ext_resource type="Texture2D" uid="uid://b7arlsg32hydv" path="res://sprites/telas/relatorio.png" id="1_64rmo"]
+[ext_resource type="Script" uid="uid://bcixj0k0rqs2l" path="res://scripts/menu/relatorio.gd" id="1_kb516"]
+[ext_resource type="FontFile" uid="uid://cyqlcfh8ho82y" path="res://fonts/PressStart2P-Regular.ttf" id="2_wo7er"]
+[ext_resource type="Texture2D" uid="uid://b42tj4t4hdh7e" path="res://sprites/avatares/btnMenu.png" id="3_ucwm8"]
+[ext_resource type="AudioStream" uid="uid://b78knkqulcr4p" path="res://sprites/audios/reusable/botao.mp3" id="4_kb516"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ucwm8"]
+
+[node name="Node2D" type="Node2D" unique_id=1578551692]
+script = ExtResource("1_kb516")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=249904892]
+offset_right = 1920.0
+offset_bottom = 1080.0
+texture = ExtResource("1_64rmo")
+
+[node name="Titulo" type="Label" parent="." unique_id=952728798]
+offset_left = 296.0
+offset_top = 144.0
+offset_right = 1646.0
+offset_bottom = 557.0
+theme_override_colors/font_shadow_color = Color(0.11764706, 0.20392157, 0.27058825, 1)
+theme_override_colors/font_outline_color = Color(0.11764706, 0.20392157, 0.27058825, 1)
+theme_override_constants/shadow_offset_x = 10
+theme_override_constants/shadow_offset_y = 10
+theme_override_fonts/font = ExtResource("2_wo7er")
+theme_override_font_sizes/font_size = 150
+theme_override_styles/normal = SubResource("StyleBoxEmpty_ucwm8")
+text = "Relatório
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="Nota" type="Label" parent="." unique_id=434777555]
+offset_left = 1251.0
+offset_top = 414.0
+offset_right = 1551.0
+offset_bottom = 717.0
+theme_override_colors/font_color = Color(1, 0.92156863, 0.07450981, 1)
+theme_override_colors/font_shadow_color = Color(0.11764706, 0.20392157, 0.27058825, 1)
+theme_override_colors/font_outline_color = Color(0.11764706, 0.20392157, 0.27058825, 1)
+theme_override_constants/shadow_offset_x = 10
+theme_override_constants/shadow_offset_y = 10
+theme_override_fonts/font = ExtResource("2_wo7er")
+theme_override_font_sizes/font_size = 150
+theme_override_styles/normal = SubResource("StyleBoxEmpty_ucwm8")
+text = "A+
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="PorAcerto" type="Label" parent="." unique_id=34410065]
+offset_left = 188.0
+offset_top = 395.0
+offset_right = 860.0
+offset_bottom = 462.0
+theme_override_colors/font_shadow_color = Color(0.11764706, 0.20392157, 0.27058825, 1)
+theme_override_colors/font_outline_color = Color(0.11764706, 0.20392157, 0.27058825, 1)
+theme_override_constants/shadow_offset_x = 5
+theme_override_constants/shadow_offset_y = 5
+theme_override_fonts/font = ExtResource("2_wo7er")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxEmpty_ucwm8")
+text = "Porcentagem de acerto: 
+"
+uppercase = true
+
+[node name="MedTempo" type="Label" parent="." unique_id=2073745373]
+offset_left = 190.0
+offset_top = 470.0
+offset_right = 862.0
+offset_bottom = 537.0
+theme_override_colors/font_shadow_color = Color(0.11764706, 0.20392157, 0.27058825, 1)
+theme_override_colors/font_outline_color = Color(0.11764706, 0.20392157, 0.27058825, 1)
+theme_override_constants/shadow_offset_x = 5
+theme_override_constants/shadow_offset_y = 5
+theme_override_fonts/font = ExtResource("2_wo7er")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxEmpty_ucwm8")
+text = "Tempo médio por fase: 
+"
+uppercase = true
+
+[node name="MaiorTempo" type="Label" parent="." unique_id=1186742867]
+offset_left = 195.0
+offset_top = 541.0
+offset_right = 867.0
+offset_bottom = 608.0
+theme_override_colors/font_shadow_color = Color(0.11764706, 0.20392157, 0.27058825, 1)
+theme_override_colors/font_outline_color = Color(0.11764706, 0.20392157, 0.27058825, 1)
+theme_override_constants/shadow_offset_x = 5
+theme_override_constants/shadow_offset_y = 5
+theme_override_fonts/font = ExtResource("2_wo7er")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxEmpty_ucwm8")
+text = "Fase com maior tempo: "
+uppercase = true
+
+[node name="MenorTempo" type="Label" parent="." unique_id=1939967235]
+offset_left = 199.0
+offset_top = 601.0
+offset_right = 903.0
+offset_bottom = 668.0
+theme_override_colors/font_shadow_color = Color(0.11764706, 0.20392157, 0.27058825, 1)
+theme_override_colors/font_outline_color = Color(0.11764706, 0.20392157, 0.27058825, 1)
+theme_override_constants/shadow_offset_x = 5
+theme_override_constants/shadow_offset_y = 5
+theme_override_fonts/font = ExtResource("2_wo7er")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxEmpty_ucwm8")
+text = "Fase com menor tempo: "
+uppercase = true
+
+[node name="botao_continuar" type="TextureButton" parent="." unique_id=57082540]
+offset_left = 831.0
+offset_top = 912.0
+offset_right = 1247.0
+offset_bottom = 1057.0
+pivot_offset = Vector2(309, 72.5)
+texture_normal = ExtResource("3_ucwm8")
+
+[node name="botao" type="AudioStreamPlayer" parent="." unique_id=1813562821]
+stream = ExtResource("4_kb516")
+
+[connection signal="mouse_entered" from="botao_continuar" to="." method="_on_botao_continuar_mouse_entered"]
+[connection signal="mouse_exited" from="botao_continuar" to="." method="_on_botao_continuar_mouse_exited"]
+[connection signal="pressed" from="botao_continuar" to="." method="_on_botao_continuar_pressed"]
