@@ -116,9 +116,9 @@ text = "Fase com menor tempo: "
 uppercase = true
 
 [node name="botao_continuar" type="TextureButton" parent="." unique_id=57082540]
-offset_left = 831.0
+offset_left = 753.0
 offset_top = 912.0
-offset_right = 1247.0
+offset_right = 1169.0
 offset_bottom = 1057.0
 pivot_offset = Vector2(309, 72.5)
 texture_normal = ExtResource("3_ucwm8")
