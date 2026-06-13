@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://swxh7cer754c" path="res://sprites/telas/fase1.2.png" id="1_ck6of"]
 [ext_resource type="Script" uid="uid://ca3nc0ljkdfk" path="res://scripts/fase1.2/fase_1.2.gd" id="1_ot04g"]
-[ext_resource type="PackedScene" uid="uid://c5a8lwdog18pg" path="res://scenes/fase1_1/fase_1_1.tscn" id="2_0pr7b"]
+[ext_resource type="PackedScene" uid="uid://dn5ja6twpq1o0" path="res://scenes/fase2/fase2.tscn" id="2_0pr7b"]
 [ext_resource type="Texture2D" uid="uid://cgchttmm5lhq7" path="res://sprites/objetos/carro.png" id="2_44dto"]
 [ext_resource type="AudioStream" uid="uid://d4ifb74rcu1wa" path="res://sprites/audios/fase1_2/acerto.mp3" id="3_2ilnc"]
 [ext_resource type="Texture2D" uid="uid://cuemrc3olc6g4" path="res://sprites/objetos/fogao.png" id="3_08bxd"]
