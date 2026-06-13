@@ -12,11 +12,10 @@ extends Node2D
 # --- VARIÁVEL DE TRAVA GLOBAL ---
 var pode_interagir: bool = false 
 
-# --- DADOS DO JOGADOR ---
-# O tempo e os erros agora vivem 100% dentro do script de Troféus!
-var dados_jogador = {
-	"nome": "Jogador Vazio"
-}
+# --- VARIÁVEIS DE CONTROLE DE TEMPO E ERROS (INTERNOS DA FASE) ---
+var tempo_decorrido: float = 0.0
+var erros_cometidos: int = 0
+var jogo_rodando: bool = false # Controla se o cronômetro está ativo
 
 # --- CONFIGURAÇÃO DA ESTANTE ---
 var inicio_antigo: Vector2 = Vector2(120, 280)  
@@ -52,13 +51,21 @@ var audio_acerto: AudioStream
 var audio_erro: AudioStream 
 
 
+# --- CRONÔMETRO INTERNO ---
+func _process(delta: float) -> void:
+	if jogo_rodando:
+		tempo_decorrido += delta
+
+
 func _ready() -> void:
-	dados_jogador["nome"] = PlayerName.player_name
 	MusicManager.tocar_jogo()
 	pode_interagir = false 
 	
+	# --- OS DOIS CRONÔMETROS COMEÇAM IMEDIATAMENTE AQUI! ---
 	if interface_trofeus != null:
-		interface_trofeus.inicializar(0.0, 0, 5)
+		interface_trofeus.inicializar(0.0, 0, 5) # Inicia o relógio visual na tela
+		
+	jogo_rodando = true # Inicia o relógio matemático invisível
 	
 	$Avatar.mudar_fala(
 		"Separe o objeto antigo do novo!", 
@@ -67,6 +74,7 @@ func _ready() -> void:
 		true
 	)
 	
+	# Espera o áudio das instruções terminar apenas para liberar o clique do jogador...
 	if audio_instrucao != null:
 		await get_tree().create_timer(audio_instrucao.get_length()).timeout
 	else:
@@ -84,17 +92,14 @@ func sortear_novo_objeto() -> void:
 	# --- CONDIÇÃO DE VITÓRIA ---
 	if objetos_disponiveis.size() == 0:
 		pode_interagir = false 
-		
-		var tempo_final = 0.0
-		var erros_finais = 0
+		jogo_rodando = false # Para o cronômetro imediatamente!
 		
 		if interface_trofeus != null:
 			interface_trofeus.ganhar_fase()
-			tempo_final = interface_trofeus.tempo_decorrido
-			erros_finais = interface_trofeus.erros_cometidos
 			
-		PlayerName.tempo_fase1 = tempo_final
-		PlayerName.erros_fase1 = erros_finais
+		# Salva os dados processados internamente direto no Autoload Global (Fase 1)
+		PlayerName.tempo_fase1 = tempo_decorrido
+		PlayerName.erros_fase1 = erros_cometidos
 		
 		$Avatar.mudar_fala(
 			"Parabéns! Você organizou todos os objetos muito bem!", 
@@ -102,7 +107,7 @@ func sortear_novo_objeto() -> void:
 			null, 
 			false
 		)
-		print("Fase Concluída! Erros: ", erros_finais, " | Tempo: ", tempo_final)
+		print("Fase 1 Concluída! Erros Totais: ", erros_cometidos, " | Tempo Total: ", tempo_decorrido)
 		
 		# --- RECOLOCADO: Espera o parabéns terminar e muda para a próxima fase ---
 		await get_tree().create_timer(3.5).timeout
@@ -177,9 +182,13 @@ func _on_objeto_acertou(objeto_instanciado: Node2D) -> void:
 func _on_objeto_errou() -> void:
 	pode_interagir = false 
 	
+	# Soma +1 no contador de erros interno
+	erros_cometidos += 1
+	
 	if feedback_erro != null:
 		feedback_erro.show()
 	
+	# Mantido caso sua interface de troféus atualize alguma barrinha visual na tela
 	if interface_trofeus != null:
 		interface_trofeus.registrar_erro()
 			
