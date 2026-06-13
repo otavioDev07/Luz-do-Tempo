@@ -56,7 +56,7 @@ uppercase = true
 [node name="PorAcerto" type="Label" parent="." unique_id=34410065]
 offset_left = 188.0
 offset_top = 395.0
-offset_right = 860.0
+offset_right = 1087.0
 offset_bottom = 462.0
 theme_override_colors/font_shadow_color = Color(0.11764706, 0.20392157, 0.27058825, 1)
 theme_override_colors/font_outline_color = Color(0.11764706, 0.20392157, 0.27058825, 1)
@@ -72,7 +72,7 @@ uppercase = true
 [node name="MedTempo" type="Label" parent="." unique_id=2073745373]
 offset_left = 190.0
 offset_top = 470.0
-offset_right = 862.0
+offset_right = 1099.0
 offset_bottom = 537.0
 theme_override_colors/font_shadow_color = Color(0.11764706, 0.20392157, 0.27058825, 1)
 theme_override_colors/font_outline_color = Color(0.11764706, 0.20392157, 0.27058825, 1)
@@ -88,7 +88,7 @@ uppercase = true
 [node name="MaiorTempo" type="Label" parent="." unique_id=1186742867]
 offset_left = 195.0
 offset_top = 541.0
-offset_right = 867.0
+offset_right = 1125.0
 offset_bottom = 608.0
 theme_override_colors/font_shadow_color = Color(0.11764706, 0.20392157, 0.27058825, 1)
 theme_override_colors/font_outline_color = Color(0.11764706, 0.20392157, 0.27058825, 1)
@@ -103,7 +103,7 @@ uppercase = true
 [node name="MenorTempo" type="Label" parent="." unique_id=1939967235]
 offset_left = 199.0
 offset_top = 601.0
-offset_right = 903.0
+offset_right = 1162.0
 offset_bottom = 668.0
 theme_override_colors/font_shadow_color = Color(0.11764706, 0.20392157, 0.27058825, 1)
 theme_override_colors/font_outline_color = Color(0.11764706, 0.20392157, 0.27058825, 1)

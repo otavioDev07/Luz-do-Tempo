@@ -127,6 +127,7 @@ var audio_erro: AudioStream
 
 
 func _ready() -> void:
+	dados_jogador["nome"] = PlayerName.player_name
 	MusicManager.tocar_jogo()
 	pode_interagir = false # Trava o jogo no início
 	
@@ -156,6 +157,9 @@ func sortear_novo_objeto() -> void:
 			objetos_disponiveis.append(objeto)
 			
 	if objetos_disponiveis.size() == 0:
+		
+		PlayerName.erros_fase1 = dados_jogador["erros_cometidos"]
+		PlayerName.tempo_fase1 = dados_jogador["tempo_decorrido"]
 		
 		#get_tree().change_scene_to_file(cena_destino)
 		
