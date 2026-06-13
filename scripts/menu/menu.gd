@@ -4,6 +4,18 @@ extends Control
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	MusicManager.tocar_menu()
+	
+	# --- ZERANDO TODOS OS DADOS DO JOGADOR ---
+	PlayerName.player_name = ""
+	
+	PlayerName.erros_fase1 = 0
+	PlayerName.tempo_fase1 = 0.0
+	
+	PlayerName.erros_fase1_2 = 0
+	PlayerName.tempo_fase1_2 = 0.0
+	
+	PlayerName.erros_fase2 = 0
+	PlayerName.tempo_fase2 = 0.0
 
 
 func _on_botao_jogar_pressed() -> void:

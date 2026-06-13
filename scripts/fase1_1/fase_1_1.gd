@@ -4,19 +4,16 @@ extends Node2D
 
 # --- REFERÊNCIAS ---
 @onready var feedback_joia = $FeedbackJoia 
-@onready var feedback_erro = $FeedbackErro # <-- A referência do erro adicionada aqui
-@onready var interface_trofeus = $InterfaceTrofeus # <-- Chama a cena inteira dos troféus!
+@onready var feedback_erro = $FeedbackErro 
+@onready var interface_trofeus = $InterfaceTrofeus # Chama a cena inteira dos troféus!
 
-# --- VARIÁVEL DE TRAVA GLOBAL E CONTROLE DE AVISOS ---
+# --- VARIÁVEL DE TRAVA GLOBAL ---
 var pode_interagir: bool = false 
-var ja_avisou_tempo: bool = false # Evita chamar a interface repetidas vezes
-var ja_avisou_erros: bool = false # Evita chamar a interface repetidas vezes
 
 # --- DADOS DO JOGADOR ---
+# O tempo e os erros agora vivem 100% dentro do script de Troféus!
 var dados_jogador = {
-	"nome": "Jogador Vazio", 
-	"tempo_decorrido": 0.0,
-	"erros_cometidos": 0
+	"nome": "Jogador Vazio"
 }
 
 # --- CONFIGURAÇÃO DA ESTANTE ---
@@ -119,9 +116,8 @@ var lista_de_objetos = [
 
 # --- VARIÁVEIS DO AVATAR ---
 var imgavatar = preload("res://sprites/avatares/adrian.png")
-var audio_instrucao: AudioStream # = preload("res://sprites/audios/fase1_1/instrucao.mp3")
+var audio_instrucao: AudioStream 
 
-# Depois, se for adicionar áudio aqui, não esqueça de colocar preload()
 var audio_acerto: AudioStream 
 var audio_erro: AudioStream 
 
@@ -130,6 +126,11 @@ func _ready() -> void:
 	dados_jogador["nome"] = PlayerName.player_name
 	MusicManager.tocar_jogo()
 	pode_interagir = false # Trava o jogo no início
+	
+	# --- LIGA OS TROFÉUS ---
+	# Inicializa passando: Tempo Inicial (0.0), Erros Iniciais (0), Limite de Erros (5)
+	if interface_trofeus != null:
+		interface_trofeus.inicializar(0.0, 0, 5)
 	
 	$Avatar.mudar_fala(
 		"Separe o objeto antigo do novo!", 
@@ -147,21 +148,26 @@ func _ready() -> void:
 	sortear_novo_objeto()
 
 
-func _process(delta: float) -> void:
-	dados_jogador["tempo_decorrido"] += delta
-
 func sortear_novo_objeto() -> void:
 	var objetos_disponiveis = []
 	for objeto in lista_de_objetos:
 		if not objeto["usado"]:
 			objetos_disponiveis.append(objeto)
 			
+	# --- CONDIÇÃO DE VITÓRIA ---
 	if objetos_disponiveis.size() == 0:
 		
-		PlayerName.erros_fase1 = dados_jogador["erros_cometidos"]
-		PlayerName.tempo_fase1 = dados_jogador["tempo_decorrido"]
+		var tempo_final = 0.0
+		var erros_finais = 0
 		
-		#get_tree().change_scene_to_file(cena_destino)
+		# Puxa todas as informações finais direto dos Troféus
+		if interface_trofeus != null:
+			interface_trofeus.ganhar_fase()
+			tempo_final = interface_trofeus.tempo_decorrido
+			erros_finais = interface_trofeus.erros_cometidos
+			
+		PlayerName.tempo_fase1 = tempo_final
+		PlayerName.erros_fase1 = erros_finais
 		
 		pode_interagir = false 
 		$Avatar.mudar_fala(
@@ -170,7 +176,7 @@ func sortear_novo_objeto() -> void:
 			null, 
 			false
 		)
-		print("Fase Concluída! Erros: ", dados_jogador["erros_cometidos"], " | Tempo: ", dados_jogador["tempo_decorrido"])
+		print("Fase Concluída! Erros: ", erros_finais, " | Tempo: ", tempo_final)
 		return
 		
 	var objeto_sorteado = objetos_disponiveis.pick_random()
@@ -194,7 +200,6 @@ func sortear_novo_objeto() -> void:
 func _on_objeto_acertou(objeto_instanciado: Node2D) -> void:
 	pode_interagir = false # Trava o jogo enquanto comemora
 	
-	# --- MOSTRA A IMAGEM DO JOIA ---
 	if feedback_joia != null:
 		feedback_joia.show()
 	
@@ -224,7 +229,6 @@ func _on_objeto_acertou(objeto_instanciado: Node2D) -> void:
 		
 	objeto_instanciado.global_position = posicao_final
 	
-	# --- ESPERA E ESCONDE O JOIA ---
 	await get_tree().create_timer(2.0).timeout
 	if feedback_joia != null:
 		feedback_joia.hide()
@@ -239,16 +243,14 @@ func _on_objeto_acertou(objeto_instanciado: Node2D) -> void:
 
 func _on_objeto_errou() -> void:
 	pode_interagir = false # Trava o jogo durante a bronca
-	dados_jogador["erros_cometidos"] += 1
 	
-	# --- MOSTRA A IMAGEM DE ERRO ---
 	if feedback_erro != null:
 		feedback_erro.show()
 	
-	# Se chegar em 5 erros, avisa a cena de troféus UMA VEZ
-	if dados_jogador["erros_cometidos"] >= 5 and not ja_avisou_erros:
-		ja_avisou_erros = true
-		interface_trofeus.perder_trofeu_erros()
+	# --- ENVIA O ERRO PARA A INTERFACE DE TROFÉUS ---
+	# Agora não precisamos mais passar o número do erro, a interface cuida disso!
+	if interface_trofeus != null:
+		interface_trofeus.registrar_erro()
 			
 	$Avatar.mudar_fala(
 		"Tente novamente! Esse objeto pertence à outra caixa.", 
@@ -257,14 +259,12 @@ func _on_objeto_errou() -> void:
 		false
 	)
 	
-	# --- ESPERA O ÁUDIO DE ERRO TERMINAR ---
 	var tempo_espera = 2.0
 	if audio_erro != null:
 		tempo_espera = audio_erro.get_length()
 		
 	await get_tree().create_timer(tempo_espera).timeout
 	
-	# --- ESCONDE A IMAGEM DE ERRO ---
 	if feedback_erro != null:
 		feedback_erro.hide()
 		

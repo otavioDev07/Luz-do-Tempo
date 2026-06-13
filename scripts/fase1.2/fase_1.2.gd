@@ -62,6 +62,9 @@ func _ready() -> void:
 	if feedback_joia != null:
 		feedback_joia.hide()
 		
+	if interface_trofeus != null:
+		interface_trofeus.inicializar(0.0, 0, 5)
+		
 	# BLINDAGEM: Garante que as fotos detectem o mouse para o som rodar
 	foto_1.mouse_filter = Control.MOUSE_FILTER_STOP
 	foto_2.mouse_filter = Control.MOUSE_FILTER_STOP
