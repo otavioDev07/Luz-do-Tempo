@@ -1,6 +1,7 @@
 extends Node
 
 var player_name = ""
+var player_email = ""
 
 var erros_fase1 = 0
 var tempo_fase1: float = 0.0

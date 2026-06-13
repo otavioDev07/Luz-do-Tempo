@@ -27,7 +27,7 @@ func _on_botao_sobre_pressed() -> void:
 
 
 func _on_botao_relatorio_pressed() -> void:
-	pass
+	get_tree().change_scene_to_file("res://scenes/Menu/menu_email.tscn")
 
 
 func _on_botao_sair_pressed() -> void:
