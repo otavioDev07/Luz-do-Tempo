@@ -3,6 +3,7 @@ extends Node2D
 @export var proxima_fase: PackedScene
 
 @onready var feedback_joia = $FeedbackJoia 
+@onready var feedback_erro = $FeedbackErro # <-- REFERÊNCIA ADICIONADA AQUI
 @onready var interface_trofeus = $InterfaceTrofeus
 @onready var avatar = $Avatar
 @onready var audio_objeto = $AudioObjeto 
@@ -23,15 +24,11 @@ extends Node2D
 #--------------------------------------------------------------------------------
 
 var pode_interagir: bool = false
-var ja_avisou_erros: bool = false
 var rodada_atual: int = 1
 var acertos_na_rodada: int = 0
 var total_acertos_fase: int = 0
 
-var dados_jogador = {
-	"tempo_decorrido": 0.0,
-	"erros_cometidos": 0
-}
+# O dicionário de tempo e erros foi removido porque a interface_trofeus cuida disso agora!
 
 var audio_atual_1: AudioStream = null
 var audio_atual_2: AudioStream = null
@@ -59,10 +56,14 @@ var audio_instrucao = preload("res://sprites/audios/fase1_2/instrucao.mp3")
 
 func _ready() -> void:
 	pode_interagir = false
+	
 	if feedback_joia != null:
 		feedback_joia.hide()
+	if feedback_erro != null:
+		feedback_erro.hide() # Garante que o erro comece escondido
 		
 	if interface_trofeus != null:
+		# Inicializa com: 0.0 tempo, 0 erros, e limite de 5 erros
 		interface_trofeus.inicializar(0.0, 0, 5)
 		
 	# BLINDAGEM: Garante que as fotos detectem o mouse para o som rodar
@@ -86,9 +87,8 @@ func _ready() -> void:
 		
 	carregar_rodada(1)
 	
-func _process(delta: float) -> void:
-	dados_jogador["tempo_decorrido"] += delta
-	
+# Removi a função _process(delta) porque o tempo é contado nos troféus
+
 func carregar_rodada(numero_rodada : int) -> void:
 	pode_interagir = false
 	acertos_na_rodada = 0
@@ -161,6 +161,7 @@ func validar_resposta(letra_arrastada: String, lacuna_node: Label) -> void:
 		
 		avatar.mudar_fala("Você acertou a letra!", audio_acerto, null, false)
 		await get_tree().create_timer(2.0).timeout
+		
 		if feedback_joia != null:
 			feedback_joia.hide()
 			
@@ -177,22 +178,41 @@ func validar_resposta(letra_arrastada: String, lacuna_node: Label) -> void:
 	else:
 		# --- CASO ERRO ---
 		pode_interagir = false
-		dados_jogador["erros_cometidos"] += 1
 		
-		if dados_jogador["erros_cometidos"] >= 5 and not ja_avisou_erros:
-			ja_avisou_erros = true
-			if interface_trofeus != null and interface_trofeus.has_method("perder_trofeu_erros"):
-				interface_trofeus.perder_trofeu_erros()
+		# Mostra a imagem de erro
+		if feedback_erro != null:
+			feedback_erro.show()
+		
+		# Apenas avisa os troféus que o jogador errou. O script do troféu faz a verificação do limite!
+		if interface_trofeus != null:
+			interface_trofeus.registrar_erro()
 				
 		avatar.mudar_fala("Essa não é a letra certa. Observe o objeto e tente novamente.", audio_erro, null, false)
+		
+		# Espera o tempo da bronca
 		await get_tree().create_timer(2.0).timeout
+		
+		# Esconde a imagem de erro
+		if feedback_erro != null:
+			feedback_erro.hide()
+			
 		pode_interagir = true
 			
 func concluir_fase() -> void:
 	pode_interagir = false
 	avatar.mudar_fala("Parabéns! Você completou o livro!", audio_fimFase, null, false)
-	if interface_trofeus != null and interface_trofeus.has_method("ganhar_fase"):
+	
+	var tempo_final = 0.0
+	var erros_finais = 0
+	
+	# Puxa os dados dos troféus antes de trocar de cena
+	if interface_trofeus != null:
 		interface_trofeus.ganhar_fase()
+		tempo_final = interface_trofeus.tempo_decorrido
+		erros_finais = interface_trofeus.erros_cometidos
+		
+	# Aqui você pode salvar o tempo_final e erros_finais no seu singleton PlayerName, se precisar!
+	
 	await get_tree().create_timer(4.0).timeout
 	
 	if proxima_fase != null:

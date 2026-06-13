@@ -65,8 +65,7 @@ theme_override_constants/shadow_offset_y = 5
 theme_override_fonts/font = ExtResource("2_wo7er")
 theme_override_font_sizes/font_size = 32
 theme_override_styles/normal = SubResource("StyleBoxEmpty_ucwm8")
-text = "Porcentagem de acerto: 
-"
+text = "Total de erros: "
 uppercase = true
 
 [node name="MedTempo" type="Label" parent="." unique_id=2073745373]
@@ -81,8 +80,7 @@ theme_override_constants/shadow_offset_y = 5
 theme_override_fonts/font = ExtResource("2_wo7er")
 theme_override_font_sizes/font_size = 32
 theme_override_styles/normal = SubResource("StyleBoxEmpty_ucwm8")
-text = "Tempo médio por fase: 
-"
+text = "Tempo médio por fase: "
 uppercase = true
 
 [node name="MaiorTempo" type="Label" parent="." unique_id=1186742867]
@@ -125,6 +123,8 @@ texture_normal = ExtResource("3_ucwm8")
 
 [node name="botao" type="AudioStreamPlayer" parent="." unique_id=1813562821]
 stream = ExtResource("4_kb516")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=280246369]
 
 [connection signal="mouse_entered" from="botao_continuar" to="." method="_on_botao_continuar_mouse_entered"]
 [connection signal="mouse_exited" from="botao_continuar" to="." method="_on_botao_continuar_mouse_exited"]

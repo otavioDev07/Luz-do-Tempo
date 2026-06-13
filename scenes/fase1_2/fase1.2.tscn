@@ -259,9 +259,9 @@ expand_mode = 1
 [node name="FeedbackErro" type="TextureRect" parent="." unique_id=233923614]
 visible = false
 z_index = 5
-offset_left = 1307.0
-offset_top = 471.0
-offset_right = 1861.0
-offset_bottom = 1029.0
+offset_left = 627.0
+offset_top = 191.0
+offset_right = 1330.0
+offset_bottom = 896.0
 texture = ExtResource("20_2ilnc")
 expand_mode = 1
