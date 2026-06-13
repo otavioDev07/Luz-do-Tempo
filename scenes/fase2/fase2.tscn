@@ -46,56 +46,26 @@ texture_normal = ExtResource("4_tno5y")
 [node name="AudioVela" type="AudioStreamPlayer2D" parent="BotaoVela" unique_id=1474735241]
 stream = ExtResource("7_wqcns")
 
-[node name="AvatarBrenno" type="Sprite2D" parent="." unique_id=495021633]
-position = Vector2(468.5, 68)
-scale = Vector2(0.44358987, 0.196319)
-texture = ExtResource("5_8knlw")
-
 [node name="Voltar" parent="." unique_id=1951791252 instance=ExtResource("9_3ah0w")]
-
-[node name="Avatar" parent="." unique_id=67743134 instance=ExtResource("11_unyh8")]
-offset_left = 435.0
-offset_top = 5.0
-offset_right = 1741.0
-offset_bottom = 193.0
-
-[node name="MensagemDeAcerto" type="Label" parent="Avatar" unique_id=1066839576]
-layout_mode = 0
-offset_left = 151.0
-offset_top = 34.0
-offset_right = 1328.0
-offset_bottom = 181.0
-theme_override_font_sizes/font_size = 45
-text = "Muito bem! Você acertou."
-
-[node name="MensagemDeErro" type="Label" parent="Avatar" unique_id=1500944080]
-layout_mode = 0
-offset_left = 263.0
-offset_top = 29.0
-offset_right = 1483.0
-offset_bottom = 174.0
-theme_override_font_sizes/font_size = 45
-text = "Ops! Vamos tentar novamente."
-
-[node name="Mensagem" type="Label" parent="Avatar" unique_id=1794669703]
-layout_mode = 0
-offset_left = 177.0
-offset_top = 24.0
-offset_right = 1342.0
-offset_bottom = 118.0
-theme_override_font_sizes/font_size = 45
-text = "Qual a melhor opção para clarear o quarto?"
 
 [node name="Pop-upAFK" parent="." unique_id=2120797033 instance=ExtResource("10_wqcns")]
 offset = Vector2(600, 400)
 transform = Transform2D(1, 0, 0, 1, 600, 400)
 
-[node name="InterfaceTrofeus" parent="." unique_id=1219300477 instance=ExtResource("11_3ah0w")]
-
 [node name="MusicaFundo" type="AudioStreamPlayer" parent="." unique_id=866805827]
 stream = ExtResource("13_unyh8")
 volume_db = -30.0
 autoplay = true
+
+[node name="InterfaceTrofeus" parent="." unique_id=1219300477 instance=ExtResource("11_3ah0w")]
+layer = 5
+
+[node name="Avatar" parent="." unique_id=67743134 instance=ExtResource("11_unyh8")]
+offset_left = 410.0
+offset_top = 17.0
+offset_right = 1563.0
+offset_bottom = 186.0
+avatar_inicial = ExtResource("5_8knlw")
 
 [connection signal="mouse_entered" from="BotaoLampada" to="." method="_on_botao_lampada_mouse_entered"]
 [connection signal="pressed" from="BotaoLampada" to="." method="_on_botao_lampada_pressed"]
