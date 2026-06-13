@@ -4,6 +4,7 @@ extends Node2D
 
 # --- REFERÊNCIAS ---
 @onready var feedback_joia = $FeedbackJoia 
+@onready var feedback_erro = $FeedbackErro # <-- A referência do erro adicionada aqui
 @onready var interface_trofeus = $InterfaceTrofeus # <-- Chama a cena inteira dos troféus!
 
 # --- VARIÁVEL DE TRAVA GLOBAL E CONTROLE DE AVISOS ---
@@ -236,6 +237,10 @@ func _on_objeto_errou() -> void:
 	pode_interagir = false # Trava o jogo durante a bronca
 	dados_jogador["erros_cometidos"] += 1
 	
+	# --- MOSTRA A IMAGEM DE ERRO ---
+	if feedback_erro != null:
+		feedback_erro.show()
+	
 	# Se chegar em 5 erros, avisa a cena de troféus UMA VEZ
 	if dados_jogador["erros_cometidos"] >= 5 and not ja_avisou_erros:
 		ja_avisou_erros = true
@@ -254,4 +259,9 @@ func _on_objeto_errou() -> void:
 		tempo_espera = audio_erro.get_length()
 		
 	await get_tree().create_timer(tempo_espera).timeout
+	
+	# --- ESCONDE A IMAGEM DE ERRO ---
+	if feedback_erro != null:
+		feedback_erro.hide()
+		
 	pode_interagir = true # Libera o jogo
