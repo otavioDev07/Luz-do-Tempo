@@ -11,7 +11,7 @@ var perdeu_erros: bool = false
 
 # --- VARIÁVEIS DO TIMER INTERNO ---
 var tempo_decorrido: float = 0.0
-var limite_de_tempo: float = 300.0 # 5 minutos (300 segundos)
+var limite_de_tempo: float = 5.0 # 5 minutos (300 segundos)
 var timer_rodando: bool = true # Controla se o cronômetro está ativo
 
 func _process(delta: float) -> void:

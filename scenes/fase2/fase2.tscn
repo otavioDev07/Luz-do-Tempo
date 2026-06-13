@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://d8rkoriq4q4k" path="res://sprites/objetos/vela.png" id="4_tno5y"]
 [ext_resource type="Texture2D" uid="uid://jxkcxqbk68un" path="res://sprites/avatares/brenno.png" id="5_8knlw"]
 [ext_resource type="AudioStream" uid="uid://r6pfl0bourep" path="res://sprites/audios/objetos/vela.mp3" id="7_wqcns"]
-[ext_resource type="PackedScene" uid="uid://c3pg8dfvgnhoo" path="res://scenes/reusable/voltar.tscn" id="9_3ah0w"]
+[ext_resource type="PackedScene" uid="uid://bbxnh2tedp6eo" path="res://scenes/reusable/voltar.tscn" id="9_3ah0w"]
 [ext_resource type="PackedScene" uid="uid://d0tmuuxhi50sq" path="res://scenes/reusable/pop_up_afk.tscn" id="10_wqcns"]
 [ext_resource type="PackedScene" uid="uid://boqtng8bfpucm" path="res://scenes/reusable/interface_trofeus.tscn" id="11_3ah0w"]
 [ext_resource type="PackedScene" uid="uid://cj4x1ts75y4p3" path="res://scenes/reusable/avatar.tscn" id="11_unyh8"]
