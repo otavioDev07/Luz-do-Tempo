@@ -55,6 +55,7 @@ var posicoes_originais_letras: Dictionary = {}
 var audio_instrucao = preload("res://sprites/audios/fase1_2/instrucao.mp3")
 
 func _ready() -> void:
+	MusicManager.tocar_jogo()
 	pode_interagir = false
 	
 	if feedback_joia != null:

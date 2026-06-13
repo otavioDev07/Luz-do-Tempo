@@ -13,7 +13,7 @@ func _process(delta: float) -> void:
 
 
 func _on_botao_continuar_pressed() -> void:
-	get_tree().change_scene_to_file("res://scenes/fase1_2/fase1.2.tscn")
+	get_tree().change_scene_to_file("res://scenes/fase2/fase2.tscn")
 
 
 func _on_botao_continuar_mouse_entered() -> void:

@@ -1,5 +1,7 @@
 extends Node2D
 
+# --- RECOLOCADO: Campo para arrastar a Fase 1.2 pelo Inspector ---
+@export var proxima_fase: PackedScene 
 @export var cena_objeto_base: PackedScene 
 
 # --- REFERÊNCIAS ---
@@ -28,90 +30,18 @@ var total_novo: int = 0
 
 # --- BANCO DE DADOS DE OBJETOS ---
 var lista_de_objetos = [
-	{
-		"nome": "Vela",
-		"tipo": "antigo",
-		"imagem": preload("res://sprites/objetos/vela.png"),
-		"audio_nome": preload("res://sprites/audios/objetos/vela.mp3"),
-		"usado": false
-	},
-	{
-		"nome": "Carroça",
-		"tipo": "antigo",
-		"imagem": preload("res://sprites/objetos/carroca.png"),
-		"audio_nome": preload("res://sprites/audios/objetos/carroca.mp3"),
-		"usado": false
-	},
-	{
-		"nome": "Fogão",
-		"tipo": "antigo",
-		"imagem": preload("res://sprites/objetos/fogao.png"),
-		"audio_nome": preload("res://sprites/audios/objetos/fogao.mp3"),
-		"usado": false
-	},
-	{
-		"nome": "Lampião",
-		"tipo": "antigo",
-		"imagem": preload("res://sprites/objetos/lampiao.png"),
-		"audio_nome": preload("res://sprites/audios/objetos/lampiao.mp3"),
-		"usado": false
-	},
-	{
-		"nome": "Mapa",
-		"tipo": "antigo",
-		"imagem": preload("res://sprites/objetos/mapa.png"),
-		"audio_nome": preload("res://sprites/audios/objetos/mapa.mp3"),
-		"usado": false
-	},
-	{
-		"nome": "Telefone Fixo",
-		"tipo": "antigo",
-		"imagem": preload("res://sprites/objetos/telefone_fixo.png"),
-		"audio_nome": preload("res://sprites/audios/objetos/telefone.mp3"),
-		"usado": false
-	},
-	{
-		"nome": "Microondas",
-		"tipo": "novo",
-		"imagem": preload("res://sprites/objetos/microondas.png"),
-		"audio_nome": preload("res://sprites/audios/objetos/microondas.mp3"),
-		"usado": false
-	},
-	{
-		"nome": "Poste",
-		"tipo": "novo",
-		"imagem": preload("res://sprites/objetos/poste.png"),
-		"audio_nome": preload("res://sprites/audios/objetos/posteSolar.mp3"),
-		"usado": false
-	},
-	{
-		"nome": "Lâmpada",
-		"tipo": "novo",
-		"imagem": preload("res://sprites/objetos/lampada.png"),
-		"audio_nome": preload("res://sprites/audios/objetos/lampada.mp3"),
-		"usado": false
-	},
-	{
-		"nome": "GPS",
-		"tipo": "novo",
-		"imagem": preload("res://sprites/objetos/gps.png"),
-		"audio_nome": preload("res://sprites/audios/objetos/gps.mp3"),
-		"usado": false
-	},
-	{
-		"nome": "Carro",
-		"tipo": "novo",
-		"imagem": preload("res://sprites/objetos/carro.png"),
-		"audio_nome": preload("res://sprites/audios/objetos/carro.mp3"),
-		"usado": false
-	},
-	{
-		"nome": "Celular",
-		"tipo": "novo",
-		"imagem": preload("res://sprites/objetos/celular.png"),
-		"audio_nome": preload("res://sprites/audios/objetos/celular.mp3"),
-		"usado": false
-	}
+	{"nome": "Vela", "tipo": "antigo", "imagem": preload("res://sprites/objetos/vela.png"), "audio_nome": preload("res://sprites/audios/objetos/vela.mp3"), "usado": false},
+	{"nome": "Carroça", "tipo": "antigo", "imagem": preload("res://sprites/objetos/carroca.png"), "audio_nome": preload("res://sprites/audios/objetos/carroca.mp3"), "usado": false},
+	{"nome": "Fogão", "tipo": "antigo", "imagem": preload("res://sprites/objetos/fogao.png"), "audio_nome": preload("res://sprites/audios/objetos/fogao.mp3"), "usado": false},
+	{"nome": "Lampião", "tipo": "antigo", "imagem": preload("res://sprites/objetos/lampiao.png"), "audio_nome": preload("res://sprites/audios/objetos/lampiao.mp3"), "usado": false},
+	{"nome": "Mapa", "tipo": "antigo", "imagem": preload("res://sprites/objetos/mapa.png"), "audio_nome": preload("res://sprites/audios/objetos/mapa.mp3"), "usado": false},
+	{"nome": "Telefone Fixo", "tipo": "antigo", "imagem": preload("res://sprites/objetos/telefone_fixo.png"), "audio_nome": preload("res://sprites/audios/objetos/telefone.mp3"), "usado": false},
+	{"nome": "Microondas", "tipo": "novo", "imagem": preload("res://sprites/objetos/microondas.png"), "audio_nome": preload("res://sprites/audios/objetos/microondas.mp3"), "usado": false},
+	{"nome": "Poste", "tipo": "novo", "imagem": preload("res://sprites/objetos/poste.png"), "audio_nome": preload("res://sprites/audios/objetos/posteSolar.mp3"), "usado": false},
+	{"nome": "Lâmpada", "tipo": "novo", "imagem": preload("res://sprites/objetos/lampada.png"), "audio_nome": preload("res://sprites/audios/objetos/lampada.mp3"), "usado": false},
+	{"nome": "GPS", "tipo": "novo", "imagem": preload("res://sprites/objetos/gps.png"), "audio_nome": preload("res://sprites/audios/objetos/gps.mp3"), "usado": false},
+	{"nome": "Carro", "tipo": "novo", "imagem": preload("res://sprites/objetos/carro.png"), "audio_nome": preload("res://sprites/audios/objetos/carro.mp3"), "usado": false},
+	{"nome": "Celular", "tipo": "novo", "imagem": preload("res://sprites/objetos/celular.png"), "audio_nome": preload("res://sprites/audios/objetos/celular.mp3"), "usado": false}
 ]
 
 # --- VARIÁVEIS DO AVATAR ---
@@ -125,10 +55,8 @@ var audio_erro: AudioStream
 func _ready() -> void:
 	dados_jogador["nome"] = PlayerName.player_name
 	MusicManager.tocar_jogo()
-	pode_interagir = false # Trava o jogo no início
+	pode_interagir = false 
 	
-	# --- LIGA OS TROFÉUS ---
-	# Inicializa passando: Tempo Inicial (0.0), Erros Iniciais (0), Limite de Erros (5)
 	if interface_trofeus != null:
 		interface_trofeus.inicializar(0.0, 0, 5)
 	
@@ -139,7 +67,6 @@ func _ready() -> void:
 		true
 	)
 	
-	# --- ESPERA O ÁUDIO DE INSTRUÇÃO ACABAR ---
 	if audio_instrucao != null:
 		await get_tree().create_timer(audio_instrucao.get_length()).timeout
 	else:
@@ -156,11 +83,11 @@ func sortear_novo_objeto() -> void:
 			
 	# --- CONDIÇÃO DE VITÓRIA ---
 	if objetos_disponiveis.size() == 0:
+		pode_interagir = false 
 		
 		var tempo_final = 0.0
 		var erros_finais = 0
 		
-		# Puxa todas as informações finais direto dos Troféus
 		if interface_trofeus != null:
 			interface_trofeus.ganhar_fase()
 			tempo_final = interface_trofeus.tempo_decorrido
@@ -169,7 +96,6 @@ func sortear_novo_objeto() -> void:
 		PlayerName.tempo_fase1 = tempo_final
 		PlayerName.erros_fase1 = erros_finais
 		
-		pode_interagir = false 
 		$Avatar.mudar_fala(
 			"Parabéns! Você organizou todos os objetos muito bem!", 
 			audio_acerto, 
@@ -177,6 +103,13 @@ func sortear_novo_objeto() -> void:
 			false
 		)
 		print("Fase Concluída! Erros: ", erros_finais, " | Tempo: ", tempo_final)
+		
+		# --- RECOLOCADO: Espera o parabéns terminar e muda para a próxima fase ---
+		await get_tree().create_timer(3.5).timeout
+		if proxima_fase != null:
+			get_tree().change_scene_to_packed(proxima_fase)
+		else:
+			print("⚠️ AVISO: A cena da proxima_fase não foi arrastada no Inspector da Fase 1.1!")
 		return
 		
 	var objeto_sorteado = objetos_disponiveis.pick_random()
@@ -194,11 +127,11 @@ func sortear_novo_objeto() -> void:
 		objeto_sorteado["audio_nome"] 
 	)
 	
-	pode_interagir = true # Libera o jogo!
+	pode_interagir = true 
 
 
 func _on_objeto_acertou(objeto_instanciado: Node2D) -> void:
-	pode_interagir = false # Trava o jogo enquanto comemora
+	pode_interagir = false 
 	
 	if feedback_joia != null:
 		feedback_joia.show()
@@ -242,13 +175,11 @@ func _on_objeto_acertou(objeto_instanciado: Node2D) -> void:
 
 
 func _on_objeto_errou() -> void:
-	pode_interagir = false # Trava o jogo durante a bronca
+	pode_interagir = false 
 	
 	if feedback_erro != null:
 		feedback_erro.show()
 	
-	# --- ENVIA O ERRO PARA A INTERFACE DE TROFÉUS ---
-	# Agora não precisamos mais passar o número do erro, a interface cuida disso!
 	if interface_trofeus != null:
 		interface_trofeus.registrar_erro()
 			
@@ -268,4 +199,4 @@ func _on_objeto_errou() -> void:
 	if feedback_erro != null:
 		feedback_erro.hide()
 		
-	pode_interagir = true # Libera o jogo
+	pode_interagir = true

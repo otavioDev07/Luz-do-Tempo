@@ -13,7 +13,7 @@ func _process(delta: float) -> void:
 
 
 func _on_botao_continuar_pressed() -> void:
-	pass # Replace with function body.
+	get_tree().change_scene_to_file("res://scenes/menu/relatorio.tscn")
 
 
 func _on_botao_continuar_mouse_entered() -> void:
