@@ -1,14 +1,21 @@
-[gd_scene format=3 uid="uid://dn5ja6twpq1o0"]
+[gd_scene format=4 uid="uid://dn5ja6twpq1o0"]
 
 [ext_resource type="Script" uid="uid://d4lewbt68htvn" path="res://scenes/fase2/fase_2.gd" id="1_hq3un"]
 [ext_resource type="Texture2D" uid="uid://c1yriivh7g71v" path="res://sprites/telas/quarto_lampada.png" id="2_6hk8e"]
 [ext_resource type="Texture2D" uid="uid://cn6bb5ssfn1i1" path="res://sprites/telas/quarto.png" id="2_of271"]
 [ext_resource type="Texture2D" uid="uid://dmn3jgcac5jh4" path="res://sprites/objetos/lampada.png" id="3_7cvnh"]
-[ext_resource type="Texture2D" uid="uid://crdkbioqtqm7f" path="res://sprites/avatares/fundo_nome.png" id="3_of271"]
 [ext_resource type="Texture2D" uid="uid://bqu48fm4jfeau" path="res://sprites/telas/quarto_velas.png" id="3_wx3it"]
 [ext_resource type="Texture2D" uid="uid://d8rkoriq4q4k" path="res://sprites/objetos/vela.png" id="4_tno5y"]
 [ext_resource type="Texture2D" uid="uid://jxkcxqbk68un" path="res://sprites/avatares/brenno.png" id="5_8knlw"]
-[ext_resource type="Texture2D" uid="uid://c46itx7ctltcf" path="res://sprites/avatares/trofeu_completo.png" id="7_05ekq"]
+[ext_resource type="AudioStream" uid="uid://r6pfl0bourep" path="res://sprites/audios/objetos/vela.mp3" id="7_wqcns"]
+[ext_resource type="PackedScene" uid="uid://c3pg8dfvgnhoo" path="res://scenes/reusable/voltar.tscn" id="9_3ah0w"]
+[ext_resource type="PackedScene" uid="uid://d0tmuuxhi50sq" path="res://scenes/reusable/pop_up_afk.tscn" id="10_wqcns"]
+[ext_resource type="PackedScene" uid="uid://boqtng8bfpucm" path="res://scenes/reusable/interface_trofeus.tscn" id="11_3ah0w"]
+[ext_resource type="PackedScene" uid="uid://cj4x1ts75y4p3" path="res://scenes/reusable/avatar.tscn" id="11_unyh8"]
+[ext_resource type="AudioStream" uid="uid://b6muv08t385fj" path="res://sprites/audios/reusable/musica_jogo.mp3" id="13_unyh8"]
+
+[sub_resource type="AudioStreamMP3" id="AudioStreamMP3_3ah0w"]
+data = PackedByteArray("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")
 
 [node name="Fase2" type="Node2D" unique_id=1588668891]
 script = ExtResource("1_hq3un")
@@ -26,6 +33,9 @@ offset_right = 816.0
 offset_bottom = 1008.0
 texture_normal = ExtResource("3_7cvnh")
 
+[node name="AudioLampada" type="AudioStreamPlayer2D" parent="BotaoLampada" unique_id=1459332333]
+stream = SubResource("AudioStreamMP3_3ah0w")
+
 [node name="BotaoVela" type="TextureButton" parent="." unique_id=413832817]
 offset_left = 1126.0
 offset_top = 454.0
@@ -33,65 +43,61 @@ offset_right = 1619.0
 offset_bottom = 1048.0
 texture_normal = ExtResource("4_tno5y")
 
+[node name="AudioVela" type="AudioStreamPlayer2D" parent="BotaoVela" unique_id=1474735241]
+stream = ExtResource("7_wqcns")
+
 [node name="AvatarBrenno" type="Sprite2D" parent="." unique_id=495021633]
-position = Vector2(367, 113)
-scale = Vector2(0.36410257, 0.2576687)
+position = Vector2(468.5, 68)
+scale = Vector2(0.44358987, 0.196319)
 texture = ExtResource("5_8knlw")
 
-[node name="CaixaDeTexto" type="TextureRect" parent="." unique_id=858437126]
-offset_left = 505.0
-offset_top = 49.0
-offset_right = 1724.0
-offset_bottom = 195.0
-texture = ExtResource("3_of271")
+[node name="Voltar" parent="." unique_id=1951791252 instance=ExtResource("9_3ah0w")]
 
-[node name="Mensagem" type="Label" parent="CaixaDeTexto" unique_id=1794669703]
-layout_mode = 0
-offset_right = 1220.0
-offset_bottom = 145.0
-theme_override_font_sizes/font_size = 45
-text = "Qual a melhor opção para deixar o quarto mais claro?"
+[node name="Avatar" parent="." unique_id=67743134 instance=ExtResource("11_unyh8")]
+offset_left = 435.0
+offset_top = 5.0
+offset_right = 1741.0
+offset_bottom = 193.0
 
-[node name="MensagemDeErro" type="Label" parent="CaixaDeTexto" unique_id=1500944080]
+[node name="MensagemDeAcerto" type="Label" parent="Avatar" unique_id=1066839576]
 layout_mode = 0
-offset_right = 1220.0
-offset_bottom = 145.0
-theme_override_font_sizes/font_size = 45
-text = "Ops! Vamos tentar novamente."
-
-[node name="MensagemDeAcerto" type="Label" parent="CaixaDeTexto" unique_id=1066839576]
-layout_mode = 0
-offset_right = 1217.0
-offset_bottom = 147.0
+offset_left = 151.0
+offset_top = 34.0
+offset_right = 1328.0
+offset_bottom = 181.0
 theme_override_font_sizes/font_size = 45
 text = "Muito bem! Você acertou."
 
-[node name="BarraDeTrofeus" type="HBoxContainer" parent="." unique_id=357960042]
-offset_left = 730.0
-offset_top = 905.0
-offset_right = 1248.0
-offset_bottom = 1065.0
+[node name="MensagemDeErro" type="Label" parent="Avatar" unique_id=1500944080]
+layout_mode = 0
+offset_left = 263.0
+offset_top = 29.0
+offset_right = 1483.0
+offset_bottom = 174.0
+theme_override_font_sizes/font_size = 45
+text = "Ops! Vamos tentar novamente."
 
-[node name="Trofeu1" type="TextureRect" parent="BarraDeTrofeus" unique_id=1048088195]
-custom_minimum_size = Vector2(150, 0)
-layout_mode = 2
-texture = ExtResource("7_05ekq")
-expand_mode = 1
-stretch_mode = 5
+[node name="Mensagem" type="Label" parent="Avatar" unique_id=1794669703]
+layout_mode = 0
+offset_left = 177.0
+offset_top = 24.0
+offset_right = 1342.0
+offset_bottom = 118.0
+theme_override_font_sizes/font_size = 45
+text = "Qual a melhor opção para clarear o quarto?"
 
-[node name="Trofeu2" type="TextureRect" parent="BarraDeTrofeus" unique_id=1635568226]
-custom_minimum_size = Vector2(150, 0)
-layout_mode = 2
-texture = ExtResource("7_05ekq")
-expand_mode = 1
-stretch_mode = 5
+[node name="Pop-upAFK" parent="." unique_id=2120797033 instance=ExtResource("10_wqcns")]
+offset = Vector2(600, 400)
+transform = Transform2D(1, 0, 0, 1, 600, 400)
 
-[node name="Trofeu3" type="TextureRect" parent="BarraDeTrofeus" unique_id=1255678136]
-custom_minimum_size = Vector2(150, 0)
-layout_mode = 2
-texture = ExtResource("7_05ekq")
-expand_mode = 1
-stretch_mode = 5
+[node name="InterfaceTrofeus" parent="." unique_id=1219300477 instance=ExtResource("11_3ah0w")]
 
+[node name="MusicaFundo" type="AudioStreamPlayer" parent="." unique_id=866805827]
+stream = ExtResource("13_unyh8")
+volume_db = -30.0
+autoplay = true
+
+[connection signal="mouse_entered" from="BotaoLampada" to="." method="_on_botao_lampada_mouse_entered"]
 [connection signal="pressed" from="BotaoLampada" to="." method="_on_botao_lampada_pressed"]
+[connection signal="mouse_entered" from="BotaoVela" to="." method="_on_botao_vela_mouse_entered"]
 [connection signal="pressed" from="BotaoVela" to="." method="_on_botao_vela_pressed"]

@@ -8,9 +8,12 @@ extends Node2D
 @onready var botao_celular = $BotaoCelular
 @onready var botao_telefone = $BotaoTelefone
 
-# Carregamos as imagens diretamente via código
-var fundo_acerto_img = preload("res://sprites/telas/ligacao_celular.png")
-var fundo_erro_img = preload("res://sprites/telas/ligacao_fixo.png")
+# Caminhos atualizados para a Fase 2.3
+var fundo_acerto_img = preload("res://sprites/telas/cozinha_microondas.png")
+var fundo_erro_img = preload("res://sprites/telas/cozinha_fogao.png")
+
+# Defina aqui para qual cena você quer ir após o acerto
+@export_file("*.tscn") var proxima_cena_caminho: String
 
 func _ready():
 	mensagem_acerto.hide()
@@ -28,9 +31,9 @@ func _on_botao_celular_pressed():
 	# 3. Troca o fundo
 	fundo.texture = fundo_acerto_img
 		
-	# 4. Espera e muda de cena
+	# 4. Espera e muda de cena (agora usando a variável exportada)
 	await get_tree().create_timer(3.0).timeout
-	get_tree().change_scene_to_file("res://scenes/fase2/fase_2_3.tscn")
+	get_tree().change_scene_to_file("res://scenes/fase2/fase_2_4.tscn")
 
 func _on_botao_telefone_pressed():
 	# 1. Esconde a pergunta e os botões
@@ -44,11 +47,10 @@ func _on_botao_telefone_pressed():
 	# 3. Troca o fundo
 	fundo.texture = fundo_erro_img
 		
-	# 4. Espera e reinicia
+	# 4. Espera e reinicia a fase atual
 	await get_tree().create_timer(3.0).timeout
 	get_tree().reload_current_scene()
-
-
+	
 func _on_botao_celular_mouse_entered() -> void:
 	$BotaoCelular/AudioCelular.play()
 
