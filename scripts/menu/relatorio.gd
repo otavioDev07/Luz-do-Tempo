@@ -104,7 +104,7 @@ func formatar_tempo_relogio(tempo_em_segundos: float) -> String:
 # --- BOTÕES ---
 
 func _on_botao_continuar_pressed() -> void:
-	get_tree().change_scene_to_file("res://scenes/menu/menu.tscn")
+	get_tree().change_scene_to_file("res://scenes/menu/menu_email.tscn")
 
 func _on_botao_continuar_mouse_entered() -> void:
 	if $botao != null:

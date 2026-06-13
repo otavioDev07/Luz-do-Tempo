@@ -1,10 +1,10 @@
-[gd_scene format=3 uid="uid://y3f2g6bljo4n"]
+[gd_scene format=3 uid="uid://ns5qdvj303g5"]
 
 [ext_resource type="Texture2D" uid="uid://b7arlsg32hydv" path="res://sprites/telas/relatorio.png" id="1_64rmo"]
 [ext_resource type="Script" uid="uid://bcixj0k0rqs2l" path="res://scripts/menu/relatorio.gd" id="1_kb516"]
 [ext_resource type="FontFile" uid="uid://cyqlcfh8ho82y" path="res://fonts/PressStart2P-Regular.ttf" id="2_wo7er"]
-[ext_resource type="Texture2D" uid="uid://b42tj4t4hdh7e" path="res://sprites/avatares/btnMenu.png" id="3_ucwm8"]
 [ext_resource type="AudioStream" uid="uid://b78knkqulcr4p" path="res://sprites/audios/reusable/botao.mp3" id="4_kb516"]
+[ext_resource type="Texture2D" uid="uid://bbc4s5r1gqq3o" path="res://sprites/avatares/Continuar.png" id="4_rkprh"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ucwm8"]
 
@@ -110,12 +110,12 @@ text = "Fase com menor tempo: "
 uppercase = true
 
 [node name="botao_continuar" type="TextureButton" parent="." unique_id=57082540]
-offset_left = 753.0
+offset_left = 650.0
 offset_top = 912.0
-offset_right = 1169.0
+offset_right = 1268.0
 offset_bottom = 1057.0
 pivot_offset = Vector2(309, 72.5)
-texture_normal = ExtResource("3_ucwm8")
+texture_normal = ExtResource("4_rkprh")
 
 [node name="botao" type="AudioStreamPlayer" parent="." unique_id=1813562821]
 stream = ExtResource("4_kb516")

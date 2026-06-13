@@ -1,10 +1,10 @@
 [gd_scene format=3 uid="uid://dq336orfau4vu"]
 
-[ext_resource type="Script" uid="uid://dqujlp4pa3wh8" path="res://scripts/menu/menu_email.gd" id="1_56ki0"]
+[ext_resource type="Script" path="res://scripts/menu/menu_email.gd" id="1_56ki0"]
 [ext_resource type="Texture2D" uid="uid://cpl3yqpo1bv3y" path="res://sprites/telas/nome.png" id="2_3tis6"]
 [ext_resource type="Texture2D" uid="uid://csm6fbeqwtei6" path="res://sprites/avatares/email.png" id="2_bgx77"]
 [ext_resource type="Texture2D" uid="uid://pchewpvbysy" path="res://sprites/avatares/voltar.png" id="3_v6fy3"]
-[ext_resource type="Texture2D" uid="uid://bbc4s5r1gqq3o" path="res://sprites/avatares/Continuar.png" id="4_boc4s"]
+[ext_resource type="Texture2D" uid="uid://b42tj4t4hdh7e" path="res://sprites/avatares/btnMenu.png" id="5_upwqd"]
 [ext_resource type="FontFile" uid="uid://cyqlcfh8ho82y" path="res://fonts/PressStart2P-Regular.ttf" id="7_3tis6"]
 [ext_resource type="Texture2D" uid="uid://bpjxpiugum12f" path="res://sprites/avatares/caixa_nome.png" id="7_fr75f"]
 [ext_resource type="AudioStream" uid="uid://bumr6cm0l5bge" path="res://sprites/audios/reusable/woosh.mp3" id="7_upwqd"]
@@ -47,12 +47,12 @@ texture_normal = ExtResource("3_v6fy3")
 
 [node name="botao_continuar" type="TextureButton" parent="." unique_id=745051033]
 layout_mode = 0
-offset_left = 633.0
+offset_left = 750.0
 offset_top = 750.0
-offset_right = 1251.0
+offset_right = 1368.0
 offset_bottom = 895.0
 pivot_offset = Vector2(309, 72.5)
-texture_normal = ExtResource("4_boc4s")
+texture_normal = ExtResource("5_upwqd")
 
 [node name="caixa_de_texto" type="TextureRect" parent="." unique_id=126675166]
 layout_mode = 0
