@@ -35,10 +35,10 @@ vertical_alignment = 1
 uppercase = true
 
 [node name="Nota" type="Label" parent="." unique_id=434777555]
-offset_left = 1251.0
-offset_top = 414.0
-offset_right = 1551.0
-offset_bottom = 717.0
+offset_left = 1204.0
+offset_top = 404.0
+offset_right = 1504.0
+offset_bottom = 707.0
 theme_override_colors/font_color = Color(1, 0.92156863, 0.07450981, 1)
 theme_override_colors/font_shadow_color = Color(0.11764706, 0.20392157, 0.27058825, 1)
 theme_override_colors/font_outline_color = Color(0.11764706, 0.20392157, 0.27058825, 1)
@@ -47,10 +47,6 @@ theme_override_constants/shadow_offset_y = 10
 theme_override_fonts/font = ExtResource("2_wo7er")
 theme_override_font_sizes/font_size = 150
 theme_override_styles/normal = SubResource("StyleBoxEmpty_ucwm8")
-text = "A+
-"
-horizontal_alignment = 1
-vertical_alignment = 1
 uppercase = true
 
 [node name="PorAcerto" type="Label" parent="." unique_id=34410065]
