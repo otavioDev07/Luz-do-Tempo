@@ -49,6 +49,8 @@ var audio_instrucao = preload("res://sprites/audios/fase1_1/instrucao.mp3")
 
 var audio_acerto = preload("res://sprites/audios/fase1_1/acerto.mp3")
 var audio_erro = preload("res://sprites/audios/fase1_1/erro.mp3")
+var audio_concluido = preload("res://sprites/audios/fase1_1/concluido.mp3")
+
 
 
 # --- CRONÔMETRO INTERNO ---
@@ -105,7 +107,7 @@ func sortear_novo_objeto() -> void:
 		
 		$Avatar.mudar_fala(
 			"Parabeéns, você separou todos os objetos", 
-			audio_acerto, 
+			audio_concluido, 
 			null, 
 			false
 		)
