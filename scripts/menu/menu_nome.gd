@@ -34,9 +34,19 @@ func _on_botao_voltar_pressed() -> void:
 
 
 func _on_botao_voltar_mouse_entered() -> void:
+	$botao.stop()
+	$botao.play()
+	$voltar.stop()
 	$voltar.play()
+	var tween = create_tween()
+	tween.tween_property($botao_voltar, "scale", Vector2(1.1, 1.1), 0.15)
 
 
 func _on_imput_nome_text_changed(new_text: String) -> void:
 	$digitando.stop()
 	$digitando.play()
+
+
+func _on_botao_voltar_mouse_exited() -> void:
+	var tween = create_tween()
+	tween.tween_property($botao_voltar, "scale", Vector2(1.0, 1.0), 0.15)

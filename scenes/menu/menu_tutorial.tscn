@@ -30,6 +30,7 @@ offset_left = 32.0
 offset_top = 971.0
 offset_right = 413.0
 offset_bottom = 1043.0
+pivot_offset = Vector2(208, 60.5)
 texture_normal = ExtResource("2_0de3i")
 
 [node name="placeholder" type="TextureRect" parent="." unique_id=614709231]
@@ -60,6 +61,7 @@ volume_db = -20.0
 stream = ExtResource("8_j0csh")
 
 [connection signal="mouse_entered" from="botao_voltar" to="." method="_on_botao_voltar_mouse_entered"]
+[connection signal="mouse_exited" from="botao_voltar" to="." method="_on_botao_voltar_mouse_exited"]
 [connection signal="pressed" from="botao_voltar" to="." method="_on_botao_voltar_pressed"]
 [connection signal="mouse_entered" from="botao_continuar" to="." method="_on_botao_continuar_mouse_entered"]
 [connection signal="mouse_exited" from="botao_continuar" to="." method="_on_botao_continuar_mouse_exited"]

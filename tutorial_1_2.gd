@@ -3,11 +3,16 @@ extends Control
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	$woosh.play()
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
 
 
 func _on_botao_continuar_pressed() -> void:
-	get_tree().change_scene_to_file("res://scenes/fase1_1/fase_1_1.tscn")
+	get_tree().change_scene_to_file("res://scenes/fase1_2/fase1.2.tscn")
 
 
 func _on_botao_continuar_mouse_entered() -> void:
@@ -24,7 +29,7 @@ func _on_botao_continuar_mouse_exited() -> void:
 
 
 func _on_botao_voltar_pressed() -> void:
-	get_tree().change_scene_to_file("res://scenes/menu/menu_nome.tscn")
+	pass # Replace with function body.
 
 
 func _on_botao_voltar_mouse_entered() -> void:

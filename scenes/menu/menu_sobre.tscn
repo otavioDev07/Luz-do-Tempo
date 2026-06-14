@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://clljn3tnh3s4p" path="res://sprites/avatares/nome_vinicius.png" id="11_m3vq5"]
 [ext_resource type="Texture2D" uid="uid://b0ghcgx1lvb12" path="res://sprites/avatares/PG_RGB_72dpi_transparente.png" id="12_y7heo"]
 [ext_resource type="AudioStream" uid="uid://ghjy8e07c1jo" path="res://sprites/audios/menu/audioSobre.mp3" id="13_4ud3a"]
+[ext_resource type="AudioStream" uid="uid://b78knkqulcr4p" path="res://sprites/audios/reusable/botao.mp3" id="14_h6nov"]
 
 [node name="menu_sobre" type="Control" unique_id=1581901081]
 layout_mode = 3
@@ -31,10 +32,11 @@ texture = ExtResource("2_miv1q")
 
 [node name="botao_voltar" type="TextureButton" parent="." unique_id=1651646188]
 layout_mode = 0
-offset_left = 21.0
-offset_top = 990.0
-offset_right = 402.0
-offset_bottom = 1062.0
+offset_left = 17.0
+offset_top = 940.0
+offset_right = 433.0
+offset_bottom = 1061.0
+pivot_offset = Vector2(208, 60.5)
 texture_normal = ExtResource("3_hi6x2")
 
 [node name="voltar" type="AudioStreamPlayer" parent="." unique_id=1541844587]
@@ -149,6 +151,10 @@ texture = ExtResource("12_y7heo")
 [node name="sobre" type="AudioStreamPlayer" parent="." unique_id=1838364051]
 stream = ExtResource("13_4ud3a")
 
+[node name="botao" type="AudioStreamPlayer" parent="." unique_id=1610192168]
+stream = ExtResource("14_h6nov")
+
 [connection signal="mouse_entered" from="botao_voltar" to="." method="_on_botao_voltar_mouse_entered"]
+[connection signal="mouse_exited" from="botao_voltar" to="." method="_on_botao_voltar_mouse_exited"]
 [connection signal="pressed" from="botao_voltar" to="." method="_on_botao_voltar_pressed"]
 [connection signal="mouse_entered" from="RichTextLabel" to="." method="_on_rich_text_label_mouse_entered"]
