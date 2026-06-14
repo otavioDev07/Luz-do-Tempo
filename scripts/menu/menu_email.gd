@@ -29,14 +29,6 @@ func _on_botao_continuar_mouse_exited() -> void:
 	tween.tween_property($botao_continuar, "scale", Vector2(1.0, 1.0), 0.15)
 
 
-func _on_botao_voltar_pressed() -> void:
-	get_tree().change_scene_to_file("res://scenes/menu/menu.tscn")
-
-
-func _on_botao_voltar_mouse_entered() -> void:
-	$voltar.play()
-
-
 func _on_imput_email_text_changed(new_text: String) -> void:
 	$digitando.stop()
 	$digitando.play()
