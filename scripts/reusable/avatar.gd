@@ -16,7 +16,7 @@ func _ready() -> void:
 		botao_avatar.texture_normal = avatar_inicial
 
 
-func mudar_fala(novo_texto: String, novo_audio: AudioStream, nova_imagem: Texture2D = null, esperar_2s: bool = false) -> void:
+func mudar_fala(novo_texto: String, novo_audio: AudioStream, nova_imagem: Texture2D = null, esperar_1s: bool = false) -> void:
 	# 1. Troca a senha para abortar qualquer espera (await) antiga que esteja rolando
 	id_fala += 1
 	var minha_senha = id_fala
@@ -38,10 +38,11 @@ func mudar_fala(novo_texto: String, novo_audio: AudioStream, nova_imagem: Textur
 	
 	label.visible_characters = 0
 	
-	if esperar_2s:
-		await get_tree().create_timer(2.0).timeout
+	# Tempo de espera ajustado para 1.0 segundo
+	if esperar_1s:
+		await get_tree().create_timer(1.0).timeout
 	
-	# 5. Se o jogador clicou em outra coisa durante esses 2 segundos, a senha mudou! 
+	# 5. Se o jogador clicou em outra coisa durante esse 1 segundo, a senha mudou! 
 	# Então abortamos essa função velha para não tocar o áudio errado.
 	if id_fala != minha_senha:
 		return

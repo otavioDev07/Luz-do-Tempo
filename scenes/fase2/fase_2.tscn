@@ -13,9 +13,10 @@
 script = ExtResource("1_xtq5f")
 
 [node name="Background" type="TextureRect" parent="." unique_id=64980541]
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 1919.0
+offset_bottom = 1079.0
 texture = ExtResource("1_6cs8w")
+stretch_mode = 5
 
 [node name="Avatar" parent="." unique_id=67743134 instance=ExtResource("2_b2oj6")]
 offset_left = 295.0
@@ -71,5 +72,9 @@ texture_normal = ExtResource("7_xtq5f")
 ignore_texture_size = true
 stretch_mode = 5
 
+[node name="AudioHover" type="AudioStreamPlayer2D" parent="." unique_id=534187880]
+
+[connection signal="mouse_entered" from="OpcoesContainer/CaixaCerta/BotaoCerto" to="." method="_on_botao_certo_mouse_entered"]
 [connection signal="pressed" from="OpcoesContainer/CaixaCerta/BotaoCerto" to="." method="_on_botao_certo_pressed"]
+[connection signal="mouse_entered" from="OpcoesContainer/CaixaErrada/BotaoErrado" to="." method="_on_botao_errado_mouse_entered"]
 [connection signal="pressed" from="OpcoesContainer/CaixaErrada/BotaoErrado" to="." method="_on_botao_errado_pressed"]

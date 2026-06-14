@@ -10,7 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://d0tmuuxhi50sq" path="res://scenes/reusable/pop_up_afk.tscn" id="5_6prgk"]
 [ext_resource type="PackedScene" uid="uid://boqtng8bfpucm" path="res://scenes/reusable/interface_trofeus.tscn" id="7_0wf6d"]
 [ext_resource type="Texture2D" uid="uid://bbd47qm732nb7" path="res://sprites/telas/correto.png" id="7_srdww"]
-[ext_resource type="PackedScene" uid="uid://c3pg8dfvgnhoo" path="res://scenes/reusable/voltar.tscn" id="10_2agic"]
+[ext_resource type="PackedScene" uid="uid://bbxnh2tedp6eo" path="res://scenes/reusable/voltar.tscn" id="10_2agic"]
 [ext_resource type="Texture2D" uid="uid://tx3xik88dh6h" path="res://sprites/telas/img_erro.png" id="10_mbkgy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a0pa6"]
