@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://cn6bb5ssfn1i1" path="res://sprites/telas/quarto.png" id="1_6cs8w"]
 [ext_resource type="Script" uid="uid://cj63fl54pxxyl" path="res://scripts/fase2/fase_2.gd" id="1_xtq5f"]
 [ext_resource type="PackedScene" uid="uid://cj4x1ts75y4p3" path="res://scenes/reusable/avatar.tscn" id="2_b2oj6"]
+[ext_resource type="PackedScene" uid="uid://davpkp24p5wph" path="res://scenes/menu/fase_2_completado.tscn" id="2_nkobw"]
 [ext_resource type="Texture2D" uid="uid://jxkcxqbk68un" path="res://sprites/avatares/brenno.png" id="3_athbt"]
 [ext_resource type="PackedScene" uid="uid://boqtng8bfpucm" path="res://scenes/reusable/interface_trofeus.tscn" id="4_x3cry"]
 [ext_resource type="PackedScene" uid="uid://bbxnh2tedp6eo" path="res://scenes/reusable/voltar.tscn" id="5_xtq5f"]
@@ -11,6 +12,7 @@
 
 [node name="fase2" type="Node2D" unique_id=694259762]
 script = ExtResource("1_xtq5f")
+proxima_fase = ExtResource("2_nkobw")
 
 [node name="Background" type="TextureRect" parent="." unique_id=64980541]
 offset_right = 1919.0

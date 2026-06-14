@@ -1,17 +1,21 @@
-[gd_scene format=3 uid="uid://c3pg8dfvgnhoo"]
+[gd_scene format=3 uid="uid://bbxnh2tedp6eo"]
 
 [ext_resource type="Texture2D" uid="uid://pchewpvbysy" path="res://sprites/avatares/voltar.png" id="1_ec6bg"]
-[ext_resource type="Script" path="res://scripts/reusable/voltar.gd" id="2_uadsl"]
+[ext_resource type="Script" uid="uid://c4i8k6cgs4xa8" path="res://scripts/reusable/voltar.gd" id="2_uadsl"]
 [ext_resource type="AudioStream" uid="uid://rvvn222npbye" path="res://sprites/audios/reusable/voltar.mp3" id="3_y72gf"]
+[ext_resource type="AudioStream" uid="uid://b78knkqulcr4p" path="res://sprites/audios/reusable/botao.mp3" id="4_b5hm1"]
 
 [node name="Voltar" type="TextureButton" unique_id=1951791252]
 offset_left = 45.0
-offset_top = 981.0
-offset_right = 429.0
-offset_bottom = 1063.0
+offset_top = 929.0
+offset_right = 461.0
+offset_bottom = 1050.0
 texture_normal = ExtResource("1_ec6bg")
 script = ExtResource("2_uadsl")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=373038393]
 stream = ExtResource("3_y72gf")
 volume_db = 12.458
+
+[node name="som" type="AudioStreamPlayer2D" parent="." unique_id=501274501]
+stream = ExtResource("4_b5hm1")
