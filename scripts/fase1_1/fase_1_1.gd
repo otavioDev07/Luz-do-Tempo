@@ -45,10 +45,10 @@ var lista_de_objetos = [
 
 # --- VARIÁVEIS DO AVATAR ---
 var imgavatar = preload("res://sprites/avatares/adrian.png")
-var audio_instrucao: AudioStream 
+var audio_instrucao = preload("res://sprites/audios/fase1_1/instrucao.mp3")
 
-var audio_acerto: AudioStream 
-var audio_erro: AudioStream 
+var audio_acerto = preload("res://sprites/audios/fase1_1/acerto.mp3")
+var audio_erro = preload("res://sprites/audios/fase1_1/erro.mp3")
 
 
 # --- CRONÔMETRO INTERNO ---
@@ -68,7 +68,9 @@ func _ready() -> void:
 	jogo_rodando = true # Inicia o relógio matemático invisível
 	
 	$Avatar.mudar_fala(
-		"Separe o objeto antigo do novo!", 
+		"Vamos aprender sobre objetos novos e velhos.
+		Veja o objeto no centro da tela e arraste ele para a opção correta: Novo ou Velho.
+		Vamos começar!", 
 		audio_instrucao, 
 		imgavatar, 
 		true
@@ -102,7 +104,7 @@ func sortear_novo_objeto() -> void:
 		PlayerName.erros_fase1 = erros_cometidos
 		
 		$Avatar.mudar_fala(
-			"Parabéns! Você organizou todos os objetos muito bem!", 
+			"Parabeéns, você separou todos os objetos", 
 			audio_acerto, 
 			null, 
 			false
@@ -193,7 +195,8 @@ func _on_objeto_errou() -> void:
 		interface_trofeus.registrar_erro()
 			
 	$Avatar.mudar_fala(
-		"Tente novamente! Esse objeto pertence à outra caixa.", 
+		"Ops! Não foi dessa vez.
+		Esse objeto não pertence a essa opção.", 
 		audio_erro, 
 		null, 
 		false

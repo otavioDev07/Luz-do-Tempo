@@ -7,7 +7,7 @@ extends Node2D
 @onready var opcoes_container = $OpcoesContainer
 @onready var interface_trofeus = $InterfaceTrofeus
 @onready var avatar = $Avatar
-@onready var audio_hover = $AudioHover # NOVO: Tocador de áudio para os botões
+@onready var audio_hover = $AudioHover # Tocador de áudio para os botões
 
 @onready var caixa_certa = $OpcoesContainer/CaixaCerta
 @onready var caixa_errada = $OpcoesContainer/CaixaErrada
@@ -20,7 +20,6 @@ var tempo_decorrido: float = 0.0
 var erros_cometidos: int = 0
 var jogo_rodando: bool = false 
 var rodada_atual: int = 0 # Vai de 0 a 4 (Total de 5 rodadas)
-var imgavatar = preload("res://sprites/avatares/brenno.png")
 
 # Posições originais das caixas para podermos embaralhar!
 var pos_esquerda: Vector2
@@ -29,6 +28,7 @@ var pos_direita: Vector2
 # --- BANCO DE DADOS DAS 5 RODADAS ---
 var rodadas = [
 	{
+		"img_avatar": preload("res://sprites/avatares/brenno.png"), # <-- ATENÇÃO: Troque pelo avatar do cenário 1
 		"fundo_padrao": preload("res://sprites/telas/quarto.png"),
 		"fundo_acerto": preload("res://sprites/telas/quarto_lampada.png"),
 		"fundo_erro": preload("res://sprites/telas/quarto_velas.png"),
@@ -44,6 +44,7 @@ var rodadas = [
 		"audio_erro": preload("res://sprites/audios/fase2/cenario1_erro.mp3")
 	},
 	{
+		"img_avatar": preload("res://sprites/avatares/brenno.png"), # <-- ATENÇÃO: Troque pelo avatar do cenário 2
 		"fundo_padrao": preload("res://sprites/telas/garagem.png"),
 		"fundo_acerto": preload("res://sprites/telas/garagem_carro.png"),
 		"fundo_erro": preload("res://sprites/telas/garagem_carroca.png"),
@@ -52,13 +53,14 @@ var rodadas = [
 		"audio_nome_certo": preload("res://sprites/audios/objetos/carro.mp3"), 
 		"audio_nome_errado": preload("res://sprites/audios/objetos/carroca.mp3"),
 		"texto_instrucao": "Você precisa ir para a escola rapidamente.\nQual meio de transporte você escolhe?",
-		"audio_instrucao": preload("res://sprites/audios/fase2/cenario1_instrucao.mp3"), 
+		"audio_instrucao": preload("res://sprites/audios/fase2/cenario2_instrucao.mp3"), 
 		"texto_acerto": "Excelente!\nO carro é mais rápido e prático.\nVocê acertou!",
-		"audio_acerto": preload("res://sprites/audios/fase2/cenario1_acerto.mp3"), 
+		"audio_acerto": preload("res://sprites/audios/fase2/cenario2_acerto.mp3"), 
 		"texto_erro": "A carroça pode transportar pessoas.\nMas ela é mais lenta.\nExiste uma opção melhor.",
-		"audio_erro": preload("res://sprites/audios/fase2/cenario1_erro.mp3") 
+		"audio_erro": preload("res://sprites/audios/fase2/cenario2_erro.mp3") 
 	},
 	{
+		"img_avatar": preload("res://sprites/avatares/vinicius.png"), # <-- ATENÇÃO: Troque pelo avatar do cenário 3
 		"fundo_padrao": preload("res://sprites/telas/ligacao.png"),
 		"fundo_acerto": preload("res://sprites/telas/ligacao_celular.png"),
 		"fundo_erro": preload("res://sprites/telas/ligacao_fixo.png"),
@@ -67,13 +69,14 @@ var rodadas = [
 		"audio_nome_certo": preload("res://sprites/audios/objetos/celular.mp3"), 
 		"audio_nome_errado": preload("res://sprites/audios/objetos/telefone.mp3"),
 		"texto_instrucao": "João quer conversar com sua mãe.\nQual meio de comunicação é a melhor escolha?",
-		"audio_instrucao": preload("res://sprites/audios/fase2/cenario1_instrucao.mp3"), 
+		"audio_instrucao": preload("res://sprites/audios/fase2/cenario3_instrucao.mp3"), 
 		"texto_acerto": "Muito bem!\nO celular facilita a comunicação.\nVocê acertou!",
-		"audio_acerto": preload("res://sprites/audios/fase2/cenario1_acerto.mp3"), 
+		"audio_acerto": preload("res://sprites/audios/fase2/cenario3_acerto.mp3"), 
 		"texto_erro": "O telefone fixo pode fazer ligações.\nMas existe uma opção mais prática.\nTente novamente.",
-		"audio_erro": preload("res://sprites/audios/fase2/cenario1_erro.mp3") 
+		"audio_erro": preload("res://sprites/audios/fase2/cenario3_erro.mp3") 
 	},
 	{
+		"img_avatar": preload("res://sprites/avatares/pedro.png"), # <-- ATENÇÃO: Troque pelo avatar do cenário 4
 		"fundo_padrao": preload("res://sprites/telas/rua.png"),
 		"fundo_acerto": preload("res://sprites/telas/rua_poste.png"),
 		"fundo_erro": preload("res://sprites/telas/rua_lampiao.png"),
@@ -82,13 +85,14 @@ var rodadas = [
 		"audio_nome_certo": preload("res://sprites/audios/objetos/posteSolar.mp3"), 
 		"audio_nome_errado": preload("res://sprites/audios/objetos/lampiao.mp3"),
 		"texto_instrucao": "O engenheiro quer iluminar esta rua.\nAjude ele a escolher a melhor opção para a cidade?",
-		"audio_instrucao": preload("res://sprites/audios/fase2/cenario1_instrucao.mp3"), 
+		"audio_instrucao": preload("res://sprites/audios/fase2/cenario4_instrucao.mp3"), 
 		"texto_acerto": "Excelente escolha!\nOs postes iluminam melhor a rua.\nE ainda usam energia sustentável.",
-		"audio_acerto": preload("res://sprites/audios/fase2/cenario1_acerto.mp3"), 
+		"audio_acerto": preload("res://sprites/audios/fase2/cenario4_acerto.mp3"), 
 		"texto_erro": "Os lampiões iluminam a rua.\nMas a iluminação é limitada.\nExiste uma opção melhor.",
-		"audio_erro": preload("res://sprites/audios/fase2/cenario1_erro.mp3") 
+		"audio_erro": preload("res://sprites/audios/fase2/cenario4_erro.mp3") 
 	},
 	{
+		"img_avatar": preload("res://sprites/avatares/adrian.png"), # <-- ATENÇÃO: Troque pelo avatar do cenário 5
 		"fundo_padrao": preload("res://sprites/telas/cozinha.png"),
 		"fundo_acerto": preload("res://sprites/telas/cozinha_microondas.png"),
 		"fundo_erro": preload("res://sprites/telas/cozinha_fogao.png"),
@@ -97,11 +101,11 @@ var rodadas = [
 		"audio_nome_certo": preload("res://sprites/audios/objetos/microondas.mp3"), 
 		"audio_nome_errado": preload("res://sprites/audios/objetos/fogao.mp3"),
 		"texto_instrucao": "Maria está com fome.\nQual é a melhor opção para esquentar sua comida?",
-		"audio_instrucao": preload("res://sprites/audios/fase2/cenario1_instrucao.mp3"), 
+		"audio_instrucao": preload("res://sprites/audios/fase2/cenario5_instrucao.mp3"), 
 		"texto_acerto": "Muito bem!\nO micro-ondas aquece a comida rapidamente.\nVocê acertou!",
-		"audio_acerto": preload("res://sprites/audios/fase2/cenario1_acerto.mp3"), 
+		"audio_acerto": preload("res://sprites/audios/fase2/cenario5_acerto.mp3"), 
 		"texto_erro": "O fogão a lenha funciona bem.\nMas demora mais para aquecer a comida.\nExiste uma opção mais rápida.",
-		"audio_erro": preload("res://sprites/audios/fase2/cenario1_erro.mp3") 
+		"audio_erro": preload("res://sprites/audios/fase2/cenario5_erro.mp3") 
 	},
 ]
 
@@ -126,7 +130,7 @@ func _ready() -> void:
 
 
 func carregar_rodada(indice: int) -> void:
-	# Bloqueia brevemente apenas durante a montagem visual da tela
+	# Bloqueia a interação durante a montagem visual da tela e enquanto o áudio toca
 	pode_interagir = false
 	var dados = rodadas[indice]
 	
@@ -143,9 +147,16 @@ func carregar_rodada(indice: int) -> void:
 		
 	opcoes_container.show()
 	
-	avatar.mudar_fala(dados["texto_instrucao"], dados["audio_instrucao"], imgavatar, true)
+	# Usando a imagem do avatar de dentro do banco de dados (dados["img_avatar"])
+	avatar.mudar_fala(dados["texto_instrucao"], dados["audio_instrucao"], dados["img_avatar"], true)
 	
-	# MUDANÇA: O jogador já pode interagir imediatamente enquanto o áudio toca!
+	# Calcula o tempo do áudio da instrução e aguarda ele terminar
+	var tempo_instrucao = 2.0
+	if dados["audio_instrucao"] != null:
+		tempo_instrucao = dados["audio_instrucao"].get_length()
+		
+	await get_tree().create_timer(tempo_instrucao).timeout
+	
 	pode_interagir = true
 
 
@@ -176,9 +187,16 @@ func _on_botao_errado_pressed() -> void:
 	fundo.texture = dados["fundo_padrao"]
 	opcoes_container.show()
 	
-	avatar.mudar_fala(dados["texto_instrucao"], dados["audio_instrucao"], imgavatar, true)
+	# Toca a instrução de novo usando o avatar específico da rodada
+	avatar.mudar_fala(dados["texto_instrucao"], dados["audio_instrucao"], dados["img_avatar"], true)
 	
-	# Libera a interação novamente assim que os botões reaparecerem na tela de erro
+	# Calcula o tempo da instrução repetida e aguarda ela terminar antes de liberar
+	var tempo_instrucao_repetida = 2.0
+	if dados["audio_instrucao"] != null:
+		tempo_instrucao_repetida = dados["audio_instrucao"].get_length()
+		
+	await get_tree().create_timer(tempo_instrucao_repetida).timeout
+	
 	pode_interagir = true
 
 
@@ -218,14 +236,14 @@ func _on_botao_certo_pressed() -> void:
 
 # --- FUNÇÕES DE HOVER (PASSAR O MOUSE) ---
 func _on_botao_certo_mouse_entered() -> void:
-	if audio_hover != null:
+	if audio_hover != null and pode_interagir:
 		var dados = rodadas[rodada_atual]
 		if dados["audio_nome_certo"] != null:
 			audio_hover.stream = dados["audio_nome_certo"]
 			audio_hover.play()
 
 func _on_botao_errado_mouse_entered() -> void:
-	if audio_hover != null:
+	if audio_hover != null and pode_interagir:
 		var dados = rodadas[rodada_atual]
 		if dados["audio_nome_errado"] != null:
 			audio_hover.stream = dados["audio_nome_errado"]

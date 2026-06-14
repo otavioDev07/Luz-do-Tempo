@@ -28,8 +28,6 @@ var rodada_atual: int = 1
 var acertos_na_rodada: int = 0
 var total_acertos_fase: int = 0
 
-# O dicionário de tempo e erros foi removido porque a interface_trofeus cuida disso agora!
-
 var audio_atual_1: AudioStream = null
 var audio_atual_2: AudioStream = null
 var audio_atual_3: AudioStream = null
@@ -87,8 +85,6 @@ func _ready() -> void:
 		await get_tree().create_timer(2.0).timeout
 		
 	carregar_rodada(1)
-	
-# Removi a função _process(delta) porque o tempo é contado nos troféus
 
 func carregar_rodada(numero_rodada : int) -> void:
 	pode_interagir = false
@@ -212,7 +208,9 @@ func concluir_fase() -> void:
 		tempo_final = interface_trofeus.tempo_decorrido
 		erros_finais = interface_trofeus.erros_cometidos
 		
-	# Aqui você pode salvar o tempo_final e erros_finais no seu singleton PlayerName, se precisar!
+	# Salvando os dados no PlayerName
+	PlayerName.tempo_fase1_2 = tempo_final
+	PlayerName.erros_fase1_2 = erros_finais
 	
 	await get_tree().create_timer(4.0).timeout
 	
