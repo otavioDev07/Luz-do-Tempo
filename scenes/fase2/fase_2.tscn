@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://7bnc45i1bmxv"]
+[gd_scene format=3 uid="uid://c7iwh636gt4f3"]
 
 [ext_resource type="Texture2D" uid="uid://cn6bb5ssfn1i1" path="res://sprites/telas/quarto.png" id="1_6cs8w"]
 [ext_resource type="Script" uid="uid://cj63fl54pxxyl" path="res://scripts/fase2/fase_2.gd" id="1_xtq5f"]
