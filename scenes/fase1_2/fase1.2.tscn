@@ -17,7 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://cbovv0gy02j74" path="res://sprites/avatares/otavio.png" id="9_ijf30"]
 [ext_resource type="PackedScene" uid="uid://d0tmuuxhi50sq" path="res://scenes/reusable/pop_up_afk.tscn" id="9_k087y"]
 [ext_resource type="PackedScene" uid="uid://boqtng8bfpucm" path="res://scenes/reusable/interface_trofeus.tscn" id="10_ijf30"]
-[ext_resource type="PackedScene" uid="uid://c3pg8dfvgnhoo" path="res://scenes/reusable/voltar.tscn" id="11_342k4"]
+[ext_resource type="PackedScene" uid="uid://bbxnh2tedp6eo" path="res://scenes/reusable/voltar.tscn" id="11_342k4"]
 [ext_resource type="Texture2D" uid="uid://bbd47qm732nb7" path="res://sprites/telas/correto.png" id="14_4wu1t"]
 [ext_resource type="Texture2D" uid="uid://tx3xik88dh6h" path="res://sprites/telas/img_erro.png" id="20_2ilnc"]
 
@@ -243,7 +243,7 @@ transform = Transform2D(1, 0, 0, 1, 600, 300)
 [node name="InterfaceTrofeus" parent="." unique_id=1219300477 instance=ExtResource("10_ijf30")]
 
 [node name="Voltar" parent="." unique_id=1951791252 instance=ExtResource("11_342k4")]
-cena_destino = "uid://c5a8lwdog18pg"
+cena_destino = "uid://db1km2exdgt0g"
 
 [node name="FeedbackJoia" type="TextureRect" parent="." unique_id=1265445744]
 visible = false

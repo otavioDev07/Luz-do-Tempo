@@ -30,6 +30,7 @@ avatar_inicial = ExtResource("3_athbt")
 [node name="InterfaceTrofeus" parent="." unique_id=1219300477 instance=ExtResource("4_x3cry")]
 
 [node name="Voltar" parent="." unique_id=1951791252 instance=ExtResource("5_xtq5f")]
+cena_destino = "uid://dp5u3od1rlbvd"
 
 [node name="OpcoesContainer" type="ColorRect" parent="." unique_id=1285901703]
 offset_left = 289.0
