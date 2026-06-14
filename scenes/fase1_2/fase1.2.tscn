@@ -67,7 +67,7 @@ expand_mode = 1
 stretch_mode = 5
 
 [node name="Lacuna" type="Label" parent="paginaEsquerda/VBoxContainer/linhaObjeto1" unique_id=327107309]
-custom_minimum_size = Vector2(60, 100)
+custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 text = "_"
 label_settings = ExtResource("3_ot04g")
@@ -92,7 +92,7 @@ expand_mode = 1
 stretch_mode = 5
 
 [node name="Lacuna" type="Label" parent="paginaEsquerda/VBoxContainer/linhaObjeto2" unique_id=1771531972]
-custom_minimum_size = Vector2(60, 100)
+custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 text = "_"
 label_settings = ExtResource("3_ot04g")
@@ -117,7 +117,7 @@ expand_mode = 1
 stretch_mode = 5
 
 [node name="Lacuna" type="Label" parent="paginaEsquerda/VBoxContainer/linhaObjeto3" unique_id=146892041]
-custom_minimum_size = Vector2(60, 100)
+custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 text = "_"
 label_settings = ExtResource("3_ot04g")
