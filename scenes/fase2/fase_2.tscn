@@ -1,0 +1,75 @@
+[gd_scene format=3 uid="uid://7bnc45i1bmxv"]
+
+[ext_resource type="Texture2D" uid="uid://cn6bb5ssfn1i1" path="res://sprites/telas/quarto.png" id="1_6cs8w"]
+[ext_resource type="Script" uid="uid://cj63fl54pxxyl" path="res://scripts/fase2/fase_2.gd" id="1_xtq5f"]
+[ext_resource type="PackedScene" uid="uid://cj4x1ts75y4p3" path="res://scenes/reusable/avatar.tscn" id="2_b2oj6"]
+[ext_resource type="Texture2D" uid="uid://jxkcxqbk68un" path="res://sprites/avatares/brenno.png" id="3_athbt"]
+[ext_resource type="PackedScene" uid="uid://boqtng8bfpucm" path="res://scenes/reusable/interface_trofeus.tscn" id="4_x3cry"]
+[ext_resource type="PackedScene" uid="uid://bbxnh2tedp6eo" path="res://scenes/reusable/voltar.tscn" id="5_xtq5f"]
+[ext_resource type="Texture2D" uid="uid://d8rkoriq4q4k" path="res://sprites/objetos/vela.png" id="6_x3cry"]
+[ext_resource type="Texture2D" uid="uid://dmn3jgcac5jh4" path="res://sprites/objetos/lampada.png" id="7_xtq5f"]
+
+[node name="fase2" type="Node2D" unique_id=694259762]
+script = ExtResource("1_xtq5f")
+
+[node name="Background" type="TextureRect" parent="." unique_id=64980541]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_6cs8w")
+
+[node name="Avatar" parent="." unique_id=67743134 instance=ExtResource("2_b2oj6")]
+offset_left = 295.0
+offset_top = 7.0
+offset_right = 1601.0
+offset_bottom = 195.0
+avatar_inicial = ExtResource("3_athbt")
+
+[node name="InterfaceTrofeus" parent="." unique_id=1219300477 instance=ExtResource("4_x3cry")]
+
+[node name="Voltar" parent="." unique_id=1951791252 instance=ExtResource("5_xtq5f")]
+
+[node name="OpcoesContainer" type="ColorRect" parent="." unique_id=1285901703]
+offset_left = 289.0
+offset_top = 240.0
+offset_right = 1558.0
+offset_bottom = 850.0
+color = Color(1, 0, 1, 0)
+
+[node name="CaixaCerta" type="ColorRect" parent="OpcoesContainer" unique_id=1269502547]
+layout_mode = 0
+offset_left = 106.0
+offset_top = 98.0
+offset_right = 491.0
+offset_bottom = 506.0
+color = Color(0.70980394, 0.6, 0.39607844, 0.3882353)
+
+[node name="BotaoCerto" type="TextureButton" parent="OpcoesContainer/CaixaCerta" unique_id=668019406]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 3.0
+offset_right = 382.0
+offset_bottom = 413.0
+texture_normal = ExtResource("6_x3cry")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="CaixaErrada" type="ColorRect" parent="OpcoesContainer" unique_id=820412235]
+layout_mode = 0
+offset_left = 746.0
+offset_top = 97.0
+offset_right = 1139.0
+offset_bottom = 513.0
+color = Color(0.70980394, 0.6, 0.39607844, 0.3882353)
+
+[node name="BotaoErrado" type="TextureButton" parent="OpcoesContainer/CaixaErrada" unique_id=922701427]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 3.0
+offset_right = 382.0
+offset_bottom = 413.0
+texture_normal = ExtResource("7_xtq5f")
+ignore_texture_size = true
+stretch_mode = 5
+
+[connection signal="pressed" from="OpcoesContainer/CaixaCerta/BotaoCerto" to="." method="_on_botao_certo_pressed"]
+[connection signal="pressed" from="OpcoesContainer/CaixaErrada/BotaoErrado" to="." method="_on_botao_errado_pressed"]
