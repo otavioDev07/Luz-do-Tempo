@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://ddkfcf1lruric" path="res://sprites/avatares/nome_adrian.png" id="10_fi8pf"]
 [ext_resource type="Texture2D" uid="uid://clljn3tnh3s4p" path="res://sprites/avatares/nome_vinicius.png" id="11_m3vq5"]
 [ext_resource type="Texture2D" uid="uid://b0ghcgx1lvb12" path="res://sprites/avatares/PG_RGB_72dpi_transparente.png" id="12_y7heo"]
+[ext_resource type="AudioStream" uid="uid://ghjy8e07c1jo" path="res://sprites/audios/menu/audioSobre.mp3" id="13_4ud3a"]
 
 [node name="menu_sobre" type="Control" unique_id=1581901081]
 layout_mode = 3
@@ -129,7 +130,7 @@ offset_left = 599.0
 offset_top = 255.0
 offset_right = 1162.0
 offset_bottom = 628.0
-text = "Este jogo foi desenvolvido por alunos do curso de Bacharelado em Ciência da Computação da UTFPR – Campus Ponta Grossa, por meio do projeto de extensão em parceria com a ASSART.
+text = "Este jogo foi desenvolvido por alunos do curso de Bacharelado em Ciência da Computação da UTFPR – Campus Ponta Grossa, por meio do projeto de extensão em parceria com a ASSARTE.
 
 O projeto tem como objetivo contribuir para o letramento digital e promover a inclusão por meio de atividades educativas e interativas. O jogo foi criado para auxiliar no aprendizado de conceitos relacionados à evolução dos objetos ao longo do tempo e à importância da sustentabilidade no dia a dia.
 
@@ -145,5 +146,9 @@ offset_bottom = 620.0
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("12_y7heo")
 
+[node name="sobre" type="AudioStreamPlayer" parent="." unique_id=1838364051]
+stream = ExtResource("13_4ud3a")
+
 [connection signal="mouse_entered" from="botao_voltar" to="." method="_on_botao_voltar_mouse_entered"]
 [connection signal="pressed" from="botao_voltar" to="." method="_on_botao_voltar_pressed"]
+[connection signal="mouse_entered" from="RichTextLabel" to="." method="_on_rich_text_label_mouse_entered"]
