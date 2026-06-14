@@ -8,6 +8,10 @@
 [ext_resource type="Texture2D" uid="uid://tstuon5lwa5g" path="res://sprites/avatares/relatorio (1).png" id="6_vd2iv"]
 [ext_resource type="Texture2D" uid="uid://br3d7d3fgj3k1" path="res://sprites/avatares/sair.png" id="7_sum3h"]
 [ext_resource type="AudioStream" uid="uid://b78knkqulcr4p" path="res://sprites/audios/reusable/botao.mp3" id="8_dsxoc"]
+[ext_resource type="AudioStream" uid="uid://cir3f6tv36l5v" path="res://sprites/audios/menu/jogar.mp3" id="9_kaijy"]
+[ext_resource type="AudioStream" uid="uid://csdi0cjo5nfwb" path="res://sprites/audios/menu/relatorio.mp3" id="10_y4i35"]
+[ext_resource type="AudioStream" uid="uid://c88vj8guync3r" path="res://sprites/audios/menu/sobre.mp3" id="11_rcuxh"]
+[ext_resource type="AudioStream" uid="uid://b5eaxa0brvx7g" path="res://sprites/audios/menu/sair.mp3" id="12_64m6r"]
 
 [node name="Menu" type="Control" unique_id=1656722886]
 layout_mode = 3
@@ -70,6 +74,18 @@ texture_normal = ExtResource("7_sum3h")
 [node name="botao" type="AudioStreamPlayer" parent="." unique_id=1380174551]
 stream = ExtResource("8_dsxoc")
 volume_db = -10.0
+
+[node name="jogar" type="AudioStreamPlayer" parent="." unique_id=1743255819]
+stream = ExtResource("9_kaijy")
+
+[node name="relatorio" type="AudioStreamPlayer" parent="." unique_id=1216325082]
+stream = ExtResource("10_y4i35")
+
+[node name="sobre" type="AudioStreamPlayer" parent="." unique_id=704927456]
+stream = ExtResource("11_rcuxh")
+
+[node name="sair" type="AudioStreamPlayer" parent="." unique_id=195260057]
+stream = ExtResource("12_64m6r")
 
 [connection signal="mouse_entered" from="botao_jogar" to="." method="_on_botao_jogar_mouse_entered"]
 [connection signal="mouse_exited" from="botao_jogar" to="." method="_on_botao_jogar_mouse_exited"]

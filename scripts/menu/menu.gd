@@ -77,12 +77,14 @@ func _on_botao_sair_pressed() -> void:
 func _on_botao_jogar_mouse_entered() -> void:
 	$botao.stop()
 	$botao.play()
+	$jogar.play()
 	
 	var tween = create_tween()
 	tween.tween_property($botao_jogar, "scale", Vector2(1.1, 1.1), 0.15)
 
 
 func _on_botao_jogar_mouse_exited() -> void:
+	$jogar.stop()
 	var tween = create_tween()
 	tween.tween_property($botao_jogar, "scale", Vector2(1.0, 1.0), 0.15)
 
@@ -90,12 +92,14 @@ func _on_botao_jogar_mouse_exited() -> void:
 func _on_botao_sobre_mouse_entered() -> void:
 	$botao.stop()
 	$botao.play()
+	$sobre.play()
 	
 	var tween = create_tween()
 	tween.tween_property($botao_sobre, "scale", Vector2(1.1, 1.1), 0.15)
 
 
 func _on_botao_sobre_mouse_exited() -> void:
+	$sobre.stop()
 	var tween = create_tween()
 	tween.tween_property($botao_sobre, "scale", Vector2(1.0, 1.0), 0.15)
 
@@ -103,22 +107,26 @@ func _on_botao_sobre_mouse_exited() -> void:
 func _on_botao_relatorio_mouse_entered() -> void:
 	$botao.stop()
 	$botao.play()
+	$relatorio.play()
 	var tween = create_tween()
 	tween.tween_property($botao_relatorio, "scale", Vector2(1.1, 1.1), 0.15)
 
 
 func _on_botao_relatorio_mouse_exited() -> void:
 	var tween = create_tween()
+	$relatorio.stop()
 	tween.tween_property($botao_relatorio, "scale", Vector2(1.0, 1.0), 0.15)
 
 
 func _on_botao_sair_mouse_entered() -> void:
 	$botao.stop()
 	$botao.play()
+	$sair.play()
 	var tween = create_tween()
 	tween.tween_property($botao_sair, "scale", Vector2(1.1, 1.1), 0.15)
 
 
 func _on_botao_sair_mouse_exited() -> void:
+	$sair.stop()
 	var tween = create_tween()
 	tween.tween_property($botao_sair, "scale", Vector2(1.0, 1.0), 0.15)

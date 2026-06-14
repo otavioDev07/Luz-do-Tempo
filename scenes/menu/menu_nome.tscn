@@ -11,6 +11,7 @@
 [ext_resource type="FontFile" uid="uid://cyqlcfh8ho82y" path="res://fonts/PressStart2P-Regular.ttf" id="8_si2ll"]
 [ext_resource type="AudioStream" uid="uid://rvvn222npbye" path="res://sprites/audios/reusable/voltar.mp3" id="10_d0l0n"]
 [ext_resource type="AudioStream" uid="uid://otsdqohjgg1b" path="res://sprites/audios/reusable/tecla.mp3" id="11_e8hdk"]
+[ext_resource type="AudioStream" uid="uid://dmk7n0ubnp8r4" path="res://sprites/audios/menu/continuar.mp3" id="12_2av8t"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6e66a"]
 
@@ -88,6 +89,9 @@ stream = ExtResource("10_d0l0n")
 [node name="digitando" type="AudioStreamPlayer" parent="." unique_id=963067658]
 stream = ExtResource("11_e8hdk")
 volume_db = -20.0
+
+[node name="continuar" type="AudioStreamPlayer" parent="." unique_id=788625614]
+stream = ExtResource("12_2av8t")
 
 [connection signal="mouse_entered" from="botao_voltar" to="." method="_on_botao_voltar_mouse_entered"]
 [connection signal="mouse_exited" from="botao_voltar" to="." method="_on_botao_voltar_mouse_exited"]

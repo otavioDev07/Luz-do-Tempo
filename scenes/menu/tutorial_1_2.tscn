@@ -1,12 +1,13 @@
 [gd_scene format=3 uid="uid://db1km2exdgt0g"]
 
-[ext_resource type="Script" uid="uid://vq0vnkxs1o3i" path="res://tutorial_1_2.gd" id="1_5yyxg"]
+[ext_resource type="Script" uid="uid://vq0vnkxs1o3i" path="res://scripts/menu/tutorial_1_2.gd" id="1_5yyxg"]
 [ext_resource type="Texture2D" uid="uid://cpl3yqpo1bv3y" path="res://sprites/telas/nome.png" id="2_8qo0f"]
 [ext_resource type="Texture2D" uid="uid://cd5buxuaycpr8" path="res://sprites/avatares/Placeholder.png" id="3_5n6yh"]
 [ext_resource type="Texture2D" uid="uid://bbc4s5r1gqq3o" path="res://sprites/avatares/Continuar.png" id="4_jdy7x"]
 [ext_resource type="Texture2D" uid="uid://pchewpvbysy" path="res://sprites/avatares/voltar.png" id="5_5n6yh"]
 [ext_resource type="AudioStream" uid="uid://b78knkqulcr4p" path="res://sprites/audios/reusable/botao.mp3" id="6_jdy7x"]
 [ext_resource type="AudioStream" uid="uid://rvvn222npbye" path="res://sprites/audios/reusable/voltar.mp3" id="7_jdy7x"]
+[ext_resource type="AudioStream" uid="uid://dmk7n0ubnp8r4" path="res://sprites/audios/menu/continuar.mp3" id="8_1i63e"]
 
 [node name="tutorial_1_2" type="Control" unique_id=314502535]
 layout_mode = 3
@@ -55,6 +56,9 @@ stream = ExtResource("6_jdy7x")
 
 [node name="voltar" type="AudioStreamPlayer" parent="." unique_id=1945202496]
 stream = ExtResource("7_jdy7x")
+
+[node name="continuar" type="AudioStreamPlayer" parent="." unique_id=1395894711]
+stream = ExtResource("8_1i63e")
 
 [connection signal="mouse_entered" from="botao_continuar" to="." method="_on_botao_continuar_mouse_entered"]
 [connection signal="mouse_exited" from="botao_continuar" to="." method="_on_botao_continuar_mouse_exited"]
