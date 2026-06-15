@@ -6,19 +6,18 @@
 [ext_resource type="Texture2D" uid="uid://cd5buxuaycpr8" path="res://sprites/avatares/Placeholder.png" id="3_v7wfq"]
 [ext_resource type="Texture2D" uid="uid://bbc4s5r1gqq3o" path="res://sprites/avatares/Continuar.png" id="4_25o0g"]
 [ext_resource type="AudioStream" uid="uid://rvvn222npbye" path="res://sprites/audios/reusable/voltar.mp3" id="6_mug4p"]
+[ext_resource type="Texture2D" uid="uid://b57h8fevcpwcr" path="res://sprites/Videos/Property 1=Play, Theme=White (1).png" id="7_rjo4s"]
 [ext_resource type="AudioStream" uid="uid://bumr6cm0l5bge" path="res://sprites/audios/reusable/woosh.mp3" id="7_wvrxr"]
 [ext_resource type="AudioStream" uid="uid://b78knkqulcr4p" path="res://sprites/audios/reusable/botao.mp3" id="8_j0csh"]
+[ext_resource type="Texture2D" uid="uid://bij4e50tpg155" path="res://sprites/Videos/Property 1=Fastforward, Theme=White (1).png" id="9_hedfw"]
 [ext_resource type="AudioStream" uid="uid://dmk7n0ubnp8r4" path="res://sprites/audios/menu/continuar.mp3" id="9_mug4p"]
-[ext_resource type="VideoStream" uid="uid://c1cwlq5xr3fa" path="res://sprites/Videos/TutorialFase_1_1.ogv" id="10_wvrxr"]
-[ext_resource type="FontFile" uid="uid://cyqlcfh8ho82y" path="res://fonts/PressStart2P-Regular.ttf" id="11_j0csh"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_p7ciq"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_iewnf"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rjo4s"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7s54r"]
+[ext_resource type="Texture2D" uid="uid://dqntqvdo33ug1" path="res://sprites/Videos/Property 1=Fastforward, Theme=Black (1).png" id="10_6a22y"]
+[ext_resource type="Texture2D" uid="uid://crpaosq4bomrk" path="res://sprites/Videos/Property 1=Rewind, Theme=White (1).png" id="11_cnke5"]
+[ext_resource type="Texture2D" uid="uid://c0pc16vvct6ag" path="res://sprites/Videos/Property 1=Rewind, Theme=Black (1).png" id="12_qsuua"]
+[ext_resource type="Texture2D" uid="uid://seqihi2p25ko" path="res://sprites/Videos/Property 1=Play, Theme=Black (1).png" id="13_iewnf"]
+[ext_resource type="Texture2D" uid="uid://dotfrhl0t508k" path="res://sprites/Videos/Property 1=Pause, Theme=White (1).png" id="14_7s54r"]
+[ext_resource type="Texture2D" uid="uid://x8mxqvhr5274" path="res://sprites/Videos/Property 1=Pause, Theme=Black (1).png" id="15_ku37n"]
+[ext_resource type="VideoStream" uid="uid://bv1ypfs2wnbni" path="res://sprites/Videos/tutorial1.1.ogv" id="18_hedfw"]
 
 [node name="menu_tutorial" type="Control" unique_id=75578268]
 layout_mode = 3
@@ -50,14 +49,53 @@ offset_left = 522.0
 offset_top = 158.0
 offset_right = 1459.0
 offset_bottom = 813.0
+pivot_offset = Vector2(468.5, 327.5)
 texture = ExtResource("3_v7wfq")
+
+[node name="pausar" type="TextureButton" parent="placeholder" unique_id=742322600]
+layout_mode = 0
+offset_left = 420.0
+offset_top = 545.0
+offset_right = 516.0
+offset_bottom = 641.0
+scale = Vector2(0.8, 0.8)
+texture_normal = ExtResource("14_7s54r")
+texture_hover = ExtResource("15_ku37n")
+
+[node name="play1" type="TextureButton" parent="placeholder" unique_id=1043968059]
+layout_mode = 0
+offset_left = 420.0
+offset_top = 545.0
+offset_right = 516.0
+offset_bottom = 641.0
+scale = Vector2(0.8, 0.8)
+texture_normal = ExtResource("7_rjo4s")
+texture_hover = ExtResource("13_iewnf")
+
+[node name="forward" type="TextureButton" parent="placeholder" unique_id=1316280914]
+layout_mode = 0
+offset_left = 599.0
+offset_top = 533.0
+offset_right = 695.0
+offset_bottom = 629.0
+texture_normal = ExtResource("9_hedfw")
+texture_hover = ExtResource("10_6a22y")
+
+[node name="rewind" type="TextureButton" parent="placeholder" unique_id=1693388660]
+layout_mode = 0
+offset_left = 228.0
+offset_top = 531.0
+offset_right = 324.0
+offset_bottom = 627.0
+texture_normal = ExtResource("11_cnke5")
+texture_hover = ExtResource("12_qsuua")
 
 [node name="botao_continuar" type="TextureButton" parent="." unique_id=452355304]
 layout_mode = 0
-offset_left = 664.0
-offset_top = 805.0
-offset_right = 1282.0
-offset_bottom = 950.0
+offset_left = 675.0
+offset_top = 924.0
+offset_right = 1293.0
+offset_bottom = 1069.0
 pivot_offset = Vector2(309, 72.5)
 texture_normal = ExtResource("4_25o0g")
 
@@ -81,71 +119,39 @@ offset_left = 654.0
 offset_top = 281.0
 offset_right = 1296.0
 offset_bottom = 705.0
+pivot_offset = Vector2(321, 212)
 
 [node name="tutorial" type="VideoStreamPlayer" parent="AreaVideo" unique_id=1050390314]
 layout_mode = 0
-offset_left = -135.0
-offset_top = -3.9999995
-offset_right = 1785.0
-offset_bottom = 884.0
+offset_left = -629.0
+offset_top = -233.99998
+offset_right = 1291.0
+offset_bottom = 654.0
 scale = Vector2(0.48, 0.48)
-stream = ExtResource("10_wvrxr")
+pivot_offset = Vector2(960, 444)
+stream = ExtResource("18_hedfw")
 
-[node name="play" type="Button" parent="." unique_id=1628100761]
+[node name="play2" type="TextureButton" parent="." unique_id=2038586384]
 layout_mode = 0
-offset_left = 984.0
-offset_top = 708.0
-offset_right = 1153.0
-offset_bottom = 772.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("11_j0csh")
-theme_override_font_sizes/font_size = 40
-theme_override_styles/normal = SubResource("StyleBoxEmpty_p7ciq")
-text = ">"
-
-[node name="playback" type="Button" parent="." unique_id=1478381005]
-layout_mode = 0
-offset_left = 648.0
-offset_top = 709.0
-offset_right = 807.0
-offset_bottom = 773.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("11_j0csh")
-theme_override_font_sizes/font_size = 40
-theme_override_styles/normal = SubResource("StyleBoxEmpty_iewnf")
-text = "<<"
-
-[node name="playforward" type="Button" parent="." unique_id=244276508]
-layout_mode = 0
-offset_left = 1154.0
-offset_top = 708.0
-offset_right = 1309.0
-offset_bottom = 772.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("11_j0csh")
-theme_override_font_sizes/font_size = 40
-theme_override_styles/normal = SubResource("StyleBoxEmpty_rjo4s")
-text = ">>"
-
-[node name="pause" type="Button" parent="." unique_id=740115322]
-layout_mode = 0
-offset_left = 805.0
-offset_top = 707.0
-offset_right = 979.0
-offset_bottom = 771.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("11_j0csh")
-theme_override_font_sizes/font_size = 40
-theme_override_styles/normal = SubResource("StyleBoxEmpty_7s54r")
-text = "||"
+offset_left = 930.0
+offset_top = 458.0
+offset_right = 1014.0
+offset_bottom = 542.0
+pivot_offset = Vector2(42, 42)
+texture_normal = ExtResource("7_rjo4s")
+texture_hover = ExtResource("13_iewnf")
 
 [connection signal="mouse_entered" from="botao_voltar" to="." method="_on_botao_voltar_mouse_entered"]
 [connection signal="mouse_exited" from="botao_voltar" to="." method="_on_botao_voltar_mouse_exited"]
 [connection signal="pressed" from="botao_voltar" to="." method="_on_botao_voltar_pressed"]
+[connection signal="pressed" from="placeholder/pausar" to="." method="_on_pausar_pressed"]
+[connection signal="pressed" from="placeholder/play1" to="." method="_on_play_1_pressed"]
+[connection signal="pressed" from="placeholder/forward" to="." method="_on_forward_pressed"]
+[connection signal="pressed" from="placeholder/rewind" to="." method="_on_rewind_pressed"]
 [connection signal="mouse_entered" from="botao_continuar" to="." method="_on_botao_continuar_mouse_entered"]
 [connection signal="mouse_exited" from="botao_continuar" to="." method="_on_botao_continuar_mouse_exited"]
 [connection signal="pressed" from="botao_continuar" to="." method="_on_botao_continuar_pressed"]
-[connection signal="pressed" from="play" to="." method="_on_play_pressed"]
-[connection signal="pressed" from="playback" to="." method="_on_playback_pressed"]
-[connection signal="pressed" from="playforward" to="." method="_on_playforward_pressed"]
-[connection signal="pressed" from="pause" to="." method="_on_pause_pressed"]
+[connection signal="finished" from="AreaVideo/tutorial" to="." method="_on_tutorial_finished"]
+[connection signal="mouse_entered" from="play2" to="." method="_on_play_2_mouse_entered"]
+[connection signal="mouse_exited" from="play2" to="." method="_on_play_2_mouse_exited"]
+[connection signal="pressed" from="play2" to="." method="_on_play_2_pressed"]
