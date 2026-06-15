@@ -54,7 +54,7 @@ offset_right = 1256.0
 offset_bottom = 525.0
 texture = ExtResource("7_fr75f")
 
-[node name="imput_email" type="LineEdit" parent="caixa_de_texto" unique_id=255324860]
+[node name="input_email" type="LineEdit" parent="caixa_de_texto" unique_id=255324860]
 layout_mode = 0
 offset_left = 19.0
 offset_top = 19.0
@@ -88,4 +88,4 @@ cena_destino = "uid://ns5qdvj303g5"
 [connection signal="mouse_entered" from="botao_continuar" to="." method="_on_botao_continuar_mouse_entered"]
 [connection signal="mouse_exited" from="botao_continuar" to="." method="_on_botao_continuar_mouse_exited"]
 [connection signal="pressed" from="botao_continuar" to="." method="_on_botao_continuar_pressed"]
-[connection signal="text_changed" from="caixa_de_texto/imput_email" to="." method="_on_imput_email_text_changed"]
+[connection signal="text_changed" from="caixa_de_texto/input_email" to="." method="_on_imput_email_text_changed"]
