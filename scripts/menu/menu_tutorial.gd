@@ -1,6 +1,6 @@
 extends Control
 
-
+@onready var video = $AreaVideo/tutorial
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	$woosh.play()
@@ -39,3 +39,23 @@ func _on_botao_voltar_mouse_entered() -> void:
 func _on_botao_voltar_mouse_exited() -> void:
 	var tween = create_tween()
 	tween.tween_property($botao_voltar, "scale", Vector2(1.0, 1.0), 0.15)
+
+
+func _on_play_pressed() -> void:
+	video.paused = false
+	video.play()
+
+
+func _on_playback_pressed() -> void:
+	video.stream_position = max(
+		0.0,
+		video.stream_position - 5.0
+	)
+
+
+func _on_playforward_pressed() -> void:
+	video.stream_position += 5.0
+
+
+func _on_pause_pressed() -> void:
+	video.paused = !video.paused
