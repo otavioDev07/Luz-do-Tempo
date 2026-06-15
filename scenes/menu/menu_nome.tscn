@@ -13,6 +13,7 @@
 [ext_resource type="AudioStream" uid="uid://otsdqohjgg1b" path="res://sprites/audios/reusable/tecla.mp3" id="11_e8hdk"]
 [ext_resource type="AudioStream" uid="uid://dmk7n0ubnp8r4" path="res://sprites/audios/menu/continuar.mp3" id="12_2av8t"]
 [ext_resource type="AudioStream" uid="uid://cddfyokmppchs" path="res://sprites/audios/reusable/nome.mp3" id="13_hcd4v"]
+[ext_resource type="AudioStream" uid="uid://cqc6bsshch8h2" path="res://sprites/audios/reusable/MensagemNome.mp3" id="14_gfxie"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6e66a"]
 
@@ -96,6 +97,9 @@ stream = ExtResource("12_2av8t")
 
 [node name="nome" type="AudioStreamPlayer" parent="." unique_id=214036521]
 stream = ExtResource("13_hcd4v")
+
+[node name="mensagem" type="AudioStreamPlayer" parent="." unique_id=1305574393]
+stream = ExtResource("14_gfxie")
 
 [connection signal="mouse_entered" from="titulo" to="." method="_on_titulo_mouse_entered"]
 [connection signal="mouse_entered" from="botao_voltar" to="." method="_on_botao_voltar_mouse_entered"]

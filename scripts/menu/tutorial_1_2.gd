@@ -12,6 +12,8 @@ var escala_video_original
 var escala_placeholder_original
 
 func _ready() -> void:
+	$woosh.play()
+	$mensagem.play()
 	play1.visible = false
 	pausar.visible = false
 	rewind.visible = false

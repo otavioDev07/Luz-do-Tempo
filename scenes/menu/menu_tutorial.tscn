@@ -18,6 +18,7 @@
 [ext_resource type="Texture2D" uid="uid://dotfrhl0t508k" path="res://sprites/Videos/Property 1=Pause, Theme=White (1).png" id="14_7s54r"]
 [ext_resource type="Texture2D" uid="uid://x8mxqvhr5274" path="res://sprites/Videos/Property 1=Pause, Theme=Black (1).png" id="15_ku37n"]
 [ext_resource type="VideoStream" uid="uid://bv1ypfs2wnbni" path="res://sprites/Videos/tutorial1.1.ogv" id="18_hedfw"]
+[ext_resource type="AudioStream" uid="uid://bcw20c51nmphn" path="res://sprites/audios/reusable/MensagemTutorial.mp3" id="19_6a22y"]
 
 [node name="menu_tutorial" type="Control" unique_id=75578268]
 layout_mode = 3
@@ -140,6 +141,9 @@ offset_bottom = 542.0
 pivot_offset = Vector2(42, 42)
 texture_normal = ExtResource("7_rjo4s")
 texture_hover = ExtResource("13_iewnf")
+
+[node name="mensagem" type="AudioStreamPlayer" parent="." unique_id=212229371]
+stream = ExtResource("19_6a22y")
 
 [connection signal="mouse_entered" from="botao_voltar" to="." method="_on_botao_voltar_mouse_entered"]
 [connection signal="mouse_exited" from="botao_voltar" to="." method="_on_botao_voltar_mouse_exited"]

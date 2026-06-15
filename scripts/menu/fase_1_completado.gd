@@ -12,6 +12,9 @@ var escala_video_original
 var escala_placeholder_original
 
 func _ready() -> void:
+	$woosh.play()
+	$mensagem.play()
+	
 	play1.visible = false
 	pausar.visible = false
 	rewind.visible = false
@@ -22,7 +25,7 @@ func _ready() -> void:
 
 
 func _on_botao_continuar_pressed() -> void:
-	get_tree().change_scene_to_file("res://scenes/fase1_2/fase1.2.tscn")
+	get_tree().change_scene_to_file("res://scenes/fase2/fase_2.tscn")
 
 
 func _on_botao_continuar_mouse_entered() -> void:

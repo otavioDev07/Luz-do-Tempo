@@ -16,6 +16,8 @@
 [ext_resource type="Texture2D" uid="uid://crpaosq4bomrk" path="res://sprites/Videos/Property 1=Rewind, Theme=White (1).png" id="10_ijcat"]
 [ext_resource type="Texture2D" uid="uid://c0pc16vvct6ag" path="res://sprites/Videos/Property 1=Rewind, Theme=Black (1).png" id="11_1cy8f"]
 [ext_resource type="VideoStream" uid="uid://bxmu1grg63yl6" path="res://sprites/Videos/tutorial1.2.ogv" id="17_w1ok3"]
+[ext_resource type="AudioStream" uid="uid://bumr6cm0l5bge" path="res://sprites/audios/reusable/woosh.mp3" id="17_yu6cf"]
+[ext_resource type="AudioStream" uid="uid://bcw20c51nmphn" path="res://sprites/audios/reusable/MensagemTutorial.mp3" id="18_nwbtm"]
 
 [node name="tutorial_1_2" type="Control" unique_id=314502535]
 layout_mode = 3
@@ -125,6 +127,12 @@ offset_bottom = 533.0
 pivot_offset = Vector2(42, 42)
 texture_normal = ExtResource("6_nwbtm")
 texture_hover = ExtResource("7_lnx72")
+
+[node name="woosh" type="AudioStreamPlayer" parent="." unique_id=1460827010]
+stream = ExtResource("17_yu6cf")
+
+[node name="mensagem" type="AudioStreamPlayer" parent="." unique_id=1676168004]
+stream = ExtResource("18_nwbtm")
 
 [connection signal="pressed" from="placeholder/pausar" to="." method="_on_pausar_pressed"]
 [connection signal="pressed" from="placeholder/play1" to="." method="_on_play_1_pressed"]
