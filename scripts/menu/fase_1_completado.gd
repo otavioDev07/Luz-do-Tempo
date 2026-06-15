@@ -5,6 +5,7 @@ extends Control
 func _ready() -> void:
 	$tadaa.play()
 	$celebration.play()
+	$instrucao.play()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

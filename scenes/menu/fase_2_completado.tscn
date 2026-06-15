@@ -6,6 +6,8 @@
 [ext_resource type="AudioStream" uid="uid://bj8atbaix1wov" path="res://sprites/audios/reusable/tadaaa.mp3" id="2_hf7vj"]
 [ext_resource type="AudioStream" uid="uid://di7jlwrcuut6v" path="res://sprites/audios/reusable/celebration.ogg" id="3_75thx"]
 [ext_resource type="Texture2D" uid="uid://bbc4s5r1gqq3o" path="res://sprites/avatares/Continuar.png" id="5_75thx"]
+[ext_resource type="AudioStream" uid="uid://dxap3abwxq2h5" path="res://sprites/audios/reusable/fase2completo.mp3" id="7_lvgx0"]
+[ext_resource type="AudioStream" uid="uid://dmk7n0ubnp8r4" path="res://sprites/audios/menu/continuar.mp3" id="8_flr67"]
 
 [node name="fase_2_completado" type="Control" unique_id=312531438]
 layout_mode = 3
@@ -27,11 +29,11 @@ stream = ExtResource("1_xuxva")
 
 [node name="tadaa" type="AudioStreamPlayer" parent="." unique_id=1720730238]
 stream = ExtResource("2_hf7vj")
-volume_db = -10.0
+volume_db = -21.0
 
 [node name="celebration" type="AudioStreamPlayer" parent="." unique_id=1716783242]
 stream = ExtResource("3_75thx")
-volume_db = -10.0
+volume_db = -31.5
 
 [node name="botao_continuar" type="TextureButton" parent="." unique_id=2109063378]
 layout_mode = 0
@@ -41,6 +43,12 @@ offset_right = 1272.0
 offset_bottom = 1071.0
 pivot_offset = Vector2(309, 72.5)
 texture_normal = ExtResource("5_75thx")
+
+[node name="instrucao" type="AudioStreamPlayer" parent="." unique_id=1854154820]
+stream = ExtResource("7_lvgx0")
+
+[node name="continuar" type="AudioStreamPlayer" parent="." unique_id=149248722]
+stream = ExtResource("8_flr67")
 
 [connection signal="mouse_entered" from="botao_continuar" to="." method="_on_botao_continuar_mouse_entered"]
 [connection signal="mouse_exited" from="botao_continuar" to="." method="_on_botao_continuar_mouse_exited"]

@@ -1,4 +1,6 @@
 extends Control
+@onready var joinha_sucesso = $JoinhaSucesso
+@onready var titulo = $titulo
 
 
 # Called when the node enters the scene tree for the first time.
@@ -32,7 +34,7 @@ func _on_botao_relatorio_pressed() -> void:
 		return
 		
 	# 🌟 CORREÇÃO 1: Salva direto na pasta "Documentos" do Windows do usuário
-	var pasta_documentos = OS.get_system_dir(OS.SYSTEM_DIR_DOCUMENTS)
+	var pasta_documentos = OS.get_system_dir(OS.SYSTEM_DIR_DESKTOP)
 	var caminho_arquivo = pasta_documentos + "/relatorio_contingencia_luz_do_tempo.csv"
 	
 	var arquivo = FileAccess.open(caminho_arquivo, FileAccess.WRITE)
@@ -40,9 +42,9 @@ func _on_botao_relatorio_pressed() -> void:
 	if arquivo:
 		# 🌟 CORREÇÃO 3: Cabeçalho com visual "formatadinho" e profissional
 		arquivo.store_line("=================================================================================================================================")
-		arquivo.store_line("                                     RELATÓRIO DE CONTINGÊNCIA - JOGO LUZ DO TEMPO                                              ")
+		arquivo.store_line("                                     RELATORIO DE CONTINGENCIA - JOGO LUZ DO TEMPO                                              ")
 		arquivo.store_line("=================================================================================================================================")
-		arquivo.store_line("Nome do Aluno;Porcentagem de Acertos;Tempo Médio por Fase;Maior Tempo em Fase;Menor Tempo em Fase;Nota Conceito;Feedback Pedagógico")
+		arquivo.store_line("Nome do Aluno;Porcentagem de Acertos;Tempo Medio por Fase;Maior Tempo em Fase;Menor Tempo em Fase;Nota Conceito;Feedback Pedagogico")
 		arquivo.store_line("---------------------------------------------------------------------------------------------------------------------------------")
 		
 		for dados in PlayerName.lista_historico_jogadores:
@@ -60,10 +62,17 @@ func _on_botao_relatorio_pressed() -> void:
 		arquivo.store_line("=================================================================================================================================")
 		arquivo.close()
 		print("✅ PLANILHA EXPORTADA COM SUCESSO EM: ", caminho_arquivo)
+		mostrar_feedback_sucesso()
 	else:
 		print("❌ Erro ao tentar criar o arquivo na pasta Documentos.")
 
-
+func mostrar_feedback_sucesso() -> void:
+	if joinha_sucesso != null:
+		joinha_sucesso.show() 
+		
+		await get_tree().create_timer(1.5).timeout
+		
+		joinha_sucesso.hide()
 func formatar_tempo_csv(tempo_em_segundos: float) -> String:
 	var minutos = int(tempo_em_segundos) / 60
 	var segundos = int(tempo_em_segundos) % 60
@@ -130,3 +139,8 @@ func _on_botao_sair_mouse_exited() -> void:
 	$sair.stop()
 	var tween = create_tween()
 	tween.tween_property($botao_sair, "scale", Vector2(1.0, 1.0), 0.15)
+
+
+func _on_titulo_mouse_entered() -> void:
+	titulo.play() 
+	

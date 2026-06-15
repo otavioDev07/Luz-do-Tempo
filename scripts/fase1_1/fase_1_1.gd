@@ -214,3 +214,14 @@ func _on_objeto_errou() -> void:
 		feedback_erro.hide()
 		
 	pode_interagir = true
+
+
+
+func _on_label_velho_mouse_entered() -> void:
+	if pode_interagir and not $audio_velho.is_playing() and not $audio_novo.is_playing():
+		$audio_velho.play()
+
+
+func _on_label_novo_mouse_entered() -> void:
+	if pode_interagir and not $audio_novo.is_playing() and not $audio_velho.is_playing():
+		$audio_novo.play()

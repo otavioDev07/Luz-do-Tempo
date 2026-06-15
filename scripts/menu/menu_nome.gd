@@ -12,7 +12,21 @@ func _process(delta: float) -> void:
 
 
 func _on_botao_continuar_pressed() -> void:
-	PlayerName.player_name = $caixa_de_texto/imput_nome.text
+	# 1. Pega o texto e remove espaços inúteis do começo e do fim
+	var nome_digitado = $caixa_de_texto/imput_nome.text.strip_edges()
+	
+	# 2. SE o nome estiver completamente vazio, bloqueia a transição
+	if nome_digitado == "":
+		# Feedback auditivo: Toca o som de botão para avisar que falhou 
+		if $botao != null:
+			$botao.stop()
+			$botao.play()
+			
+		# O 'return' para o código aqui mesmo, impedindo de ler a linha do change_scene
+		return 
+		
+	# 3. Se passou da validação, salva o nome limpo e avança para o tutorial
+	PlayerName.player_name = nome_digitado
 	get_tree().change_scene_to_file("res://scenes/menu/menu_tutorial.tscn")
 
 
@@ -51,3 +65,7 @@ func _on_imput_nome_text_changed(new_text: String) -> void:
 func _on_botao_voltar_mouse_exited() -> void:
 	var tween = create_tween()
 	tween.tween_property($botao_voltar, "scale", Vector2(1.0, 1.0), 0.15)
+
+
+func _on_titulo_mouse_entered() -> void:
+	$nome.play()

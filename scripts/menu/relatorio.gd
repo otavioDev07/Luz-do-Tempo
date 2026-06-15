@@ -1,5 +1,5 @@
 extends Node2D
-
+@onready var continuar = $continuar
 func _ready() -> void:
 	gerar_relatorio()
 	MusicManager.tocar_menu()
@@ -107,9 +107,9 @@ func _on_botao_continuar_pressed() -> void:
 	get_tree().change_scene_to_file("res://scenes/menu/menu_email.tscn")
 
 func _on_botao_continuar_mouse_entered() -> void:
-	if $botao != null:
-		$botao.stop()
-		$botao.play()
+	if $continuar != null:
+		$continuar.stop()
+		$continuar.play()
 	var tween = create_tween()
 	tween.tween_property($botao_continuar, "scale", Vector2(1.1, 1.1), 0.15)
 

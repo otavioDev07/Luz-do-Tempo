@@ -5,6 +5,8 @@
 [ext_resource type="FontFile" uid="uid://cyqlcfh8ho82y" path="res://fonts/PressStart2P-Regular.ttf" id="2_wo7er"]
 [ext_resource type="AudioStream" uid="uid://b78knkqulcr4p" path="res://sprites/audios/reusable/botao.mp3" id="4_kb516"]
 [ext_resource type="Texture2D" uid="uid://bbc4s5r1gqq3o" path="res://sprites/avatares/Continuar.png" id="4_rkprh"]
+[ext_resource type="AudioStream" uid="uid://dmk7n0ubnp8r4" path="res://sprites/audios/menu/continuar.mp3" id="6_jxb1a"]
+[ext_resource type="PackedScene" uid="uid://bbxnh2tedp6eo" path="res://scenes/reusable/voltar.tscn" id="6_rkprh"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ucwm8"]
 
@@ -120,7 +122,11 @@ texture_normal = ExtResource("4_rkprh")
 [node name="botao" type="AudioStreamPlayer" parent="." unique_id=1813562821]
 stream = ExtResource("4_kb516")
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=280246369]
+[node name="continuar" type="AudioStreamPlayer2D" parent="." unique_id=280246369]
+stream = ExtResource("6_jxb1a")
+
+[node name="Voltar" parent="." unique_id=1951791252 instance=ExtResource("6_rkprh")]
+cena_destino = "uid://davpkp24p5wph"
 
 [connection signal="mouse_entered" from="botao_continuar" to="." method="_on_botao_continuar_mouse_entered"]
 [connection signal="mouse_exited" from="botao_continuar" to="." method="_on_botao_continuar_mouse_exited"]

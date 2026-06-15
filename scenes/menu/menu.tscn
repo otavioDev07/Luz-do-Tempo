@@ -11,7 +11,8 @@
 [ext_resource type="AudioStream" uid="uid://cir3f6tv36l5v" path="res://sprites/audios/menu/jogar.mp3" id="9_kaijy"]
 [ext_resource type="AudioStream" uid="uid://csdi0cjo5nfwb" path="res://sprites/audios/menu/relatorio.mp3" id="10_y4i35"]
 [ext_resource type="AudioStream" uid="uid://c88vj8guync3r" path="res://sprites/audios/menu/sobre.mp3" id="11_rcuxh"]
-[ext_resource type="AudioStream" uid="uid://b5eaxa0brvx7g" path="res://sprites/audios/menu/sair.mp3" id="12_64m6r"]
+[ext_resource type="Texture2D" uid="uid://bbd47qm732nb7" path="res://sprites/telas/correto.png" id="13_y4i35"]
+[ext_resource type="AudioStream" uid="uid://4e3jqdetphi8" path="res://sprites/audios/menu/titulo.mp3" id="14_rcuxh"]
 
 [node name="Menu" type="Control" unique_id=1656722886]
 layout_mode = 3
@@ -84,9 +85,19 @@ stream = ExtResource("10_y4i35")
 [node name="sobre" type="AudioStreamPlayer" parent="." unique_id=704927456]
 stream = ExtResource("11_rcuxh")
 
-[node name="sair" type="AudioStreamPlayer" parent="." unique_id=195260057]
-stream = ExtResource("12_64m6r")
+[node name="JoinhaSucesso" type="TextureRect" parent="." unique_id=101059978]
+visible = false
+layout_mode = 0
+offset_left = 424.0
+offset_top = -18.0
+offset_right = 1448.0
+offset_bottom = 1006.0
+texture = ExtResource("13_y4i35")
 
+[node name="titulo" type="AudioStreamPlayer" parent="." unique_id=2029164323]
+stream = ExtResource("14_rcuxh")
+
+[connection signal="mouse_entered" from="Titulo" to="." method="_on_titulo_mouse_entered"]
 [connection signal="mouse_entered" from="botao_jogar" to="." method="_on_botao_jogar_mouse_entered"]
 [connection signal="mouse_exited" from="botao_jogar" to="." method="_on_botao_jogar_mouse_exited"]
 [connection signal="pressed" from="botao_jogar" to="." method="_on_botao_jogar_pressed"]
