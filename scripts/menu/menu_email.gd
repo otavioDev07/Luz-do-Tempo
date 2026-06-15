@@ -77,12 +77,11 @@ func enviar_relatorio_background_api(email_destino: String) -> void:
 		"template_params": {
 			"to_email": email_destino,
 			"subject": "Relatório Luz do Tempo",
-			"name": PlayerName.player_name,     # Preenche o {{name}} do seu painel do EmailJS
-			"message": corpo_texto              # Preenche o {{message}} do seu painel do EmailJS
+			"name": PlayerName.player_name,     
+			"message": corpo_texto             
 		}
 	}
 	
-	# Transforma os dados em JSON e dispara o comando POST para a API
 	var headers = ["Content-Type: application/json"]
 	http_request.request(url, headers, HTTPClient.METHOD_POST, JSON.stringify(dados_json))
 	print("🚀 Enviando dados em background para o EmailJS...")
