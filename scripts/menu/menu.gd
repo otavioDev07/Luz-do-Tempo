@@ -21,11 +21,11 @@ func _ready() -> void:
 
 
 func _on_botao_jogar_pressed() -> void:
-	get_tree().change_scene_to_file("res://scenes/Menu/menu_nome.tscn")
+	get_tree().change_scene_to_file("res://scenes/menu/menu_nome.tscn")
 
 
 func _on_botao_sobre_pressed() -> void:
-	get_tree().change_scene_to_file("res://scenes/Menu/menu_sobre.tscn")
+	get_tree().change_scene_to_file("res://scenes/menu/menu_sobre.tscn")
 
 
 func _on_botao_relatorio_pressed() -> void:
