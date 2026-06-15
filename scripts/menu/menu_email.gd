@@ -38,37 +38,83 @@ func _on_botao_continuar_pressed() -> void:
 
 
 func enviar_relatorio_background_api(email_destino: String) -> void:
-	# 1. Coleta e cálculos matemáticos para o relatório pedagógico (idênticos à planilha)
 	var total_erros = PlayerName.erros_fase1 + PlayerName.erros_fase1_2 + PlayerName.erros_fase2
 	var tempo_total = PlayerName.tempo_fase1 + PlayerName.tempo_fase1_2 + PlayerName.tempo_fase2
 	var tempo_medio = tempo_total / 3.0
 	
-	var acertos_brutos = 23 - total_erros
-	var porcentagem_acertos = (float(acertos_brutos) / 23.0) * 100.0
+	# --- CÁLCULO DE MAIOR E MENOR TEMPO ---
+	var lista_tempos = [PlayerName.tempo_fase1, PlayerName.tempo_fase1_2, PlayerName.tempo_fase2]
+	var pior_tempo = lista_tempos.max()
+	
+	var tempos_maiores_que_zero = []
+	for t in lista_tempos:
+		if t > 0.01: 
+			tempos_maiores_que_zero.append(t)
+			
+	var melhor_tempo = tempos_maiores_que_zero.min() if tempos_maiores_que_zero.size() > 0 else 0.0
+	
+	# --- CÁLCULO DE ACERTOS POR FASE (Total: 17) ---
+	var acertos_fase1 = max(0, 6 - PlayerName.erros_fase1)
+	var acertos_fase1_2 = max(0, 6 - PlayerName.erros_fase1_2)
+	var acertos_fase2 = max(0, 5 - PlayerName.erros_fase2)
+	
+	var acertos_brutos = 17 - total_erros
+	var porcentagem_acertos = (float(acertos_brutos) / 17.0) * 100.0
 	porcentagem_acertos = clamp(porcentagem_acertos, 0.0, 100.0)
 	
+	# --- CÁLCULO CONFORME O SEU QUADRO RELATÓRIO ---
 	var tempo_extra_total = max(0.0, PlayerName.tempo_fase1 - 300.0) + max(0.0, PlayerName.tempo_fase1_2 - 300.0) + max(0.0, PlayerName.tempo_fase2 - 300.0)
-	var pontuacao: float = clamp(100.0 - (total_erros * 3.5) - (tempo_extra_total / 5.0), 0.0, 100.0)
 	
+	# Pontuação base máxima
+	var pontuacao: float = 100.0
+	pontuacao -= total_erros * 3.5         
+	pontuacao -= tempo_extra_total / 5.0  
+	pontuacao = clamp(pontuacao, 0.0, 100.0)
+	
+	# Mapeamento exato da Nota Conceito
 	var nota_conceito = "F"
-	if pontuacao >= 90.0: nota_conceito = "A"
-	elif pontuacao >= 75.0: nota_conceito = "B"
-	elif pontuacao >= 60.0: nota_conceito = "C"
-	elif pontuacao >= 45.0: nota_conceito = "D"
-	elif pontuacao >= 25.0: nota_conceito = "E"
+	if pontuacao >= 90.0:
+		nota_conceito = "A"
+	elif pontuacao >= 75.0:
+		nota_conceito = "B"
+	elif pontuacao >= 60.0:
+		nota_conceito = "C"
+	elif pontuacao >= 45.0:
+		nota_conceito = "D"
+	elif pontuacao >= 25.0:
+		nota_conceito = "E"
+	else:
+		nota_conceito = "F"
 	
 	var feedback = PlayerName.obter_feedback_pedagogico(nota_conceito)
 	
-	# 2. Montagem do corpo de texto formatado que vai cair dentro da sua tag {{message}}
-	var corpo_texto = "=== RELATÓRIO DE DESEMPENHO PEDAGÓGICO ===\n\n"
+	# 2. Montagem do corpo de texto detalhado com as descrições de cada fase
+	var corpo_texto = "=== RELATÓRIO DE DESEMPENHO PEDAGÓGICO COMPLETO ===\n\n"
 	corpo_texto += "Aluno: %s\n" % PlayerName.player_name
 	corpo_texto += "Nota Conceito: %s\n" % nota_conceito
-	corpo_texto += "Porcentagem de Acertos: %.1f%%\n" % porcentagem_acertos
-	corpo_texto += "Erros Totais Cometidos: %d\n" % total_erros
-	corpo_texto += "Tempo Médio por Fase: %s\n\n" % formatar_tempo_tela(tempo_medio)
-	corpo_texto += "Feedback Pedagógico:\n%s" % feedback
+	corpo_texto += "Porcentagem Geral de Acertos: %.1f%%\n" % porcentagem_acertos
+	corpo_texto += "Total de Erros Cometidos: %d\n\n" % total_erros
+	
+	corpo_texto += "--- DESEMPENHO DETALHADO POR ETAPA ---\n\n"
+	
+	corpo_texto += "• Fase 1.1: Diferenciar objetos velhos e novos\n"
+	corpo_texto += "  Acertos: %d de 6 | Tempo de conclusão: %s\n\n" % [acertos_fase1, formatar_tempo_tela(PlayerName.tempo_fase1)]
+	
+	corpo_texto += "• Fase 1.2: Identificar a inicial de palavras\n"
+	corpo_texto += "  Acertos: %d de 6 | Tempo de conclusão: %s\n\n" % [acertos_fase1_2, formatar_tempo_tela(PlayerName.tempo_fase1_2)]
+	
+	corpo_texto += "• Fase 2: Decidir que objeto é melhor dado um contexto (Tomada de Decisão)\n"
+	corpo_texto += "  Acertos: %d de 5 | Tempo de conclusão: %s\n\n" % [acertos_fase2, formatar_tempo_tela(PlayerName.tempo_fase2)]
+	
+	corpo_texto += "--- MÉTRICAS DE TEMPO ---\n"
+	corpo_texto += "• Melhor Tempo em Fase: %s\n" % formatar_tempo_tela(melhor_tempo)
+	corpo_texto += "• Maior Tempo em Fase:  %s\n" % formatar_tempo_tela(pior_tempo)
+	corpo_texto += "• Tempo Médio Geral:    %s\n\n" % formatar_tempo_tela(tempo_medio)
+	
+	corpo_texto += "--- FEEDBACK PEDAGÓGICO ---\n"
+	corpo_texto += "%s" % feedback
 
-	# 🌟 3. CONFIGURAÇÃO DO EMAILJS: Coloque as suas chaves reais entre as aspas aqui embaixo:
+	# 🌟 3. CONFIGURAÇÃO DO EMAILJS
 	var url = "https://api.emailjs.com/api/v1.0/email/send"
 	var dados_json = {
 		"service_id": "service_uvpwexh",
@@ -84,7 +130,7 @@ func enviar_relatorio_background_api(email_destino: String) -> void:
 	
 	var headers = ["Content-Type: application/json"]
 	http_request.request(url, headers, HTTPClient.METHOD_POST, JSON.stringify(dados_json))
-	print("🚀 Enviando dados em background para o EmailJS...")
+	print("🚀 Enviando dados em background para o EmailJS alinhado com a fórmula oficial...")
 
 
 func _voltar_para_o_menu_e_resetar() -> void:

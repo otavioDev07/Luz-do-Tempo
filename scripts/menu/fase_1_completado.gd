@@ -20,6 +20,7 @@ func _on_botao_continuar_pressed() -> void:
 func _on_botao_continuar_mouse_entered() -> void:
 	$botao.stop()
 	$botao.play()
+	$continuar.play()
 	
 	var tween = create_tween()
 	tween.tween_property($botao_continuar, "scale", Vector2(1.1, 1.1), 0.15)
