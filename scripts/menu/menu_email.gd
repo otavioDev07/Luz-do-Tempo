@@ -27,7 +27,7 @@ func _on_botao_continuar_pressed() -> void:
 	
 	# CASO A: Se o campo estiver vazio, apenas volta pro menu normalmente
 	if email_digitado == "":
-		print("ℹ️ Campo de e-mail vazio. Voltando para o menu principal...")
+		PlayerName.registrar_jogador_atual_no_historico()
 		_voltar_para_o_menu_e_resetar()
 		return
 	
