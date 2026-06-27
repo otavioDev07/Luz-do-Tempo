@@ -24,10 +24,9 @@ func _process(delta: float) -> void:
 
 func _on_botao_continuar_pressed() -> void:
 	var email_digitado = campo_email.text.strip_edges()
-	
+	PlayerName.registrar_jogador_atual_no_historico()
 	# CASO A: Se o campo estiver vazio, apenas volta pro menu normalmente
 	if email_digitado == "":
-		PlayerName.registrar_jogador_atual_no_historico()
 		_voltar_para_o_menu_e_resetar()
 		return
 	
